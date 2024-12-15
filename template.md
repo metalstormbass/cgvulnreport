@@ -1,4 +1,4 @@
-# Image Vulnerability Report 
+# **Image Vulnerability Report** 
 
 **Prepared for:**  
 <img src="[CUSTOMER LOGO PLACEHOLDER]" alt="Customer Logo" width="200">
