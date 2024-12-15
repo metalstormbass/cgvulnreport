@@ -3,6 +3,7 @@
 Prepared for:<br>
 <img src="CUSTOMERLOGO" alt="Logo" width="200">
 
+---
 ## Executive Summary
 
 The table below shows the reduction in vulnerabilities between the **Original Images** and **Chainguard ** images. The **Critical**, **High**, **Medium**, and **Low** vulnerability types are listed with their respective reductions.
@@ -16,9 +17,9 @@ The total reduction in vulnerabilities is **223**.
 | Medium             | 83   | 0   | 83   |
 | Low                | 67      | 0      | 67      |
 
+---
 
-
-## Current Images:
+## Original Images
 
 | Image Name                                          | Size on Disk  |
 |-----------------------------------------------------|---------------|
