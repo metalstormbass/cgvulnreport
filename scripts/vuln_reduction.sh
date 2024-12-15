@@ -45,7 +45,7 @@ cat << EOF
 
 The total reduction in vulnerabilities is **$total_reduction**.
 
-The table below shows the reduction in vulnerabilities between the **Original Images** and **Chainguard** images. The **Critical**, **High**, **Medium**, and **Low** vulnerability types are listed with their respective reductions.
+The table below shows the reduction in vulnerabilities between the **Original** and **Chainguard** images. The **Critical**, **High**, **Medium**, and **Low** vulnerability types are listed with their respective reductions.
 
 | Severity | Original | Chainguard | Reduction |
 |--------------------|----------|------------|-----------|
