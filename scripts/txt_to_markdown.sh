@@ -10,17 +10,18 @@ fi
 input_file="$1"
 
 # Output the markdown table header
-echo "| Image Name                                          | Size on Disk  |"
+echo "### **Image Size Report**"
+echo "This table lists the disk sizes of the analyzed images to highlight storage considerations."
+echo "<br>"
+echo "| **Image Name**                                          |  **Size on Disk (MB)** |"
 echo "|-----------------------------------------------------|---------------|"
 
 # Extract the lines containing image names and sizes, and format them
 grep -E "^[^ ]+:.*: [0-9.]+ MB$" "$input_file" | while read -r line; do
     # Extract the image name and size (including MB)
     image_name=$(echo "$line" | cut -d: -f1-2)
-    # Extract the size (after the last space, which separates the size from "MB")
-    size=$(echo -n "$line" | rev | cut -d' ' -f2)
-    size="$size MB"
 
+    size=$(echo "$line" | cut -d' ' -f2- | sed 's/ MB$//')
     
     # Output the formatted markdown line
     printf "| %-49s | %-13s |\n" "$image_name" "$size"
@@ -29,8 +30,10 @@ done
 echo ""
 
 # --- Vulnerabilities Summary ---
-echo "### Vulnerabilities Summary"
-echo "| Vulnerability Type       | Total | Average |"
+echo "### **Vulnerabilities Summary**"
+echo "This summary shows the total and average vulnerabilities found across all analyzed images, categorized by severity."
+echo "<br>"
+echo "| **Vulnerability Type**       | **Total** | **Average** |"
 echo "|--------------------------|-------|---------|"
 
 # Extract and process the vulnerability lines
@@ -50,8 +53,10 @@ done
 echo ""
 
 # --- Fixes Available Summary ---
-echo "### Fixes Available Summary"
-echo "| Fix Type                 | Total | Average |"
+echo "### **Fixes Available Summary**"
+echo "This summary lists the availability of fixes for vulnerabilities, grouped by severity."
+echo "<br>"
+echo "| **Fix Type**                | **Total** | **Average** |"
 echo "|--------------------------|-------|---------|"
 
 # Extract and process the fixes lines

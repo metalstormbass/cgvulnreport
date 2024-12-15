@@ -17,8 +17,16 @@ elif [[ -n "$1" ]]; then
 fi
 
 images=(
-  "cgr.dev/chainguard-private/jdk:openjdk-17"
+ "cgr.dev/chainguard-private/jdk:openjdk-17"
   "cgr.dev/chainguard-private/python:3.10"
+  "cgr.dev/chainguard-private/apache-nifi:latest"
+  "cgr.dev/chainguard-private/argo-workflowcontroller:latest"
+  "cgr.dev/chainguard-private/ingress-nginx-controller:latest"
+  "cgr.dev/chainguard-private/istio-install-cni:latest"
+  "cgr.dev/chainguard-private/grafana:latest"
+  "cgr.dev/chainguard-private/mongodb:7"
+  "cgr.dev/chainguard-private/redis:latest"
+  "cgr.dev/chainguard-private/cert-manager-acmesolver:latest"
 )
 
 echo ""

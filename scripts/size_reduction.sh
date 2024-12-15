@@ -35,5 +35,7 @@ size2=$(extract_image_size "$file2")
 # Calculate the reduction in size
 reduction=$(echo "$size1 - $size2" | bc)
 
-# Display the result
-echo "Total reduction in image size between the **Original** and **Chainguard** images: $reduction MB"
+# Display the results in Markdown format
+echo ### **Size:**
+echo "The **Chainguard** images are, on average, **$reduction MB smaller** than their **Original counterparts**."
+

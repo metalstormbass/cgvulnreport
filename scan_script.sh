@@ -19,6 +19,14 @@ fi
 images=(
   "registry.access.redhat.com/ubi9/openjdk-17:latest"
   "python:3.10.8-slim"
+  "apache/nifi:1.17.0"
+  "argoproj/workflow-controller:v3.5.2"
+  "registry.k8s.io/ingress-nginx/controller:v1.10.4"
+  "istio/install-cni:1.24.1-distroless"
+  "grafana/grafana:7.3.7"
+  "mongo:5.0.6"
+  "redis:7.0.11-alpine"
+  "quay.io/jetstack/cert-manager-acmesolver:v1.14.7"
 )
 
 echo ""

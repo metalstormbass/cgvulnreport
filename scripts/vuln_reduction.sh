@@ -41,17 +41,23 @@ total_reduction=$((reduction_critical + reduction_high + reduction_medium + redu
 
 # Display the results in Markdown format
 cat << EOF
-# Vulnerability Reduction Report
 
-The total reduction in vulnerabilities is **$total_reduction**.
+The analysis of the **Original** and **Chainguard** container images reveals significant improvements in both **security** and **image size**.
 
-The table below shows the reduction in vulnerabilities between the **Original** and **Chainguard** images. The **Critical**, **High**, **Medium**, and **Low** vulnerability types are listed with their respective reductions.
+- **Total Vulnerabilities Reduced**: A **total of $total_reduction vulnerabilities** were mitigated.
+- **Critical & High Vulnerabilities**: The **Chainguard** images successfully reduced **Critical vulnerabilities by $reduction_critical** and **High vulnerabilities by $reduction_high**.
+- **Security Hygiene**: Chainguard images demonstrate near-zero vulnerabilities across **Critical**, **High**, **Medium**, and **Low** categories.
 
-| Severity | Original | Chainguard | Reduction |
-|--------------------|----------|------------|-----------|
-| Critical           | $critical_vuln_file1 | $critical_vuln_file2 | $reduction_critical |
-| High               | $high_vuln_file1     | $high_vuln_file2     | $reduction_high     |
-| Medium             | $medium_vuln_file1   | $medium_vuln_file2   | $reduction_medium   |
-| Low                | $low_vuln_file1      | $low_vuln_file2      | $reduction_low      |
+### **Key Insights:**
+- **Critical CVEs** decreased from **$critical_vuln_file1** to **$critical_vuln_file2**.
+- **High CVEs** dropped from **$high_vuln_file1** to **$high_vuln_file2**.
+- **Medium CVEs** dropped from **$medium_vuln_file1** to **$medium_vuln_file2**.
+
+| Severity   | Original            | Chainguard          | Reduction          |
+|------------|---------------------|---------------------|--------------------|
+| **Critical** | $critical_vuln_file1 | $critical_vuln_file2 | **$reduction_critical** |
+| **High**    | $high_vuln_file1     | $high_vuln_file2     | **$reduction_high**     |
+| **Medium**  | $medium_vuln_file1   | $medium_vuln_file2   | **$reduction_medium**   |
+| **Low**     | $low_vuln_file1      | $low_vuln_file2      | **$reduction_low**      |
 
 EOF

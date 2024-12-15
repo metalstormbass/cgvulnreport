@@ -13,7 +13,6 @@ input_file1="$1"
 ./scripts/txt_to_markdown.sh out1.txt 
 
 echo ""
-echo "### Scans" 
 ./scripts/json_to_markdown.sh out1.json
 
 echo ""
@@ -29,7 +28,7 @@ input_file1="$2"
 ./scripts/txt_to_markdown.sh out2.txt 
 
 echo ""
-echo "### Scans" 
+
 ./scripts/json_to_markdown.sh out2.json
 
 echo ""
@@ -40,7 +39,7 @@ echo ""
 ./scripts/vuln_reduction.sh out1.json out2.json
 ./scripts/size_reduction.sh out1.txt out2.txt
 
-rm out1.txt
-rm out1.json
-rm out2.txt
-rm out2.json
+#rm out1.txt
+#rm out1.json
+#rm out2.txt
+#rm out2.json
