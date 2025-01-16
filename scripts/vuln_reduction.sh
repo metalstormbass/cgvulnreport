@@ -38,11 +38,13 @@ reduction_low=$((low_vuln_file1 - low_vuln_file2))
 # Calculate total reduction (sum of all individual reductions)
 total_reduction=$((reduction_critical + reduction_high + reduction_medium + reduction_low))
 
+number_of_images=$(jq '.items | length' "$file1")
+
 
 # Display the results in Markdown format
 cat << EOF
 
-The analysis of the **Original** and **Chainguard** container images reveals significant improvements in both **security** and **image size**.
+The analysis of the **Original** and **Chainguard** container images reveals significant improvements in both **security** and **image size**. This report examines a sample size of **$number_of_images images**.
 
 - **Total Vulnerabilities Reduced**: A **total of $total_reduction vulnerabilities** were mitigated.
 - **Critical & High Vulnerabilities**: The **Chainguard** images successfully reduced **Critical vulnerabilities by $reduction_critical** and **High vulnerabilities by $reduction_high**.
