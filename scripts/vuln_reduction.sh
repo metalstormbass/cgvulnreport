@@ -54,6 +54,8 @@ The analysis of the **Original** and **Chainguard** container images reveals sig
 - **Critical CVEs** decreased from **$critical_vuln_file1** to **$critical_vuln_file2**.
 - **High CVEs** dropped from **$high_vuln_file1** to **$high_vuln_file2**.
 - **Medium CVEs** dropped from **$medium_vuln_file1** to **$medium_vuln_file2**.
+- **Low CVEs** dropped from **$low_vuln_file1** to **$low_vuln_file2**.
+
 
 | Severity   | Original            | Chainguard          | Reduction          |
 |------------|---------------------|---------------------|--------------------|
