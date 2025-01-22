@@ -42,17 +42,19 @@ def check_scanners():
             sys.exit(1)
 
 def calculate_totals(results):
-    total_count = 0
-    total_critical = 0
-    total_high = 0
-    total_medium = 0
-    total_low = 0
-    total_unknown = 0
-    total_fixes = 0
-    critical_fixes = 0
-    high_fixes = 0
-    medium_fixes = 0
-    low_fixes = 0
+    totals = {
+        "total_count": 0,
+        "total_critical": 0,
+        "total_high": 0,
+        "total_medium": 0,
+        "total_low": 0,
+        "total_unknown": 0,
+        "total_fixes": 0,
+        "critical_fixes": 0,
+        "high_fixes": 0,
+        "medium_fixes": 0,
+        "low_fixes": 0,
+    }
 
     for scanner, scans in results.items():
         for data in scans:
@@ -65,55 +67,54 @@ def calculate_totals(results):
                             severity = vuln.get("Severity", "").lower()
                             fixed = vuln.get("FixedVersion") is not None
                             if severity == "critical":
-                                total_critical += 1
+                                totals["total_critical"] += 1
                                 if fixed:
-                                    critical_fixes += 1
+                                    totals["critical_fixes"] += 1
                             elif severity == "high":
-                                total_high += 1
+                                totals["total_high"] += 1
                                 if fixed:
-                                    high_fixes += 1
+                                    totals["high_fixes"] += 1
                             elif severity == "medium":
-                                total_medium += 1
+                                totals["total_medium"] += 1
                                 if fixed:
-                                    medium_fixes += 1
+                                    totals["medium_fixes"] += 1
                             elif severity == "low":
-                                total_low += 1
+                                totals["total_low"] += 1
                                 if fixed:
-                                    low_fixes += 1
+                                    totals["low_fixes"] += 1
                             else:
-                                total_unknown += 1
+                                totals["total_unknown"] += 1
                             if fixed:
-                                total_fixes += 1
-                            total_count += 1
+                                totals["total_fixes"] += 1
+                            totals["total_count"] += 1
                 elif scanner == "grype":
                     matches = data.get("matches", [])
                     for match in matches:
                         severity = match.get("vulnerability", {}).get("severity", "").lower()
                         fixed = match.get("vulnerability", {}).get("fix", {}).get("state") == "fixed"
                         if severity == "critical":
-                            total_critical += 1
+                            totals["total_critical"] += 1
                             if fixed:
-                                critical_fixes += 1
+                                totals["critical_fixes"] += 1
                         elif severity == "high":
-                            total_high += 1
+                            totals["total_high"] += 1
                             if fixed:
-                                high_fixes += 1
+                                totals["high_fixes"] += 1
                         elif severity == "medium":
-                            total_medium += 1
+                            totals["total_medium"] += 1
                             if fixed:
-                                medium_fixes += 1
+                                totals["medium_fixes"] += 1
                         elif severity == "low":
-                            total_low += 1
+                            totals["total_low"] += 1
                             if fixed:
-                                low_fixes += 1
+                                totals["low_fixes"] += 1
                         else:
-                            total_unknown += 1
+                            totals["total_unknown"] += 1
                         if fixed:
-                            total_fixes += 1
-                        total_count += 1
+                            totals["total_fixes"] += 1
+                        totals["total_count"] += 1
 
-    return (total_count, total_critical, total_high, total_medium, total_low, total_unknown,
-            total_fixes, critical_fixes, high_fixes, medium_fixes, low_fixes)
+    return totals
 
 def process_images(images, scanners):
     combined_results = {}
@@ -175,56 +176,56 @@ def main():
     print("Processing original images...")
     original_totals = process_images(original_images, scanners)
     print("\nOriginal List Results:")
-    print(f"Total Vulnerabilities: {original_totals[0]}")
-    print(f"Total Critical CVEs: {original_totals[1]}")
-    print(f"Total High CVEs: {original_totals[2]}")
-    print(f"Total Medium CVEs: {original_totals[3]}")
-    print(f"Total Low CVEs: {original_totals[4]}")
-    print(f"Total Unknown CVEs: {original_totals[5]}")
+    print(f"Total Vulnerabilities: {original_totals['total_count']}")
+    print(f"Total Critical CVEs: {original_totals['total_critical']}")
+    print(f"Total High CVEs: {original_totals['total_high']}")
+    print(f"Total Medium CVEs: {original_totals['total_medium']}")
+    print(f"Total Low CVEs: {original_totals['total_low']}")
+    print(f"Total Unknown CVEs: {original_totals['total_unknown']}")
 
     print("\nProcessing new images...")
     new_totals = process_images(new_images, scanners)
     print("\nNew List Results:")
-    print(f"Total Vulnerabilities: {new_totals[0]}")
-    print(f"Total Critical CVEs: {new_totals[1]}")
-    print(f"Total High CVEs: {new_totals[2]}")
-    print(f"Total Medium CVEs: {new_totals[3]}")
-    print(f"Total Low CVEs: {new_totals[4]}")
-    print(f"Total Unknown CVEs: {new_totals[5]}")
+    print(f"Total Vulnerabilities: {new_totals['total_count']}")
+    print(f"Total Critical CVEs: {new_totals['total_critical']}")
+    print(f"Total High CVEs: {new_totals['total_high']}")
+    print(f"Total Medium CVEs: {new_totals['total_medium']}")
+    print(f"Total Low CVEs: {new_totals['total_low']}")
+    print(f"Total Unknown CVEs: {new_totals['total_unknown']}")
+
+    # Key Insights
+    print("\nKey Insights:")
+    print(f"Critical CVEs decreased from {original_totals['total_critical']} to {new_totals['total_critical']}.")
+    print(f"High CVEs dropped from {original_totals['total_high']} to {new_totals['total_high']}.")
+    print(f"Medium CVEs dropped from {original_totals['total_medium']} to {new_totals['total_medium']}.")
+    print(f"Low CVEs dropped from {original_totals['total_low']} to {new_totals['total_low']}.")
+    print(f"Unknown CVEs dropped from {original_totals['total_unknown']} to {new_totals['total_unknown']}.")
+
+    # Reduction Table
+    print("\nSeverity\tOriginal\tNew\tReduction")
+    print(f"Critical\t{original_totals['total_critical']}\t{new_totals['total_critical']}\t{original_totals['total_critical'] - new_totals['total_critical']}")
+    print(f"High\t{original_totals['total_high']}\t{new_totals['total_high']}\t{original_totals['total_high'] - new_totals['total_high']}")
+    print(f"Medium\t{original_totals['total_medium']}\t{new_totals['total_medium']}\t{original_totals['total_medium'] - new_totals['total_medium']}")
+    print(f"Low\t{original_totals['total_low']}\t{new_totals['total_low']}\t{original_totals['total_low'] - new_totals['total_low']}")
+    print(f"Unknown\t{original_totals['total_unknown']}\t{new_totals['total_unknown']}\t{original_totals['total_unknown'] - new_totals['total_unknown']}")
 
     # Fixes Available Summary Original List
     print("\nFixes Available Summary (Original List):")
     print("Fix Type\tTotal\tAverage")
-    print(f"Fixes Available\t{original_totals[6]}\t{original_totals[6] / len(original_images):.2f}")
-    print(f"Critical Fixes Available\t{original_totals[7]}\t{original_totals[7] / len(original_images):.2f}")
-    print(f"High Fixes Available\t{original_totals[8]}\t{original_totals[8] / len(original_images):.2f}")
-    print(f"Medium Fixes Available\t{original_totals[9]}\t{original_totals[9] / len(original_images):.2f}")
-    print(f"Low Fixes Available\t{original_totals[10]}\t{original_totals[10] / len(original_images):.2f}")
-  
-    # Reduction Table
-    print("\nSeverity\tOriginal\tNew\tReduction")
-    print(f"Critical\t{original_totals[1]}\t{new_totals[1]}\t{original_totals[1] - new_totals[1]}")
-    print(f"High\t{original_totals[2]}\t{new_totals[2]}\t{original_totals[2] - new_totals[2]}")
-    print(f"Medium\t{original_totals[3]}\t{new_totals[3]}\t{original_totals[3] - new_totals[3]}")
-    print(f"Low\t{original_totals[4]}\t{new_totals[4]}\t{original_totals[4] - new_totals[4]}")
-    print(f"Unknown\t{original_totals[5]}\t{new_totals[5]}\t{original_totals[5] - new_totals[5]}")
+    print(f"Fixes Available\t{original_totals['total_fixes']}\t{original_totals['total_fixes'] / len(original_images):.2f}")
+    print(f"Critical Fixes Available\t{original_totals['critical_fixes']}\t{original_totals['critical_fixes'] / len(original_images):.2f}")
+    print(f"High Fixes Available\t{original_totals['high_fixes']}\t{original_totals['high_fixes'] / len(original_images):.2f}")
+    print(f"Medium Fixes Available\t{original_totals['medium_fixes']}\t{original_totals['medium_fixes'] / len(original_images):.2f}")
+    print(f"Low Fixes Available\t{original_totals['low_fixes']}\t{original_totals['low_fixes'] / len(original_images):.2f}")
 
-    # Fixes Available new List
+    # Fixes Available Summary New List
     print("\nFixes Available Summary (New List):")
     print("Fix Type\tTotal\tAverage")
-    print(f"Fixes Available\t{new_totals[6]}\t{new_totals[6] / len(new_images):.2f}")
-    print(f"Critical Fixes Available\t{new_totals[7]}\t{new_totals[7] / len(new_images):.2f}")
-    print(f"High Fixes Available\t{new_totals[8]}\t{new_totals[8] / len(new_images):.2f}")
-    print(f"Medium Fixes Available\t{new_totals[9]}\t{new_totals[9] / len(new_images):.2f}")
-    print(f"Low Fixes Available\t{new_totals[10]}\t{new_totals[10] / len(new_images):.2f}")
-
-    # Key Insights
-    print("\nKey Insights:")
-    print(f"Critical CVEs decreased from {original_totals[1]} to {new_totals[1]}.")
-    print(f"High CVEs dropped from {original_totals[2]} to {new_totals[2]}.")
-    print(f"Medium CVEs dropped from {original_totals[3]} to {new_totals[3]}.")
-    print(f"Low CVEs dropped from {original_totals[4]} to {new_totals[4]}.")
-    print(f"Unknown CVEs dropped from {original_totals[5]} to {new_totals[5]}.")
+    print(f"Fixes Available\t{new_totals['total_fixes']}\t{new_totals['total_fixes'] / len(new_images):.2f}")
+    print(f"Critical Fixes Available\t{new_totals['critical_fixes']}\t{new_totals['critical_fixes'] / len(new_images):.2f}")
+    print(f"High Fixes Available\t{new_totals['high_fixes']}\t{new_totals['high_fixes'] / len(new_images):.2f}")
+    print(f"Medium Fixes Available\t{new_totals['medium_fixes']}\t{new_totals['medium_fixes'] / len(new_images):.2f}")
+    print(f"Low Fixes Available\t{new_totals['low_fixes']}\t{new_totals['low_fixes'] / len(new_images):.2f}")
 
 if __name__ == "__main__":
     main()
