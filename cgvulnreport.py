@@ -4,6 +4,7 @@ import argparse
 import subprocess
 import json
 import sys
+import docker
 
 def run_scanner(scanner, image):
     try:
@@ -116,6 +117,44 @@ def calculate_totals(results):
 
     return totals
 
+def generate_detailed_report(images, scanners):
+    report_rows = []
+    for image in images:
+        for scanner in scanners:
+            scan_result = run_scanner(scanner, image)
+            if scan_result:
+                if scanner == "trivy":
+                    results_list = scan_result.get("Results", [])
+                    for result in results_list:
+                        vulnerabilities = result.get("Vulnerabilities", [])
+                        counts = {"critical": 0, "high": 0, "medium": 0, "low": 0, "unknown": 0, "wont_fix": 0, "fixed_critical": 0, "fixed_high": 0, "fixed_medium": 0, "fixed_low": 0, "total": 0, "fixed_total": 0}
+                        for vuln in vulnerabilities:
+                            severity = vuln.get("Severity", "").lower()
+                            fixed = vuln.get("FixedVersion") is not None
+                            if severity not in counts:
+                                severity = "unknown"
+                            counts[severity] += 1
+                            if fixed:
+                                counts[f"fixed_{severity}"] += 1
+                                counts["fixed_total"] += 1
+                            counts["total"] += 1
+                        report_rows.append(f"{image}\t{scanner}\t{counts['critical']}\t{counts['high']}\t{counts['medium']}\t{counts['low']}\t{counts['wont_fix']}\t{counts['total']}\t{counts['fixed_critical']}\t{counts['fixed_high']}\t{counts['fixed_medium']}\t{counts['fixed_low']}\t{counts['fixed_total']}")
+                elif scanner == "grype":
+                    matches = scan_result.get("matches", [])
+                    counts = {"critical": 0, "high": 0, "medium": 0, "low": 0, "unknown": 0, "wont_fix": 0, "fixed_critical": 0, "fixed_high": 0, "fixed_medium": 0, "fixed_low": 0, "total": 0, "fixed_total": 0}
+                    for match in matches:
+                        severity = match.get("vulnerability", {}).get("severity", "").lower()
+                        fixed = match.get("vulnerability", {}).get("fix", {}).get("state") == "fixed"
+                        if severity not in counts:
+                            severity = "unknown"
+                        counts[severity] += 1
+                        if fixed:
+                            counts[f"fixed_{severity}"] += 1
+                            counts["fixed_total"] += 1
+                        counts["total"] += 1
+                    report_rows.append(f"{image}\t{scanner}\t{counts['critical']}\t{counts['high']}\t{counts['medium']}\t{counts['low']}\t{counts['wont_fix']}\t{counts['total']}\t{counts['fixed_critical']}\t{counts['fixed_high']}\t{counts['fixed_medium']}\t{counts['fixed_low']}\t{counts['fixed_total']}")
+    return report_rows
+
 def process_images(images, scanners):
     combined_results = {}
 
@@ -129,6 +168,23 @@ def process_images(images, scanners):
                 combined_results[scanner].append(scan_result)
 
     return calculate_totals(combined_results)
+
+def generate_size_report(images):
+    client = docker.from_env()
+    table_header = "=================  =========\nImage            Size (MB)\n=================  ========="
+    table_rows = []
+    for image in images:
+        try:
+            img_info = client.images.get(image)
+            size_mb = img_info.attrs['Size'] / (1024 * 1024)
+            table_rows.append(f"{image:<16}  {size_mb:.2f}")
+        except docker.errors.ImageNotFound:
+            table_rows.append(f"{image:<16}  Not found")
+        except Exception as e:
+            table_rows.append(f"{image:<16}  Error ({e})")
+    table_footer = "=================  ========="
+    return f"{table_header}\n" + "\n".join(table_rows) + f"\n{table_footer}"
+
 
 def main():
     import shutil
@@ -173,59 +229,110 @@ def main():
         print(f"Error reading file {args.newlist}: {e}", file=sys.stderr)
         sys.exit(1)
 
-    print("Processing original images...")
     original_totals = process_images(original_images, scanners)
-    print("\nOriginal List Results:")
-    print(f"Total Vulnerabilities: {original_totals['total_count']}")
-    print(f"Total Critical CVEs: {original_totals['total_critical']}")
-    print(f"Total High CVEs: {original_totals['total_high']}")
-    print(f"Total Medium CVEs: {original_totals['total_medium']}")
-    print(f"Total Low CVEs: {original_totals['total_low']}")
-    print(f"Total Unknown CVEs: {original_totals['total_unknown']}")
-
-    print("\nProcessing new images...")
     new_totals = process_images(new_images, scanners)
-    print("\nNew List Results:")
-    print(f"Total Vulnerabilities: {new_totals['total_count']}")
-    print(f"Total Critical CVEs: {new_totals['total_critical']}")
-    print(f"Total High CVEs: {new_totals['total_high']}")
-    print(f"Total Medium CVEs: {new_totals['total_medium']}")
-    print(f"Total Low CVEs: {new_totals['total_low']}")
-    print(f"Total Unknown CVEs: {new_totals['total_unknown']}")
 
-    # Key Insights
-    print("\nKey Insights:")
-    print(f"Critical CVEs decreased from {original_totals['total_critical']} to {new_totals['total_critical']}.")
-    print(f"High CVEs dropped from {original_totals['total_high']} to {new_totals['total_high']}.")
-    print(f"Medium CVEs dropped from {original_totals['total_medium']} to {new_totals['total_medium']}.")
-    print(f"Low CVEs dropped from {original_totals['total_low']} to {new_totals['total_low']}.")
-    print(f"Unknown CVEs dropped from {original_totals['total_unknown']} to {new_totals['total_unknown']}.")
+    original_size_report = generate_size_report(original_images)
+    new_size_report = generate_size_report(new_images)
 
-    # Reduction Table
-    print("\nSeverity\tOriginal\tNew\tReduction")
-    print(f"Critical\t{original_totals['total_critical']}\t{new_totals['total_critical']}\t{original_totals['total_critical'] - new_totals['total_critical']}")
-    print(f"High\t{original_totals['total_high']}\t{new_totals['total_high']}\t{original_totals['total_high'] - new_totals['total_high']}")
-    print(f"Medium\t{original_totals['total_medium']}\t{new_totals['total_medium']}\t{original_totals['total_medium'] - new_totals['total_medium']}")
-    print(f"Low\t{original_totals['total_low']}\t{new_totals['total_low']}\t{original_totals['total_low'] - new_totals['total_low']}")
-    print(f"Unknown\t{original_totals['total_unknown']}\t{new_totals['total_unknown']}\t{original_totals['total_unknown'] - new_totals['total_unknown']}")
+    original_detailed_report = generate_detailed_report(original_images, scanners)
+    new_detailed_report = generate_detailed_report(new_images, scanners)
 
-    # Fixes Available Summary Original List
-    print("\nFixes Available Summary (Original List):")
-    print("Fix Type\tTotal\tAverage")
-    print(f"Fixes Available\t{original_totals['total_fixes']}\t{original_totals['total_fixes'] / len(original_images):.2f}")
-    print(f"Critical Fixes Available\t{original_totals['critical_fixes']}\t{original_totals['critical_fixes'] / len(original_images):.2f}")
-    print(f"High Fixes Available\t{original_totals['high_fixes']}\t{original_totals['high_fixes'] / len(original_images):.2f}")
-    print(f"Medium Fixes Available\t{original_totals['medium_fixes']}\t{original_totals['medium_fixes'] / len(original_images):.2f}")
-    print(f"Low Fixes Available\t{original_totals['low_fixes']}\t{original_totals['low_fixes'] / len(original_images):.2f}")
+    print("\nDetailed Vulnerability Scans - Original List:")
+    print("Image\tType\tCritical\tHigh\tMedium\tLow\tWont Fix\tTotal\tFixed Critical\tFixed High\tFixed Medium\tFixed Low\tFixed Total")
+    for row in original_detailed_report:
+        print(row)
 
-    # Fixes Available Summary New List
-    print("\nFixes Available Summary (New List):")
-    print("Fix Type\tTotal\tAverage")
-    print(f"Fixes Available\t{new_totals['total_fixes']}\t{new_totals['total_fixes'] / len(new_images):.2f}")
-    print(f"Critical Fixes Available\t{new_totals['critical_fixes']}\t{new_totals['critical_fixes'] / len(new_images):.2f}")
-    print(f"High Fixes Available\t{new_totals['high_fixes']}\t{new_totals['high_fixes'] / len(new_images):.2f}")
-    print(f"Medium Fixes Available\t{new_totals['medium_fixes']}\t{new_totals['medium_fixes'] / len(new_images):.2f}")
-    print(f"Low Fixes Available\t{new_totals['low_fixes']}\t{new_totals['low_fixes'] / len(new_images):.2f}")
+    print("\nDetailed Vulnerability Scans - New List:")
+    print("Image\tType\tCritical\tHigh\tMedium\tLow\tWont Fix\tTotal\tFixed Critical\tFixed High\tFixed Medium\tFixed Low\tFixed Total")
+    for row in new_detailed_report:
+        print(row)
 
+    critical_reduction = original_totals['total_critical'] - new_totals['total_critical']
+    high_reduction = original_totals['total_high'] - new_totals['total_high']
+    medium_reduction = original_totals['total_medium'] - new_totals['total_medium']
+    low_reduction = original_totals['total_low'] - new_totals['total_low']
+    unknown_reduction = original_totals['total_unknown'] - new_totals['total_unknown']
+
+    avg_fixes_original = original_totals['total_fixes'] / len(original_images)
+    avg_critical_fixes_original = original_totals['critical_fixes'] / len(original_images)
+    avg_high_fixes_original = original_totals['high_fixes'] / len(original_images)
+    avg_medium_fixes_original = original_totals['medium_fixes'] / len(original_images)
+    avg_low_fixes_original = original_totals['low_fixes'] / len(original_images)
+
+    avg_fixes_new = new_totals['total_fixes'] / len(new_images)
+    avg_critical_fixes_new = new_totals['critical_fixes'] / len(new_images)
+    avg_high_fixes_new = new_totals['high_fixes'] / len(new_images)
+    avg_medium_fixes_new = new_totals['medium_fixes'] / len(new_images)
+    avg_low_fixes_new = new_totals['low_fixes'] / len(new_images)
+
+    print(f"""
+Original List Results:
+----------------------
+Total Vulnerabilities: {original_totals['total_count']}
+Total Critical CVEs: {original_totals['total_critical']}
+Total High CVEs: {original_totals['total_high']}
+Total Medium CVEs: {original_totals['total_medium']}
+Total Low CVEs: {original_totals['total_low']}
+Total Unknown CVEs: {original_totals['total_unknown']}
+
+Fixes Available Summary (Original List):
+----------------------------------------
+Fix Type                 Total    Average
+----------------------   -------  -------
+Fixes Available          {original_totals['total_fixes']}   {avg_fixes_original:.2f}
+Critical Fixes Available {original_totals['critical_fixes']}   {avg_critical_fixes_original:.2f}
+High Fixes Available     {original_totals['high_fixes']}   {avg_high_fixes_original:.2f}
+Medium Fixes Available   {original_totals['medium_fixes']}   {avg_medium_fixes_original:.2f}
+Low Fixes Available      {original_totals['low_fixes']}   {avg_low_fixes_original:.2f}
+
+Image Size Report (Original List):
+----------------------------------
+{original_size_report}
+
+New List Results:
+-----------------
+Total Vulnerabilities: {new_totals['total_count']}
+Total Critical CVEs: {new_totals['total_critical']}
+Total High CVEs: {new_totals['total_high']}
+Total Medium CVEs: {new_totals['total_medium']}
+Total Low CVEs: {new_totals['total_low']}
+Total Unknown CVEs: {new_totals['total_unknown']}
+
+Fixes Available Summary (New List):
+-----------------------------------
+Fix Type                 Total    Average
+----------------------   -------  -------
+Fixes Available          {new_totals['total_fixes']}   {avg_fixes_new:.2f}
+Critical Fixes Available {new_totals['critical_fixes']}   {avg_critical_fixes_new:.2f}
+High Fixes Available     {new_totals['high_fixes']}   {avg_high_fixes_new:.2f}
+Medium Fixes Available   {new_totals['medium_fixes']}   {avg_medium_fixes_new:.2f}
+Low Fixes Available      {new_totals['low_fixes']}   {avg_low_fixes_new:.2f}
+
+Reduction Table:
+----------------
+=================  ==========  ========  ===========
+Severity           Original    New       Reduction
+=================  ==========  ========  ===========
+Critical           {original_totals['total_critical']}      {new_totals['total_critical']}       {critical_reduction}
+High               {original_totals['total_high']}          {new_totals['total_high']}           {high_reduction}
+Medium             {original_totals['total_medium']}        {new_totals['total_medium']}         {medium_reduction}
+Low                {original_totals['total_low']}           {new_totals['total_low']}            {low_reduction}
+Unknown            {original_totals['total_unknown']}       {new_totals['total_unknown']}        {unknown_reduction}
+=================  ==========  ========  ===========
+
+Key Insights:
+-------------
+* Critical CVEs decreased from {original_totals['total_critical']} to {new_totals['total_critical']}.
+* High CVEs dropped from {original_totals['total_high']} to {new_totals['total_high']}.
+* Medium CVEs dropped from {original_totals['total_medium']} to {new_totals['total_medium']}.
+* Low CVEs dropped from {original_totals['total_low']} to {new_totals['total_low']}.
+* Unknown CVEs dropped from {original_totals['total_unknown']} to {new_totals['total_unknown']}.
+
+Image Size Report (New List):
+-----------------------------
+{new_size_report}
+""")
+    
 if __name__ == "__main__":
     main()
