@@ -1,0 +1,3 @@
+cgr.dev/chainguard-private/jdk
+cgr.dev/chainguard-private/node
+cgr.dev/chainguard-private/python

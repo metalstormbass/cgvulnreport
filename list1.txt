@@ -1,0 +1,3 @@
+registry.access.redhat.com/ubi9/openjdk-17:latest
+node:20.18.1
+python:3.11
