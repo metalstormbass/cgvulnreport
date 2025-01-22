@@ -173,18 +173,20 @@ def generate_size_report(images):
     client = docker.from_env()
     table_header = "=================  =========\nImage            Size (MB)\n=================  ========="
     table_rows = []
+    total_size_mb = 0
     for image in images:
         try:
             img_info = client.images.get(image)
             size_mb = img_info.attrs['Size'] / (1024 * 1024)
+            total_size_mb += size_mb
             table_rows.append(f"{image:<16}  {size_mb:.2f}")
         except docker.errors.ImageNotFound:
             table_rows.append(f"{image:<16}  Not found")
         except Exception as e:
             table_rows.append(f"{image:<16}  Error ({e})")
     table_footer = "=================  ========="
-    return f"{table_header}\n" + "\n".join(table_rows) + f"\n{table_footer}"
-
+    table_total = f"Total Size:       {total_size_mb:.2f} MB"
+    return f"{table_header}\n" + "\n".join(table_rows) + f"\n{table_footer}\n{table_total}", total_size_mb
 
 def main():
     import shutil
@@ -232,8 +234,8 @@ def main():
     original_totals = process_images(original_images, scanners)
     new_totals = process_images(new_images, scanners)
 
-    original_size_report = generate_size_report(original_images)
-    new_size_report = generate_size_report(new_images)
+    original_size_report, original_total_size = generate_size_report(original_images)
+    new_size_report, new_total_size = generate_size_report(new_images)
 
     original_detailed_report = generate_detailed_report(original_images, scanners)
     new_detailed_report = generate_detailed_report(new_images, scanners)
@@ -265,6 +267,9 @@ def main():
     avg_high_fixes_new = new_totals['high_fixes'] / len(new_images)
     avg_medium_fixes_new = new_totals['medium_fixes'] / len(new_images)
     avg_low_fixes_new = new_totals['low_fixes'] / len(new_images)
+
+    size_difference = new_total_size - original_total_size
+    size_percentage_change = (size_difference / original_total_size * 100) if original_total_size > 0 else 0
 
     print(f"""
 Original List Results:
@@ -332,6 +337,13 @@ Key Insights:
 Image Size Report (New List):
 -----------------------------
 {new_size_report}
+
+Size Change Analysis:
+---------------------
+Original Total Size: {original_total_size:.2f} MB
+New Total Size: {new_total_size:.2f} MB
+Size Difference: {size_difference:.2f} MB
+Percentage Change: {size_percentage_change:.2f}%
 """)
     
 if __name__ == "__main__":
