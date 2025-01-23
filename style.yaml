@@ -1,123 +1,20 @@
-base:
-  fontName: Helvetica
-  fontSize: 10
-  lineHeight: 1.2
-
-pageSetup:
-  size: A4
-  margin-left: 0.5cm
-  margin-right: 0.5cm
-  margin-top: 1cm
-  margin-bottom: 1cm
-
 styles:
-  title:
-    fontName: Helvetica-Bold
-    fontSize: 14
-    textColor: "#003366"
-    alignment: CENTER
-    spaceBefore: 12
-    spaceAfter: 12
-
-  subtitle:
-    fontName: Helvetica
-    fontSize: 12
-    textColor: "#0066cc"
-    alignment: CENTER
-    italic: true
-    spaceBefore: 6
-    spaceAfter: 12
-
-  heading:
-    fontName: Helvetica-Bold
-    fontSize: 12
-    textColor: "#003366"
-    spaceBefore: 8
-    spaceAfter: 6
-
-  heading1:
-    fontName: Helvetica-Bold
-    fontSize: 12
-    textColor: "#003366"
-    spaceBefore: 8
-    spaceAfter: 6
-
-  heading2:
-    fontName: Helvetica-Bold
-    fontSize: 11
-    textColor: "#0066cc"
-    spaceBefore: 6
-    spaceAfter: 4
-
-  heading3:
-    fontName: Helvetica-Bold
-    fontSize: 10
-    textColor: "#333333"
-    spaceBefore: 6
-    spaceAfter: 4
-
-  bodytext:
-    fontName: Helvetica
-    fontSize: 9
-    textColor: "#333333"
-    lineHeight: 1.2
-
   table:
     fontName: Helvetica
-    fontSize: 8
+    fontSize: 8        # Small font size for compact tables
+    borderWidth: 0.5   # Thin borders for table cells
+    padding: 1         # Minimal padding between cells
+    alignment: LEFT    # Align content to the left
+
+  tableheader:
+    fontName: Helvetica-Bold
+    fontSize: 8        # Small bold font for table headers
     textColor: "#000000"
-    alignment: CENTER
-    spaceBefore: 6
-    spaceAfter: 6
-    borderWidth: 0.5
-    borderColor: "#cccccc"
-    padding: 2
+    backgroundColor: "#e0e0e0"  # Light gray for header background
+    alignment: CENTER   # Center-align header content
 
   tablecell:
     fontName: Helvetica
-    fontSize: 8
-    textColor: "#000000"
+    fontSize: 8        # Small font size for table cells
+    padding: 1         # Minimal padding
     alignment: LEFT
-    padding: 2
-
-  literalblock:
-    fontName: Courier
-    fontSize: 8
-    textColor: "#d63384"
-    backgroundColor: "#f4f4f4"
-    borderWidth: 0.5
-    borderColor: "#e6e6e6"
-    padding: 4
-
-  blockquote:
-    fontName: Helvetica-Oblique
-    fontSize: 9
-    textColor: "#333333"
-    borderLeftWidth: 2
-    borderLeftColor: "#0066cc"
-    paddingLeft: 6
-    spaceBefore: 6
-    spaceAfter: 6
-
-header:
-  height: 1cm
-  backgroundColor: "#003366"
-  content:
-    text: "Documentation | Chainguard"
-    style:
-      fontName: Helvetica-Bold
-      fontSize: 8
-      textColor: "#ffffff"
-      alignment: CENTER
-
-footer:
-  height: 1cm
-  content:
-    left: ""
-    center: ""
-    right: "Page $page_number of $page_count"
-    style:
-      fontName: Helvetica
-      fontSize: 8
-      textColor: "#666666"
-      alignment: RIGHT

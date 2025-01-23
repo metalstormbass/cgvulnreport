@@ -216,7 +216,7 @@ def generate_fixes_summary(totals, list_name):
         ["Medium Fixes Available", totals['medium_fixes'], f"{totals['medium_fixes'] / totals['total_count']:.2f}" if totals['total_count'] > 0 else "0.00"],
         ["Low Fixes Available", totals['low_fixes'], f"{totals['low_fixes'] / totals['total_count']:.2f}" if totals['total_count'] > 0 else "0.00"]
     ]
-    print(f"\nFixes Available Summary ({list_name}):\n")
+    print(f"\nFixes Available Summary ({list_name}):")
     print(format_table(headers, rows))
 
 def main():
@@ -277,11 +277,11 @@ def main():
     print("\nDetailed Vulnerability Scans - New List\n")
     print(format_table(headers, new_detailed_report))
 
-    print("\nImage Size Report - Original List\n")
+    print("\nImage Size Report - Original List")
     headers = ["Image", "Size (MB)"]
     print(format_table(headers, original_size_rows))
 
-    print("\nImage Size Report - New List\n")
+    print("\nImage Size Report - New List")
     print(format_table(headers, new_size_rows))
 
     generate_fixes_summary(original_totals, "Original List")
@@ -291,9 +291,11 @@ def main():
     size_percentage_change = (size_difference / original_total_size * 100) if original_total_size > 0 else 0
 
     print(f"\nSize Change Analysis")
-    print("====================\n")
-    print(f"- **Original Total Size:** {original_total_size:.2f} MB")
-    print(f"- **New Total Size**: {new_total_size:.2f} MB")
-    print(f"- **Size Difference**: {size_difference:.2f} MB")
-    print(f"- **Percentage Change**: {size_percentage_change:.2f}%")
-    print("\n")
+    print("====================")
+    print(f"Original Total Size: {original_total_size:.2f} MB")
+    print(f"New Total Size: {new_total_size:.2f} MB")
+    print(f"Size Difference: {size_difference:.2f} MB")
+    print(f"Percentage Change: {size_percentage_change:.2f}%")
+
+if __name__ == "__main__":
+    main()

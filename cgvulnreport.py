@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-
+#!/Users/peter.gregel/venv/bin/python
 import argparse
 import subprocess
 import json
@@ -138,7 +137,7 @@ def generate_detailed_report(images, scanners):
                                 counts[f"fixed_{severity}"] += 1
                                 counts["fixed_total"] += 1
                             counts["total"] += 1
-                        report_rows.append(f"{image}\t{scanner}\t{counts['critical']}\t{counts['high']}\t{counts['medium']}\t{counts['low']}\t{counts['wont_fix']}\t{counts['total']}\t{counts['fixed_critical']}\t{counts['fixed_high']}\t{counts['fixed_medium']}\t{counts['fixed_low']}\t{counts['fixed_total']}")
+                        report_rows.append([image, scanner, counts['critical'], counts['high'], counts['medium'], counts['low'], counts['wont_fix'], counts['total'], counts['fixed_critical'], counts['fixed_high'], counts['fixed_medium'], counts['fixed_low'], counts['fixed_total']])
                 elif scanner == "grype":
                     matches = scan_result.get("matches", [])
                     counts = {"critical": 0, "high": 0, "medium": 0, "low": 0, "unknown": 0, "wont_fix": 0, "fixed_critical": 0, "fixed_high": 0, "fixed_medium": 0, "fixed_low": 0, "total": 0, "fixed_total": 0}
@@ -152,8 +151,29 @@ def generate_detailed_report(images, scanners):
                             counts[f"fixed_{severity}"] += 1
                             counts["fixed_total"] += 1
                         counts["total"] += 1
-                    report_rows.append(f"{image}\t{scanner}\t{counts['critical']}\t{counts['high']}\t{counts['medium']}\t{counts['low']}\t{counts['wont_fix']}\t{counts['total']}\t{counts['fixed_critical']}\t{counts['fixed_high']}\t{counts['fixed_medium']}\t{counts['fixed_low']}\t{counts['fixed_total']}")
+                    report_rows.append([image, scanner, counts['critical'], counts['high'], counts['medium'], counts['low'], counts['wont_fix'], counts['total'], counts['fixed_critical'], counts['fixed_high'], counts['fixed_medium'], counts['fixed_low'], counts['fixed_total']])
     return report_rows
+
+def format_table(headers, rows):
+    """Formats a table in RST format."""
+    col_widths = [max(len(str(row[i])) for row in rows) for i in range(len(headers))]
+    col_widths = [max(len(header), col_width) for header, col_width in zip(headers, col_widths)]
+
+    def format_row(row):
+        return "| " + " | ".join(f"{str(cell):<{col_width}}" for cell, col_width in zip(row, col_widths)) + " |"
+
+    def format_separator():
+        return "+-" + "-+-".join("-" * col_width for col_width in col_widths) + "-+"
+
+    table = []
+    table.append(format_separator())
+    table.append(format_row(headers))
+    table.append(format_separator().replace("-", "="))
+    for row in rows:
+        table.append(format_row(row))
+        table.append(format_separator())
+
+    return "\n".join(table)
 
 def process_images(images, scanners):
     combined_results = {}
@@ -171,25 +191,35 @@ def process_images(images, scanners):
 
 def generate_size_report(images):
     client = docker.from_env()
-    table_header = "=================  =========\nImage            Size (MB)\n=================  ========="
-    table_rows = []
+    rows = []
     total_size_mb = 0
     for image in images:
         try:
             img_info = client.images.get(image)
             size_mb = img_info.attrs['Size'] / (1024 * 1024)
             total_size_mb += size_mb
-            table_rows.append(f"{image:<16}  {size_mb:.2f}")
+            rows.append([image, f"{size_mb:.2f}"])
         except docker.errors.ImageNotFound:
-            table_rows.append(f"{image:<16}  Not found")
+            rows.append([image, "Not found"])
         except Exception as e:
-            table_rows.append(f"{image:<16}  Error ({e})")
-    table_footer = "=================  ========="
-    table_total = f"Total Size:       {total_size_mb:.2f} MB"
-    return f"{table_header}\n" + "\n".join(table_rows) + f"\n{table_footer}\n{table_total}", total_size_mb
+            rows.append([image, f"Error ({e})"])
+    rows.append(["Total Size", f"{total_size_mb:.2f}"])
+    return rows, total_size_mb
+
+def generate_fixes_summary(totals, list_name):
+    headers = ["Fix Type", "Total", "Average"]
+    rows = [
+        ["Fixes Available", totals['total_fixes'], f"{totals['total_fixes'] / totals['total_count']:.2f}" if totals['total_count'] > 0 else "0.00"],
+        ["Critical Fixes Available", totals['critical_fixes'], f"{totals['critical_fixes'] / totals['total_count']:.2f}" if totals['total_count'] > 0 else "0.00"],
+        ["High Fixes Available", totals['high_fixes'], f"{totals['high_fixes'] / totals['total_count']:.2f}" if totals['total_count'] > 0 else "0.00"],
+        ["Medium Fixes Available", totals['medium_fixes'], f"{totals['medium_fixes'] / totals['total_count']:.2f}" if totals['total_count'] > 0 else "0.00"],
+        ["Low Fixes Available", totals['low_fixes'], f"{totals['low_fixes'] / totals['total_count']:.2f}" if totals['total_count'] > 0 else "0.00"]
+    ]
+    print(f"\nFixes Available Summary ({list_name}):\n")
+    print(format_table(headers, rows))
 
 def main():
-    import shutil
+    print("hey")
     check_scanners()
 
     parser = argparse.ArgumentParser(description="Frontend for Trivy and Grype vulnerability scanners.")
@@ -231,120 +261,41 @@ def main():
         print(f"Error reading file {args.newlist}: {e}", file=sys.stderr)
         sys.exit(1)
 
+# Generate data and table below
+
     original_totals = process_images(original_images, scanners)
     new_totals = process_images(new_images, scanners)
 
-    original_size_report, original_total_size = generate_size_report(original_images)
-    new_size_report, new_total_size = generate_size_report(new_images)
+    original_size_rows, original_total_size = generate_size_report(original_images)
+    new_size_rows, new_total_size = generate_size_report(new_images)
 
     original_detailed_report = generate_detailed_report(original_images, scanners)
     new_detailed_report = generate_detailed_report(new_images, scanners)
 
-    print("\nDetailed Vulnerability Scans - Original List:")
-    print("Image\tType\tCritical\tHigh\tMedium\tLow\tWont Fix\tTotal\tFixed Critical\tFixed High\tFixed Medium\tFixed Low\tFixed Total")
-    for row in original_detailed_report:
-        print(row)
+    print("\nDetailed Vulnerability Scans - Original List\n")
+    headers = ["Image", "Type", "Critical", "High", "Medium", "Low", "Wont Fix", "Total", "Fixed Critical", "Fixed High", "Fixed Medium", "Fixed Low", "Fixed Total"]
+    print(format_table(headers, original_detailed_report))
 
-    print("\nDetailed Vulnerability Scans - New List:")
-    print("Image\tType\tCritical\tHigh\tMedium\tLow\tWont Fix\tTotal\tFixed Critical\tFixed High\tFixed Medium\tFixed Low\tFixed Total")
-    for row in new_detailed_report:
-        print(row)
+    print("\nDetailed Vulnerability Scans - New List\n")
+    print(format_table(headers, new_detailed_report))
 
-    critical_reduction = original_totals['total_critical'] - new_totals['total_critical']
-    high_reduction = original_totals['total_high'] - new_totals['total_high']
-    medium_reduction = original_totals['total_medium'] - new_totals['total_medium']
-    low_reduction = original_totals['total_low'] - new_totals['total_low']
-    unknown_reduction = original_totals['total_unknown'] - new_totals['total_unknown']
+    print("\nImage Size Report - Original List\n")
+    headers = ["Image", "Size (MB)"]
+    print(format_table(headers, original_size_rows))
 
-    avg_fixes_original = original_totals['total_fixes'] / len(original_images)
-    avg_critical_fixes_original = original_totals['critical_fixes'] / len(original_images)
-    avg_high_fixes_original = original_totals['high_fixes'] / len(original_images)
-    avg_medium_fixes_original = original_totals['medium_fixes'] / len(original_images)
-    avg_low_fixes_original = original_totals['low_fixes'] / len(original_images)
+    print("\nImage Size Report - New List\n")
+    print(format_table(headers, new_size_rows))
 
-    avg_fixes_new = new_totals['total_fixes'] / len(new_images)
-    avg_critical_fixes_new = new_totals['critical_fixes'] / len(new_images)
-    avg_high_fixes_new = new_totals['high_fixes'] / len(new_images)
-    avg_medium_fixes_new = new_totals['medium_fixes'] / len(new_images)
-    avg_low_fixes_new = new_totals['low_fixes'] / len(new_images)
+    generate_fixes_summary(original_totals, "Original List")
+    generate_fixes_summary(new_totals, "New List")
 
     size_difference = new_total_size - original_total_size
     size_percentage_change = (size_difference / original_total_size * 100) if original_total_size > 0 else 0
 
-    print(f"""
-Original List Results:
-----------------------
-Total Vulnerabilities: {original_totals['total_count']}
-Total Critical CVEs: {original_totals['total_critical']}
-Total High CVEs: {original_totals['total_high']}
-Total Medium CVEs: {original_totals['total_medium']}
-Total Low CVEs: {original_totals['total_low']}
-Total Unknown CVEs: {original_totals['total_unknown']}
-
-Fixes Available Summary (Original List):
-----------------------------------------
-Fix Type                 Total    Average
-----------------------   -------  -------
-Fixes Available          {original_totals['total_fixes']}   {avg_fixes_original:.2f}
-Critical Fixes Available {original_totals['critical_fixes']}   {avg_critical_fixes_original:.2f}
-High Fixes Available     {original_totals['high_fixes']}   {avg_high_fixes_original:.2f}
-Medium Fixes Available   {original_totals['medium_fixes']}   {avg_medium_fixes_original:.2f}
-Low Fixes Available      {original_totals['low_fixes']}   {avg_low_fixes_original:.2f}
-
-Image Size Report (Original List):
-----------------------------------
-{original_size_report}
-
-New List Results:
------------------
-Total Vulnerabilities: {new_totals['total_count']}
-Total Critical CVEs: {new_totals['total_critical']}
-Total High CVEs: {new_totals['total_high']}
-Total Medium CVEs: {new_totals['total_medium']}
-Total Low CVEs: {new_totals['total_low']}
-Total Unknown CVEs: {new_totals['total_unknown']}
-
-Fixes Available Summary (New List):
------------------------------------
-Fix Type                 Total    Average
-----------------------   -------  -------
-Fixes Available          {new_totals['total_fixes']}   {avg_fixes_new:.2f}
-Critical Fixes Available {new_totals['critical_fixes']}   {avg_critical_fixes_new:.2f}
-High Fixes Available     {new_totals['high_fixes']}   {avg_high_fixes_new:.2f}
-Medium Fixes Available   {new_totals['medium_fixes']}   {avg_medium_fixes_new:.2f}
-Low Fixes Available      {new_totals['low_fixes']}   {avg_low_fixes_new:.2f}
-
-Reduction Table:
-----------------
-=================  ==========  ========  ===========
-Severity           Original    New       Reduction
-=================  ==========  ========  ===========
-Critical           {original_totals['total_critical']}      {new_totals['total_critical']}       {critical_reduction}
-High               {original_totals['total_high']}          {new_totals['total_high']}           {high_reduction}
-Medium             {original_totals['total_medium']}        {new_totals['total_medium']}         {medium_reduction}
-Low                {original_totals['total_low']}           {new_totals['total_low']}            {low_reduction}
-Unknown            {original_totals['total_unknown']}       {new_totals['total_unknown']}        {unknown_reduction}
-=================  ==========  ========  ===========
-
-Key Insights:
--------------
-* Critical CVEs decreased from {original_totals['total_critical']} to {new_totals['total_critical']}.
-* High CVEs dropped from {original_totals['total_high']} to {new_totals['total_high']}.
-* Medium CVEs dropped from {original_totals['total_medium']} to {new_totals['total_medium']}.
-* Low CVEs dropped from {original_totals['total_low']} to {new_totals['total_low']}.
-* Unknown CVEs dropped from {original_totals['total_unknown']} to {new_totals['total_unknown']}.
-
-Image Size Report (New List):
------------------------------
-{new_size_report}
-
-Size Change Analysis:
----------------------
-Original Total Size: {original_total_size:.2f} MB
-New Total Size: {new_total_size:.2f} MB
-Size Difference: {size_difference:.2f} MB
-Percentage Change: {size_percentage_change:.2f}%
-""")
-    
-if __name__ == "__main__":
-    main()
+    print(f"\nSize Change Analysis")
+    print("====================\n")
+    print(f"- **Original Total Size:** {original_total_size:.2f} MB")
+    print(f"- **New Total Size**: {new_total_size:.2f} MB")
+    print(f"- **Size Difference**: {size_difference:.2f} MB")
+    print(f"- **Percentage Change**: {size_percentage_change:.2f}%")
+    print("\n")

@@ -1,3 +1,16 @@
+Running trivy scanner on image: registry.access.redhat.com/ubi9/openjdk-17:latest...
+Running grype scanner on image: registry.access.redhat.com/ubi9/openjdk-17:latest...
+Running trivy scanner on image: node:20.18.1...
+Running grype scanner on image: node:20.18.1...
+Running trivy scanner on image: python:3.11...
+Running grype scanner on image: python:3.11...
+Running trivy scanner on image: cgr.dev/chainguard-private/jdk...
+Running grype scanner on image: cgr.dev/chainguard-private/jdk...
+Running trivy scanner on image: cgr.dev/chainguard-private/node...
+Running grype scanner on image: cgr.dev/chainguard-private/node...
+Running trivy scanner on image: cgr.dev/chainguard-private/python...
+Running grype scanner on image: cgr.dev/chainguard-private/python...
+
 Detailed Vulnerability Scans - Original List
 
 +---------------------------------------------------+-------+----------+------+--------+-----+----------+-------+----------------+------------+--------------+-----------+-------------+
@@ -39,7 +52,6 @@ Detailed Vulnerability Scans - New List
 +-----------------------------------+-------+----------+------+--------+-----+----------+-------+----------------+------------+--------------+-----------+-------------+
 
 Image Size Report - Original List
-
 +---------------------------------------------------+-----------+
 | Image                                             | Size (MB) |
 +===================================================+===========+
@@ -53,7 +65,6 @@ Image Size Report - Original List
 +---------------------------------------------------+-----------+
 
 Image Size Report - New List
-
 +-----------------------------------+-----------+
 | Image                             | Size (MB) |
 +===================================+===========+
@@ -67,7 +78,6 @@ Image Size Report - New List
 +-----------------------------------+-----------+
 
 Fixes Available Summary (Original List):
-
 +--------------------------+-------+---------+
 | Fix Type                 | Total | Average |
 +==========================+=======+=========+
@@ -83,7 +93,6 @@ Fixes Available Summary (Original List):
 +--------------------------+-------+---------+
 
 Fixes Available Summary (New List):
-
 +--------------------------+-------+---------+
 | Fix Type                 | Total | Average |
 +==========================+=======+=========+
@@ -100,9 +109,7 @@ Fixes Available Summary (New List):
 
 Size Change Analysis
 ====================
-
-- **Original Total Size:** 2459.10 MB  
-- **New Total Size:** 448.39 MB  
-- **Size Difference:** -2010.71 MB  
-- **Percentage Change:** -81.77%
-
+Original Total Size: 2459.10 MB
+New Total Size: 448.39 MB
+Size Difference: -2010.71 MB
+Percentage Change: -81.77%

@@ -2,7 +2,7 @@
 %“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
 1 0 obj
 <<
-/F1 2 0 R /F2 3 0 R
+/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 7 0 R
 >>
 endobj
 2 0 obj
@@ -12,22 +12,17 @@ endobj
 endobj
 3 0 obj
 <<
-/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+/BaseFont /Times-Roman /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
 >>
 endobj
 4 0 obj
 <<
-/Contents 11 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 10 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
 >>
 endobj
 5 0 obj
 <<
-/Contents 12 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 10 0 R /Resources <<
+/Contents 20 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 19 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 /Trans <<
 
@@ -37,885 +32,946 @@ endobj
 endobj
 6 0 obj
 <<
-/Outlines 8 0 R /PageLabels 13 0 R /PageMode /UseNone /Pages 10 0 R /Type /Catalog
+/Contents 21 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 19 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
 >>
 endobj
 7 0 obj
 <<
-/Author () /CreationDate (D:20250122191933-05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20250122191933-05'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
-  /Subject (\(unspecified\)) /Title () /Trapped /False
+/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F4 /Subtype /Type1 /Type /Font
 >>
 endobj
 8 0 obj
 <<
-/Count 1 /First 9 0 R /Last 9 0 R /Type /Outlines
+/Contents 22 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 19 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
 >>
 endobj
 9 0 obj
 <<
-/Dest [ 5 0 R /XYZ 20.17323 314.9701 0 ] /Parent 8 0 R /Title (Size Change Analysis)
+/Outlines 11 0 R /PageLabels 23 0 R /PageMode /UseNone /Pages 19 0 R /Type /Catalog
 >>
 endobj
 10 0 obj
 <<
-/Count 2 /Kids [ 4 0 R 5 0 R ] /Type /Pages
+/Author () /CreationDate (D:20250122210729-05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20250122210729-05'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+  /Subject (\(unspecified\)) /Title () /Trapped /False
 >>
 endobj
 11 0 obj
 <<
-/Length 24096
+/Count 7 /First 12 0 R /Last 18 0 R /Type /Outlines
+>>
+endobj
+12 0 obj
+<<
+/Dest [ 5 0 R /XYZ 57.02362 765.0236 0 ] /Next 13 0 R /Parent 11 0 R /Title (Detailed Vulnerability Scans - Original List)
+>>
+endobj
+13 0 obj
+<<
+/Dest [ 5 0 R /XYZ 57.02362 210.0236 0 ] /Next 14 0 R /Parent 11 0 R /Prev 12 0 R /Title (Detailed Vulnerability Scans - New List)
+>>
+endobj
+14 0 obj
+<<
+/Dest [ 6 0 R /XYZ 57.02362 507.0236 0 ] /Next 15 0 R /Parent 11 0 R /Prev 13 0 R /Title (Image Size Report - Original List)
+>>
+endobj
+15 0 obj
+<<
+/Dest [ 6 0 R /XYZ 57.02362 372.0236 0 ] /Next 16 0 R /Parent 11 0 R /Prev 14 0 R /Title (Image Size Report - New List)
+>>
+endobj
+16 0 obj
+<<
+/Dest [ 6 0 R /XYZ 57.02362 237.0236 0 ] /Next 17 0 R /Parent 11 0 R /Prev 15 0 R /Title (Fixes Available Summary \(Original List\):)
+>>
+endobj
+17 0 obj
+<<
+/Dest [ 8 0 R /XYZ 57.02362 765.0236 0 ] /Next 18 0 R /Parent 11 0 R /Prev 16 0 R /Title (Fixes Available Summary \(New List\):)
+>>
+endobj
+18 0 obj
+<<
+/Dest [ 8 0 R /XYZ 57.02362 612.0236 0 ] /Parent 11 0 R /Prev 17 0 R /Title (Size Change Analysis)
+>>
+endobj
+19 0 obj
+<<
+/Count 3 /Kids [ 5 0 R 6 0 R 8 0 R ] /Type /Pages
+>>
+endobj
+20 0 obj
+<<
+/Length 17498
 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 20.17323 782.5701 cm
+1 0 0 1 57.02362 744.0236 cm
 q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL (Detailed Vulnerability Scans - Original List) Tj T* ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (Detailed Vulnerability Scans - Original List) Tj T* ET
 Q
 Q
 q
-1 0 0 1 20.17323 776.5701 cm
+1 0 0 1 57.02362 726.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Fixes Available Summary \(New List\):) Tj T* ET
+Q
 Q
 q
-1 0 0 1 15.92965 398.5701 cm
+1 0 0 1 57.02362 720.0236 cm
+Q
+q
+1 0 0 1 57.02362 222.0236 cm
 q
 1 1 1 rg
-n 0 378 563.4163 -54 re f*
+n 0 498 488.2176 -66 re f*
 .878431 .878431 .878431 rg
-n 0 324 563.4163 -30 re f*
+n 0 432 488.2176 -42 re f*
 1 1 1 rg
-n 0 294 563.4163 -42 re f*
+n 0 390 488.2176 -66 re f*
 .878431 .878431 .878431 rg
-n 0 252 563.4163 -54 re f*
+n 0 324 488.2176 -54 re f*
 1 1 1 rg
-n 0 198 563.4163 -30 re f*
+n 0 270 488.2176 -42 re f*
 .878431 .878431 .878431 rg
-n 0 168 563.4163 -42 re f*
+n 0 228 488.2176 -66 re f*
 1 1 1 rg
-n 0 126 563.4163 -54 re f*
+n 0 162 488.2176 -54 re f*
 .878431 .878431 .878431 rg
-n 0 72 563.4163 -30 re f*
+n 0 108 488.2176 -42 re f*
 1 1 1 rg
-n 0 42 563.4163 -42 re f*
+n 0 66 488.2176 -66 re f*
 0 0 0 rg
-BT /F2 10 Tf 12 TL ET
+BT /F3 10 Tf 12 TL ET
 q
-1 0 0 1 6 327 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 62.78937 0 Td (Image) Tj T* -62.78937 0 Td ET
-Q
-Q
-q
-1 0 0 1 172.4787 327 cm
+1 0 0 1 6 435 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 38 Tm /F2 10 Tf 12 TL 2.370012 0 Td (T) Tj T* .275 0 Td (y) Tj T* -0.275 0 Td (p) Tj T* .275 0 Td (e) Tj T* -2.645012 0 Td ET
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 49.72913 0 Td (Image) Tj T* -49.72913 0 Td ET
 Q
 Q
 q
-1 0 0 1 195.3288 327 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL .321445 0 Td (Criti) Tj T* 3.05 0 Td (cal) Tj T* -3.371445 0 Td ET
-Q
-Q
-q
-1 0 0 1 227.9717 327 cm
+1 0 0 1 146.3583 435 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F2 10 Tf 12 TL .098583 0 Td (Hi) Tj T* 1.945 0 Td (g) Tj T* -0 0 Td (h) Tj T* -2.043583 0 Td ET
+BT 1 0 0 1 0 38 Tm /F3 10 Tf 12 TL .970591 0 Td (T) Tj T* .275 0 Td (y) Tj T* -0.275 0 Td (p) Tj T* .275 0 Td (e) Tj T* -1.245591 0 Td ET
 Q
 Q
 q
-1 0 0 1 250.1688 327 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 38 Tm /F2 10 Tf 12 TL .112156 0 Td (Me) Tj T* 2.5 0 Td (di) Tj T* 1.39 0 Td (u) Tj T* -1.39 0 Td (m) Tj T* -2.612156 0 Td ET
-Q
-Q
-q
-1 0 0 1 276.2831 327 cm
+1 0 0 1 166.4094 435 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F2 10 Tf 12 TL 2.043583 0 Td (L) Tj T* -0 0 Td (o) Tj T* -0.835 0 Td (w) Tj T* -1.208583 0 Td ET
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL 1.377272 0 Td (Cri) Tj T* 1.11 0 Td (tic) Tj T* 1.665 0 Td (al) Tj T* -4.152272 0 Td ET
 Q
 Q
 q
-1 0 0 1 298.4803 327 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F2 10 Tf 12 TL 2.546445 0 Td (Wo) Tj T* 3.055 0 Td (nt) Tj T* -2.505 0 Td (Fix) Tj T* -3.096445 0 Td ET
-Q
-Q
-q
-1 0 0 1 331.1232 327 cm
+1 0 0 1 195.054 435 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F2 10 Tf 12 TL 2.370012 0 Td (T) Tj T* -1.665 0 Td (ot) Tj T* .55 0 Td (al) Tj T* -1.255012 0 Td ET
+BT 1 0 0 1 0 38 Tm /F3 10 Tf 12 TL .014567 0 Td (H) Tj T* 2.22 0 Td (i) Tj T* -1.665 0 Td (g) Tj T* 0 0 Td (h) Tj T* -0.569567 0 Td ET
 Q
 Q
 q
-1 0 0 1 353.9732 327 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL 7.054312 0 Td (Fixed) Tj T* -3.89 0 Td (Critical) Tj T* -3.164312 0 Td ET
-Q
-Q
-q
-1 0 0 1 406.2018 327 cm
+1 0 0 1 214.3031 435 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL .525734 0 Td (Fixed) Tj T* 1.95 0 Td (High) Tj T* -2.475734 0 Td ET
+BT 1 0 0 1 0 50 Tm /F3 10 Tf 12 TL 1.292818 0 Td (M) Tj T* 1.385 0 Td (e) Tj T* -1.665 0 Td (di) Tj T* 1.39 0 Td (u) Tj T* -1.39 0 Td (m) Tj T* -1.012818 0 Td ET
 Q
 Q
 q
-1 0 0 1 445.3733 327 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F2 10 Tf 12 TL 2.400023 0 Td (Fixed) Tj T* .005 0 Td (Mediu) Tj T* 10 0 Td (m) Tj T* -12.40502 0 Td ET
-Q
-Q
-q
-1 0 0 1 491.0733 327 cm
+1 0 0 1 237.2188 435 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F2 10 Tf 12 TL 1.94859 0 Td (Fixe) Tj T* 6.95 0 Td (d) Tj T* -6.945 0 Td (Low) Tj T* -1.95359 0 Td ET
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL .569567 0 Td (L) Tj T* 0 0 Td (o) Tj T* -0.835 0 Td (w) Tj T* .265433 0 Td ET
 Q
 Q
 q
-1 0 0 1 526.9805 327 cm
+1 0 0 1 256.4679 435 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL 2.157879 0 Td (Fixed) Tj T* 1.115 0 Td (Total) Tj T* -3.272879 0 Td ET
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL .547272 0 Td (Wo) Tj T* 3.055 0 Td (nt) Tj T* -2.505 0 Td (Fix) Tj T* -1.097272 0 Td ET
+Q
+Q
+q
+1 0 0 1 285.1124 435 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 50 Tm /F3 10 Tf 12 TL .970591 0 Td (T) Tj T* -0 0 Td (o) Tj T* 1.39 0 Td (t) Tj T* -1.115 0 Td (a) Tj T* 1.39 0 Td (l) Tj T* -2.635591 0 Td ET
+Q
+Q
+q
+1 0 0 1 305.1636 435 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 8.585636 0 Td (F-C) Tj T* -8.585636 0 Td ET
+Q
+Q
+q
+1 0 0 1 350.9949 435 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 2.856727 0 Td (F-H) Tj T* -2.856727 0 Td ET
+Q
+Q
+q
+1 0 0 1 385.3683 435 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 5.166181 0 Td (F-M) Tj T* -5.166181 0 Td ET
+Q
+Q
+q
+1 0 0 1 425.4707 435 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 1.979499 0 Td (F-L) Tj T* -1.979499 0 Td ET
+Q
+Q
+q
+1 0 0 1 456.9797 435 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 4.843954 0 Td (F-T) Tj T* -4.843954 0 Td ET
 Q
 Q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 297 cm
+1 0 0 1 6 405 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (registry.access.redhat.com/ubi9/o) Tj T* (penjdk-17:latest) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (registry.access.redhat.com/u) Tj T* (bi9/openjdk-17:latest) Tj T* ET
 Q
 Q
 q
-1 0 0 1 172.4787 297 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (tri) Tj T* (vy) Tj T* ET
-Q
-Q
-q
-1 0 0 1 195.3288 309 cm
+1 0 0 1 146.3583 393 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (tr) Tj T* (iv) Tj T* (y) Tj T* ET
 Q
 Q
 q
-1 0 0 1 227.9717 309 cm
+1 0 0 1 166.4094 417 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 250.1688 309 cm
+1 0 0 1 195.054 417 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (27) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 276.2831 297 cm
+1 0 0 1 214.3031 405 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2) Tj T* (7) Tj T* ET
+Q
+Q
+q
+1 0 0 1 237.2188 405 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (5) Tj T* (4) Tj T* ET
 Q
 Q
 q
-1 0 0 1 298.4803 309 cm
+1 0 0 1 256.4679 417 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 331.1232 297 cm
+1 0 0 1 285.1124 405 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (8) Tj T* (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 353.9732 309 cm
+1 0 0 1 305.1636 417 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 406.2018 309 cm
+1 0 0 1 350.9949 417 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 445.3733 309 cm
+1 0 0 1 385.3683 417 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 491.0733 309 cm
+1 0 0 1 425.4707 417 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 526.9805 309 cm
+1 0 0 1 456.9797 417 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 267 cm
+1 0 0 1 6 363 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (registry.access.redhat.com/ubi9/o) Tj T* (penjdk-17:latest) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (registry.access.redhat.com/u) Tj T* (bi9/openjdk-17:latest) Tj T* ET
 Q
 Q
 q
-1 0 0 1 172.4787 255 cm
+1 0 0 1 146.3583 327 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (gr) Tj T* (yp) Tj T* (e) Tj T* ET
+BT 1 0 0 1 0 50 Tm /F1 10 Tf 12 TL (g) Tj T* (r) Tj T* (y) Tj T* (p) Tj T* (e) Tj T* ET
 Q
 Q
 q
-1 0 0 1 195.3288 279 cm
+1 0 0 1 166.4094 375 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 227.9717 279 cm
+1 0 0 1 195.054 375 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (3) Tj T* ET
 Q
 Q
 q
-1 0 0 1 250.1688 279 cm
+1 0 0 1 214.3031 363 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (25) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2) Tj T* (5) Tj T* ET
 Q
 Q
 q
-1 0 0 1 276.2831 267 cm
+1 0 0 1 237.2188 363 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (5) Tj T* (4) Tj T* ET
 Q
 Q
 q
-1 0 0 1 298.4803 279 cm
+1 0 0 1 256.4679 375 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 331.1232 267 cm
+1 0 0 1 285.1124 363 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (8) Tj T* (6) Tj T* ET
 Q
 Q
 q
-1 0 0 1 353.9732 279 cm
+1 0 0 1 305.1636 375 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 406.2018 279 cm
+1 0 0 1 350.9949 375 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 445.3733 279 cm
+1 0 0 1 385.3683 375 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 491.0733 279 cm
+1 0 0 1 425.4707 375 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 526.9805 279 cm
+1 0 0 1 456.9797 375 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (3) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 237 cm
+1 0 0 1 6 309 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (node:20.18.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 172.4787 225 cm
+1 0 0 1 146.3583 285 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (tri) Tj T* (vy) Tj T* ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (tr) Tj T* (iv) Tj T* (y) Tj T* ET
 Q
 Q
 q
-1 0 0 1 195.3288 237 cm
+1 0 0 1 166.4094 309 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (6) Tj T* ET
 Q
 Q
 q
-1 0 0 1 227.9717 225 cm
+1 0 0 1 195.054 297 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (9) Tj T* (5) Tj T* ET
 Q
 Q
 q
-1 0 0 1 250.1688 225 cm
+1 0 0 1 214.3031 285 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (45) Tj T* (9) Tj T* ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (4) Tj T* (5) Tj T* (9) Tj T* ET
 Q
 Q
 q
-1 0 0 1 276.2831 213 cm
+1 0 0 1 237.2188 285 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (5) Tj T* (2) Tj T* (9) Tj T* ET
 Q
 Q
 q
-1 0 0 1 298.4803 237 cm
+1 0 0 1 256.4679 309 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 331.1232 201 cm
+1 0 0 1 285.1124 273 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 38 Tm /F1 10 Tf 12 TL (1) Tj T* (0) Tj T* (9) Tj T* (2) Tj T* ET
 Q
 Q
 q
-1 0 0 1 353.9732 237 cm
+1 0 0 1 305.1636 309 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 406.2018 237 cm
+1 0 0 1 350.9949 309 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 445.3733 237 cm
+1 0 0 1 385.3683 309 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 491.0733 237 cm
+1 0 0 1 425.4707 309 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 526.9805 237 cm
+1 0 0 1 456.9797 309 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 183 cm
+1 0 0 1 6 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (node:20.18.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 172.4787 171 cm
+1 0 0 1 146.3583 231 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (tri) Tj T* (vy) Tj T* ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (tr) Tj T* (iv) Tj T* (y) Tj T* ET
 Q
 Q
 q
-1 0 0 1 195.3288 183 cm
+1 0 0 1 166.4094 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 227.9717 183 cm
+1 0 0 1 195.054 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 250.1688 183 cm
+1 0 0 1 214.3031 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 276.2831 183 cm
+1 0 0 1 237.2188 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 298.4803 183 cm
+1 0 0 1 256.4679 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 331.1232 183 cm
+1 0 0 1 285.1124 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 353.9732 183 cm
+1 0 0 1 305.1636 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 406.2018 183 cm
+1 0 0 1 350.9949 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 445.3733 183 cm
+1 0 0 1 385.3683 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 491.0733 183 cm
+1 0 0 1 425.4707 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 526.9805 183 cm
+1 0 0 1 456.9797 255 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 153 cm
+1 0 0 1 6 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (node:20.18.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 172.4787 129 cm
+1 0 0 1 146.3583 165 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (gr) Tj T* (yp) Tj T* (e) Tj T* ET
+BT 1 0 0 1 0 50 Tm /F1 10 Tf 12 TL (g) Tj T* (r) Tj T* (y) Tj T* (p) Tj T* (e) Tj T* ET
 Q
 Q
 q
-1 0 0 1 195.3288 153 cm
+1 0 0 1 166.4094 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (6) Tj T* ET
 Q
 Q
 q
-1 0 0 1 227.9717 141 cm
+1 0 0 1 195.054 201 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (1) Tj T* (7) Tj T* ET
 Q
 Q
 q
-1 0 0 1 250.1688 153 cm
+1 0 0 1 214.3031 201 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (63) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (6) Tj T* (3) Tj T* ET
 Q
 Q
 q
-1 0 0 1 276.2831 141 cm
+1 0 0 1 237.2188 201 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (4) Tj T* (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 298.4803 153 cm
+1 0 0 1 256.4679 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 331.1232 129 cm
+1 0 0 1 285.1124 189 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (5) Tj T* (5) Tj T* (5) Tj T* ET
 Q
 Q
 q
-1 0 0 1 353.9732 153 cm
+1 0 0 1 305.1636 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 406.2018 153 cm
+1 0 0 1 350.9949 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 445.3733 153 cm
+1 0 0 1 385.3683 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 491.0733 153 cm
+1 0 0 1 425.4707 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 526.9805 153 cm
+1 0 0 1 456.9797 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 111 cm
+1 0 0 1 6 147 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (python:3.11) Tj T* ET
 Q
 Q
 q
-1 0 0 1 172.4787 99 cm
+1 0 0 1 146.3583 123 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (tri) Tj T* (vy) Tj T* ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (tr) Tj T* (iv) Tj T* (y) Tj T* ET
 Q
 Q
 q
-1 0 0 1 195.3288 111 cm
+1 0 0 1 166.4094 147 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (6) Tj T* ET
 Q
 Q
 q
-1 0 0 1 227.9717 99 cm
+1 0 0 1 195.054 135 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (9) Tj T* (9) Tj T* ET
 Q
 Q
 q
-1 0 0 1 250.1688 99 cm
+1 0 0 1 214.3031 123 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (46) Tj T* (5) Tj T* ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (4) Tj T* (6) Tj T* (5) Tj T* ET
 Q
 Q
 q
-1 0 0 1 276.2831 87 cm
+1 0 0 1 237.2188 123 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (5) Tj T* (5) Tj T* (4) Tj T* ET
 Q
 Q
 q
-1 0 0 1 298.4803 111 cm
+1 0 0 1 256.4679 147 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 331.1232 75 cm
+1 0 0 1 285.1124 111 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 38 Tm /F1 10 Tf 12 TL (1) Tj T* (1) Tj T* (2) Tj T* (7) Tj T* ET
 Q
 Q
 q
-1 0 0 1 353.9732 111 cm
+1 0 0 1 305.1636 147 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 406.2018 111 cm
+1 0 0 1 350.9949 147 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 445.3733 111 cm
+1 0 0 1 385.3683 147 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 491.0733 111 cm
+1 0 0 1 425.4707 147 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 526.9805 111 cm
+1 0 0 1 456.9797 147 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 57 cm
+1 0 0 1 6 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (python:3.11) Tj T* ET
 Q
 Q
 q
-1 0 0 1 172.4787 45 cm
+1 0 0 1 146.3583 69 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (tri) Tj T* (vy) Tj T* ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (tr) Tj T* (iv) Tj T* (y) Tj T* ET
 Q
 Q
 q
-1 0 0 1 195.3288 57 cm
+1 0 0 1 166.4094 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 227.9717 57 cm
+1 0 0 1 195.054 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 250.1688 57 cm
+1 0 0 1 214.3031 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 276.2831 57 cm
+1 0 0 1 237.2188 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 298.4803 57 cm
+1 0 0 1 256.4679 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 331.1232 57 cm
+1 0 0 1 285.1124 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 353.9732 57 cm
+1 0 0 1 305.1636 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 406.2018 57 cm
+1 0 0 1 350.9949 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 445.3733 57 cm
+1 0 0 1 385.3683 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 491.0733 57 cm
+1 0 0 1 425.4707 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 526.9805 57 cm
+1 0 0 1 456.9797 93 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 27 cm
+1 0 0 1 6 51 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (python:3.11) Tj T* ET
 Q
 Q
 q
-1 0 0 1 172.4787 3 cm
+1 0 0 1 146.3583 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (gr) Tj T* (yp) Tj T* (e) Tj T* ET
+BT 1 0 0 1 0 50 Tm /F1 10 Tf 12 TL (g) Tj T* (r) Tj T* (y) Tj T* (p) Tj T* (e) Tj T* ET
 Q
 Q
 q
-1 0 0 1 195.3288 27 cm
+1 0 0 1 166.4094 51 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (6) Tj T* ET
 Q
 Q
 q
-1 0 0 1 227.9717 15 cm
+1 0 0 1 195.054 39 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2) Tj T* (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 250.1688 27 cm
+1 0 0 1 214.3031 39 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (69) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (6) Tj T* (9) Tj T* ET
 Q
 Q
 q
-1 0 0 1 276.2831 15 cm
+1 0 0 1 237.2188 39 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (4) Tj T* (2) Tj T* ET
 Q
 Q
 q
-1 0 0 1 298.4803 27 cm
+1 0 0 1 256.4679 51 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 331.1232 3 cm
+1 0 0 1 285.1124 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (5) Tj T* (9) Tj T* (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 353.9732 27 cm
+1 0 0 1 305.1636 51 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 406.2018 27 cm
+1 0 0 1 350.9949 51 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 445.3733 27 cm
+1 0 0 1 385.3683 51 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 491.0733 27 cm
+1 0 0 1 425.4707 51 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 526.9805 27 cm
+1 0 0 1 456.9797 51 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
@@ -926,699 +982,233 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 324 m 563.4163 324 l S
-n 0 294 m 563.4163 294 l S
-n 0 252 m 563.4163 252 l S
-n 0 198 m 563.4163 198 l S
-n 0 168 m 563.4163 168 l S
-n 0 126 m 563.4163 126 l S
-n 0 72 m 563.4163 72 l S
-n 0 42 m 563.4163 42 l S
-n 166.4787 0 m 166.4787 378 l S
-n 189.3288 0 m 189.3288 378 l S
-n 221.9717 0 m 221.9717 378 l S
-n 244.1688 0 m 244.1688 378 l S
-n 270.2831 0 m 270.2831 378 l S
-n 292.4803 0 m 292.4803 378 l S
-n 325.1232 0 m 325.1232 378 l S
-n 347.9732 0 m 347.9732 378 l S
-n 400.2018 0 m 400.2018 378 l S
-n 439.3733 0 m 439.3733 378 l S
-n 485.0733 0 m 485.0733 378 l S
-n 520.9805 0 m 520.9805 378 l S
-n 0 378 m 563.4163 378 l S
-n 0 0 m 563.4163 0 l S
-n 0 0 m 0 378 l S
-n 563.4163 0 m 563.4163 378 l S
+n 0 432 m 488.2176 432 l S
+n 0 390 m 488.2176 390 l S
+n 0 324 m 488.2176 324 l S
+n 0 270 m 488.2176 270 l S
+n 0 228 m 488.2176 228 l S
+n 0 162 m 488.2176 162 l S
+n 0 108 m 488.2176 108 l S
+n 0 66 m 488.2176 66 l S
+n 140.3583 0 m 140.3583 498 l S
+n 160.4094 0 m 160.4094 498 l S
+n 189.054 0 m 189.054 498 l S
+n 208.3031 0 m 208.3031 498 l S
+n 231.2188 0 m 231.2188 498 l S
+n 250.4679 0 m 250.4679 498 l S
+n 279.1124 0 m 279.1124 498 l S
+n 299.1636 0 m 299.1636 498 l S
+n 344.9949 0 m 344.9949 498 l S
+n 379.3683 0 m 379.3683 498 l S
+n 419.4707 0 m 419.4707 498 l S
+n 450.9797 0 m 450.9797 498 l S
+n 0 498 m 488.2176 498 l S
+n 0 0 m 488.2176 0 l S
+n 0 0 m 0 498 l S
+n 488.2176 0 m 488.2176 498 l S
 Q
 Q
 Q
 q
-1 0 0 1 20.17323 392.5701 cm
+1 0 0 1 57.02362 222.0236 cm
 Q
 q
-1 0 0 1 20.17323 375.7701 cm
+1 0 0 1 57.02362 189.0236 cm
 q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL (Detailed Vulnerability Scans - New List) Tj T* ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (Detailed Vulnerability Scans - New List) Tj T* ET
 Q
 Q
 q
-1 0 0 1 20.17323 369.7701 cm
+1 0 0 1 57.02362 177.0236 cm
 Q
 q
-1 0 0 1 17.79496 111.7701 cm
+1 0 0 1 57.02362 81.02362 cm
 q
 1 1 1 rg
-n 0 258 559.6857 -42 re f*
+n 0 96 485.3532 -54 re f*
 .878431 .878431 .878431 rg
-n 0 216 559.6857 -30 re f*
-1 1 1 rg
-n 0 186 559.6857 -42 re f*
-.878431 .878431 .878431 rg
-n 0 144 559.6857 -30 re f*
-1 1 1 rg
-n 0 114 559.6857 -42 re f*
-.878431 .878431 .878431 rg
-n 0 72 559.6857 -30 re f*
-1 1 1 rg
-n 0 42 559.6857 -42 re f*
+n 0 42 485.3532 -42 re f*
 0 0 0 rg
-BT /F2 10 Tf 12 TL ET
+BT /F3 10 Tf 12 TL ET
 q
-1 0 0 1 6 219 cm
+1 0 0 1 6 45 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 42.61013 0 Td (Image) Tj T* -42.61013 0 Td ET
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 34.23504 0 Td (Image) Tj T* -34.23504 0 Td ET
 Q
 Q
 q
-1 0 0 1 132.1203 219 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL .777026 0 Td (Ty) Tj T* -0 0 Td (pe) Tj T* -0.777026 0 Td ET
-Q
-Q
-q
-1 0 0 1 157.3443 219 cm
+1 0 0 1 115.3701 45 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL 2.01718 0 Td (Criti) Tj T* 3.05 0 Td (cal) Tj T* -5.06718 0 Td ET
+BT 1 0 0 1 0 38 Tm /F3 10 Tf 12 TL 1.882008 0 Td (T) Tj T* .275 0 Td (y) Tj T* -0.275 0 Td (p) Tj T* .275 0 Td (e) Tj T* -2.157008 0 Td ET
 Q
 Q
 q
-1 0 0 1 193.3787 219 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F2 10 Tf 12 TL .098583 0 Td (Hi) Tj T* 1.945 0 Td (g) Tj T* -0 0 Td (h) Tj T* -2.043583 0 Td ET
-Q
-Q
-q
-1 0 0 1 215.5758 219 cm
+1 0 0 1 137.2441 45 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F2 10 Tf 12 TL 1.468744 0 Td (Me) Tj T* -0.555 0 Td (diu) Tj T* 3.055 0 Td (m) Tj T* -3.968744 0 Td ET
+BT 1 0 0 1 0 14 Tm /F3 10 Tf 12 TL 1.014297 0 Td (Crit) Tj T* .27 0 Td (ical) Tj T* -1.284297 0 Td ET
 Q
 Q
 q
-1 0 0 1 244.4033 219 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F2 10 Tf 12 TL 2.043583 0 Td (L) Tj T* -0 0 Td (o) Tj T* -0.835 0 Td (w) Tj T* -1.208583 0 Td ET
-Q
-Q
-q
-1 0 0 1 266.6005 219 cm
+1 0 0 1 168.4927 45 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL 1.18718 0 Td (Won) Tj T* .55 0 Td (t Fix) Tj T* -1.73718 0 Td ET
+BT 1 0 0 1 0 38 Tm /F3 10 Tf 12 TL .014567 0 Td (H) Tj T* 2.22 0 Td (i) Tj T* -1.665 0 Td (g) Tj T* 0 0 Td (h) Tj T* -0.569567 0 Td ET
 Q
 Q
 q
-1 0 0 1 302.6348 219 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL .502026 0 Td (To) Tj T* .275 0 Td (tal) Tj T* -0.777026 0 Td ET
-Q
-Q
-q
-1 0 0 1 327.8589 219 cm
+1 0 0 1 187.7418 45 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL 9.767487 0 Td (Fixed) Tj T* -3.89 0 Td (Critical) Tj T* -5.877487 0 Td ET
+BT 1 0 0 1 0 38 Tm /F3 10 Tf 12 TL 2.334438 0 Td (M) Tj T* -1.67 0 Td (ed) Tj T* 1.39 0 Td (iu) Tj T* -0 0 Td (m) Tj T* -2.054438 0 Td ET
 Q
 Q
 q
-1 0 0 1 385.5139 219 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL 2.560616 0 Td (Fixed) Tj T* 1.95 0 Td (High) Tj T* -4.510616 0 Td ET
-Q
-Q
-q
-1 0 0 1 428.7551 219 cm
+1 0 0 1 212.7407 45 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL 6.164052 0 Td (Fixed) Tj T* -5.83 0 Td (Medium) Tj T* -0.334052 0 Td ET
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL .569567 0 Td (L) Tj T* 0 0 Td (o) Tj T* -0.835 0 Td (w) Tj T* .265433 0 Td ET
 Q
 Q
 q
-1 0 0 1 479.2032 219 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL .758898 0 Td (Fixed) Tj T* 3.06 0 Td (Low) Tj T* -3.818898 0 Td ET
-Q
-Q
-q
-1 0 0 1 518.841 219 cm
+1 0 0 1 231.9898 45 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F2 10 Tf 12 TL 4.362334 0 Td (Fixed) Tj T* 1.115 0 Td (Total) Tj T* -5.477334 0 Td ET
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL 1.849297 0 Td (Wo) Tj T* 3.055 0 Td (nt) Tj T* -2.505 0 Td (Fix) Tj T* -2.399297 0 Td ET
+Q
+Q
+q
+1 0 0 1 263.2384 45 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL 1.882008 0 Td (T) Tj T* -1.665 0 Td (ot) Tj T* .55 0 Td (al) Tj T* -0.767008 0 Td ET
+Q
+Q
+q
+1 0 0 1 285.1124 45 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F3 10 Tf 12 TL 5.938875 0 Td (Fixed) Tj T* -3.89 0 Td (Critical) Tj T* -2.048875 0 Td ET
+Q
+Q
+q
+1 0 0 1 335.1102 45 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL 2.744156 0 Td (Fixe) Tj T* 6.95 0 Td (d) Tj T* -8.055 0 Td (High) Tj T* -1.639156 0 Td ET
+Q
+Q
+q
+1 0 0 1 372.6085 45 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL 1.424016 0 Td (Fixed) Tj T* .005 0 Td (Mediu) Tj T* 10 0 Td (m) Tj T* -11.42902 0 Td ET
+Q
+Q
+q
+1 0 0 1 416.3565 45 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL 1.181727 0 Td (Fixe) Tj T* 6.95 0 Td (d) Tj T* -6.945 0 Td (Low) Tj T* -1.186727 0 Td ET
+Q
+Q
+q
+1 0 0 1 450.73 45 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F3 10 Tf 12 TL 1.251586 0 Td (Fixed) Tj T* 1.115 0 Td (Total) Tj T* -2.366586 0 Td ET
 Q
 Q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 189 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-privat) Tj T* (e/jdk) Tj T* ET
-Q
-Q
-q
-1 0 0 1 132.1203 189 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (tri) Tj T* (vy) Tj T* ET
-Q
-Q
-q
-1 0 0 1 157.3443 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 193.3787 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 215.5758 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 244.4033 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 266.6005 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 302.6348 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 327.8589 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 385.5139 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 428.7551 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 479.2032 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 518.841 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 6 159 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-privat) Tj T* (e/jdk) Tj T* ET
-Q
-Q
-q
-1 0 0 1 132.1203 147 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (gr) Tj T* (yp) Tj T* (e) Tj T* ET
-Q
-Q
-q
-1 0 0 1 157.3443 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 193.3787 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 215.5758 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 244.4033 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 266.6005 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 302.6348 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
-Q
-Q
-q
-1 0 0 1 327.8589 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 385.5139 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 428.7551 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 479.2032 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 518.841 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 6 117 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-privat) Tj T* (e/node) Tj T* ET
-Q
-Q
-q
-1 0 0 1 132.1203 117 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (tri) Tj T* (vy) Tj T* ET
-Q
-Q
-q
-1 0 0 1 157.3443 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 193.3787 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 215.5758 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 244.4033 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 266.6005 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 302.6348 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 327.8589 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 385.5139 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 428.7551 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 479.2032 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 518.841 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 6 87 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-privat) Tj T* (e/node) Tj T* ET
-Q
-Q
-q
-1 0 0 1 132.1203 75 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (gr) Tj T* (yp) Tj T* (e) Tj T* ET
-Q
-Q
-q
-1 0 0 1 157.3443 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 193.3787 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 215.5758 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 244.4033 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 266.6005 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 302.6348 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2) Tj T* ET
-Q
-Q
-q
-1 0 0 1 327.8589 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 385.5139 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 428.7551 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 479.2032 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 518.841 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 6 45 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-privat) Tj T* (e/python) Tj T* ET
-Q
-Q
-q
-1 0 0 1 132.1203 45 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (tri) Tj T* (vy) Tj T* ET
-Q
-Q
-q
-1 0 0 1 157.3443 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 193.3787 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 215.5758 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 244.4033 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 266.6005 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 302.6348 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 327.8589 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 385.5139 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 428.7551 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 479.2032 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 518.841 57 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
 1 0 0 1 6 15 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-privat) Tj T* (e/python) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-pr) Tj T* (ivate/jdk) Tj T* ET
 Q
 Q
 q
-1 0 0 1 132.1203 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (gr) Tj T* (yp) Tj T* (e) Tj T* ET
-Q
-Q
-q
-1 0 0 1 157.3443 27 cm
+1 0 0 1 115.3701 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (tri) Tj T* (v) Tj T* (y) Tj T* ET
 Q
 Q
 q
-1 0 0 1 193.3787 27 cm
+1 0 0 1 137.2441 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 215.5758 27 cm
+1 0 0 1 168.4927 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 244.4033 27 cm
+1 0 0 1 187.7418 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 266.6005 27 cm
+1 0 0 1 212.7407 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 302.6348 27 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2) Tj T* ET
-Q
-Q
-q
-1 0 0 1 327.8589 27 cm
+1 0 0 1 231.9898 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 385.5139 27 cm
+1 0 0 1 263.2384 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 428.7551 27 cm
+1 0 0 1 285.1124 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 479.2032 27 cm
+1 0 0 1 335.1102 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 518.841 27 cm
+1 0 0 1 372.6085 27 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 416.3565 27 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 450.73 27 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
@@ -1629,98 +1219,574 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 216 m 559.6857 216 l S
-n 0 186 m 559.6857 186 l S
-n 0 144 m 559.6857 144 l S
-n 0 114 m 559.6857 114 l S
-n 0 72 m 559.6857 72 l S
-n 0 42 m 559.6857 42 l S
-n 126.1203 0 m 126.1203 258 l S
-n 151.3443 0 m 151.3443 258 l S
-n 187.3787 0 m 187.3787 258 l S
-n 209.5758 0 m 209.5758 258 l S
-n 238.4033 0 m 238.4033 258 l S
-n 260.6005 0 m 260.6005 258 l S
-n 296.6348 0 m 296.6348 258 l S
-n 321.8589 0 m 321.8589 258 l S
-n 379.5139 0 m 379.5139 258 l S
-n 422.7551 0 m 422.7551 258 l S
-n 473.2032 0 m 473.2032 258 l S
-n 512.841 0 m 512.841 258 l S
-n 0 258 m 559.6857 258 l S
-n 0 0 m 559.6857 0 l S
-n 0 0 m 0 258 l S
-n 559.6857 0 m 559.6857 258 l S
-Q
-Q
-Q
-q
-1 0 0 1 20.17323 105.7701 cm
-Q
-q
-1 0 0 1 20.17323 88.97008 cm
-q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL (Image Size Report - Original List) Tj T* ET
-Q
-Q
-q
-1 0 0 1 20.17323 82.97008 cm
-Q
-q
-1 0 0 1 20.17323 64.97008 cm
-q
-1 1 1 rg
-n 0 18 554.9291 -18 re f*
-0 0 0 rg
-BT /F2 10 Tf 12 TL ET
-q
-1 0 0 1 6 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 207.787 0 Td (Image) Tj T* -207.787 0 Td ET
-Q
-Q
-q
-1 0 0 1 462.474 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 20.72758 0 Td (Size \(MB\)) Tj T* -20.72758 0 Td ET
-Q
-Q
-q
-1 J
-1 j
-0 0 0 RG
-.25 w
-n 0 0 m 554.9291 0 l S
-n 456.474 0 m 456.474 18 l S
-n 0 18 m 554.9291 18 l S
-n 0 0 m 0 18 l S
-n 554.9291 0 m 554.9291 18 l S
+n 0 0 m 485.3532 0 l S
+n 0 42 m 485.3532 42 l S
+n 109.3701 0 m 109.3701 96 l S
+n 131.2441 0 m 131.2441 96 l S
+n 162.4927 0 m 162.4927 96 l S
+n 181.7418 0 m 181.7418 96 l S
+n 206.7407 0 m 206.7407 96 l S
+n 225.9898 0 m 225.9898 96 l S
+n 257.2384 0 m 257.2384 96 l S
+n 279.1124 0 m 279.1124 96 l S
+n 329.1102 0 m 329.1102 96 l S
+n 366.6085 0 m 366.6085 96 l S
+n 410.3565 0 m 410.3565 96 l S
+n 444.73 0 m 444.73 96 l S
+n 0 96 m 485.3532 96 l S
+n 0 0 m 0 96 l S
+n 485.3532 0 m 485.3532 96 l S
 Q
 Q
 Q
  
 endstream
 endobj
-12 0 obj
+21 0 obj
 <<
-/Length 9891
+/Length 13158
 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 20.17323 721.3701 cm
+1 0 0 1 57.02362 519.0236 cm
 q
 1 1 1 rg
-n 0 72 554.9291 -18 re f*
+n 0 246 485.3532 -54 re f*
 .878431 .878431 .878431 rg
-n 0 54 554.9291 -18 re f*
+n 0 192 485.3532 -42 re f*
 1 1 1 rg
-n 0 36 554.9291 -18 re f*
+n 0 150 485.3532 -54 re f*
 .878431 .878431 .878431 rg
-n 0 18 554.9291 -18 re f*
+n 0 96 485.3532 -42 re f*
+1 1 1 rg
+n 0 54 485.3532 -54 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 219 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-pr) Tj T* (ivate/jdk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 115.3701 195 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 38 Tm /F1 10 Tf 12 TL (gr) Tj T* (y) Tj T* (p) Tj T* (e) Tj T* ET
+Q
+Q
+q
+1 0 0 1 137.2441 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 168.4927 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 187.7418 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 212.7407 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 231.9898 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 263.2384 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
+Q
+Q
+q
+1 0 0 1 285.1124 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 335.1102 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 372.6085 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 416.3565 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 450.73 231 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-pr) Tj T* (ivate/node) Tj T* ET
+Q
+Q
+q
+1 0 0 1 115.3701 153 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (tri) Tj T* (v) Tj T* (y) Tj T* ET
+Q
+Q
+q
+1 0 0 1 137.2441 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 168.4927 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 187.7418 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 212.7407 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 231.9898 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 263.2384 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 285.1124 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 335.1102 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 372.6085 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 416.3565 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 450.73 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 123 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-pr) Tj T* (ivate/node) Tj T* ET
+Q
+Q
+q
+1 0 0 1 115.3701 99 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 38 Tm /F1 10 Tf 12 TL (gr) Tj T* (y) Tj T* (p) Tj T* (e) Tj T* ET
+Q
+Q
+q
+1 0 0 1 137.2441 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 168.4927 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 187.7418 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 212.7407 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 231.9898 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 263.2384 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2) Tj T* ET
+Q
+Q
+q
+1 0 0 1 285.1124 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 335.1102 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 372.6085 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 416.3565 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 450.73 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-pr) Tj T* (ivate/python) Tj T* ET
+Q
+Q
+q
+1 0 0 1 115.3701 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (tri) Tj T* (v) Tj T* (y) Tj T* ET
+Q
+Q
+q
+1 0 0 1 137.2441 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 168.4927 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 187.7418 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 212.7407 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 231.9898 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 263.2384 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 285.1124 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 335.1102 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 372.6085 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 416.3565 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 450.73 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 27 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-pr) Tj T* (ivate/python) Tj T* ET
+Q
+Q
+q
+1 0 0 1 115.3701 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 38 Tm /F1 10 Tf 12 TL (gr) Tj T* (y) Tj T* (p) Tj T* (e) Tj T* ET
+Q
+Q
+q
+1 0 0 1 137.2441 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 168.4927 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 187.7418 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 212.7407 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 231.9898 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 263.2384 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2) Tj T* ET
+Q
+Q
+q
+1 0 0 1 285.1124 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 335.1102 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 372.6085 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 416.3565 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 450.73 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 246 m 485.3532 246 l S
+n 0 192 m 485.3532 192 l S
+n 0 150 m 485.3532 150 l S
+n 0 96 m 485.3532 96 l S
+n 0 54 m 485.3532 54 l S
+n 109.3701 0 m 109.3701 246 l S
+n 131.2441 0 m 131.2441 246 l S
+n 162.4927 0 m 162.4927 246 l S
+n 181.7418 0 m 181.7418 246 l S
+n 206.7407 0 m 206.7407 246 l S
+n 225.9898 0 m 225.9898 246 l S
+n 257.2384 0 m 257.2384 246 l S
+n 279.1124 0 m 279.1124 246 l S
+n 329.1102 0 m 329.1102 246 l S
+n 366.6085 0 m 366.6085 246 l S
+n 410.3565 0 m 410.3565 246 l S
+n 444.73 0 m 444.73 246 l S
+n 0 0 m 0 246 l S
+n 485.3532 0 m 485.3532 246 l S
+n 0 0 m 485.3532 0 l S
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 519.0236 cm
+Q
+q
+1 0 0 1 57.02362 486.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (Image Size Report - Original List) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 474.0236 cm
+Q
+q
+1 0 0 1 57.02362 384.0236 cm
+q
+1 1 1 rg
+n 0 90 481.2283 -18 re f*
+.878431 .878431 .878431 rg
+n 0 72 481.2283 -18 re f*
+1 1 1 rg
+n 0 54 481.2283 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 481.2283 -18 re f*
+1 1 1 rg
+n 0 18 481.2283 -18 re f*
+0 0 0 rg
+BT /F3 10 Tf 12 TL ET
+q
+1 0 0 1 6 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 177.4746 0 Td (Image) Tj T* -177.4746 0 Td ET
+Q
+Q
+q
+1 0 0 1 401.8491 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 14.18961 0 Td (Size \(MB\)) Tj T* -14.18961 0 Td ET
+Q
+Q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1731,7 +1797,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (registry.access.redhat.com/ubi9/openjdk-17:la
 Q
 Q
 q
-1 0 0 1 462.474 57 cm
+1 0 0 1 401.8491 57 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (401.34) Tj T* ET
@@ -1745,7 +1811,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (node:20.18.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 462.474 39 cm
+1 0 0 1 401.8491 39 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1067.81) Tj T* ET
@@ -1759,7 +1825,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (python:3.11) Tj T* ET
 Q
 Q
 q
-1 0 0 1 462.474 21 cm
+1 0 0 1 401.8491 21 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (989.95) Tj T* ET
@@ -1773,7 +1839,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Total Size) Tj T* ET
 Q
 Q
 q
-1 0 0 1 462.474 3 cm
+1 0 0 1 401.8491 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2459.10) Tj T* ET
@@ -1784,57 +1850,57 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 72 m 554.9291 72 l S
-n 0 54 m 554.9291 54 l S
-n 0 36 m 554.9291 36 l S
-n 0 18 m 554.9291 18 l S
-n 456.474 0 m 456.474 72 l S
-n 0 0 m 0 72 l S
-n 554.9291 0 m 554.9291 72 l S
-n 0 0 m 554.9291 0 l S
+n 0 72 m 481.2283 72 l S
+n 0 54 m 481.2283 54 l S
+n 0 36 m 481.2283 36 l S
+n 0 18 m 481.2283 18 l S
+n 395.8491 0 m 395.8491 90 l S
+n 0 90 m 481.2283 90 l S
+n 0 0 m 481.2283 0 l S
+n 0 0 m 0 90 l S
+n 481.2283 0 m 481.2283 90 l S
 Q
 Q
 Q
 q
-1 0 0 1 20.17323 715.3701 cm
+1 0 0 1 57.02362 384.0236 cm
 Q
 q
-1 0 0 1 20.17323 698.5701 cm
+1 0 0 1 57.02362 351.0236 cm
 q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL (Image Size Report - New List) Tj T* ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (Image Size Report - New List) Tj T* ET
 Q
 Q
 q
-1 0 0 1 20.17323 692.5701 cm
+1 0 0 1 57.02362 339.0236 cm
 Q
 q
-1 0 0 1 20.17323 602.5701 cm
+1 0 0 1 57.02362 249.0236 cm
 q
 1 1 1 rg
-n 0 90 554.9291 -18 re f*
+n 0 90 481.2283 -18 re f*
 .878431 .878431 .878431 rg
-n 0 72 554.9291 -18 re f*
+n 0 72 481.2283 -18 re f*
 1 1 1 rg
-n 0 54 554.9291 -18 re f*
+n 0 54 481.2283 -18 re f*
 .878431 .878431 .878431 rg
-n 0 36 554.9291 -18 re f*
+n 0 36 481.2283 -18 re f*
 1 1 1 rg
-n 0 18 554.9291 -18 re f*
+n 0 18 481.2283 -18 re f*
 0 0 0 rg
-BT /F2 10 Tf 12 TL ET
+BT /F3 10 Tf 12 TL ET
 q
 1 0 0 1 6 75 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 190.6643 0 Td (Image) Tj T* -190.6643 0 Td ET
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 162.626 0 Td (Image) Tj T* -162.626 0 Td ET
 Q
 Q
 q
-1 0 0 1 428.2287 75 cm
+1 0 0 1 372.152 75 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 37.85022 0 Td (Size \(MB\)) Tj T* -37.85022 0 Td ET
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 29.03817 0 Td (Size \(MB\)) Tj T* -29.03817 0 Td ET
 Q
 Q
 0 0 0 rg
@@ -1847,7 +1913,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-private/jdk) Tj T* ET
 Q
 Q
 q
-1 0 0 1 428.2287 57 cm
+1 0 0 1 372.152 57 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (246.53) Tj T* ET
@@ -1861,7 +1927,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-private/node) Tj T* ET
 Q
 Q
 q
-1 0 0 1 428.2287 39 cm
+1 0 0 1 372.152 39 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (142.58) Tj T* ET
@@ -1875,7 +1941,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (cgr.dev/chainguard-private/python) Tj T* ET
 Q
 Q
 q
-1 0 0 1 428.2287 21 cm
+1 0 0 1 372.152 21 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (59.28) Tj T* ET
@@ -1889,7 +1955,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Total Size) Tj T* ET
 Q
 Q
 q
-1 0 0 1 428.2287 3 cm
+1 0 0 1 372.152 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (448.39) Tj T* ET
@@ -1900,67 +1966,66 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 72 m 554.9291 72 l S
-n 0 54 m 554.9291 54 l S
-n 0 36 m 554.9291 36 l S
-n 0 18 m 554.9291 18 l S
-n 422.2287 0 m 422.2287 90 l S
-n 0 90 m 554.9291 90 l S
-n 0 0 m 554.9291 0 l S
+n 0 72 m 481.2283 72 l S
+n 0 54 m 481.2283 54 l S
+n 0 36 m 481.2283 36 l S
+n 0 18 m 481.2283 18 l S
+n 366.152 0 m 366.152 90 l S
+n 0 90 m 481.2283 90 l S
+n 0 0 m 481.2283 0 l S
 n 0 0 m 0 90 l S
-n 554.9291 0 m 554.9291 90 l S
+n 481.2283 0 m 481.2283 90 l S
 Q
 Q
 Q
 q
-1 0 0 1 20.17323 596.5701 cm
+1 0 0 1 57.02362 249.0236 cm
 Q
 q
-1 0 0 1 20.17323 579.7701 cm
+1 0 0 1 57.02362 216.0236 cm
 q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL (Fixes Available Summary \(Original List\):) Tj T* ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (Fixes Available Summary \(Original List\):) Tj T* ET
 Q
 Q
 q
-1 0 0 1 20.17323 573.7701 cm
+1 0 0 1 57.02362 204.0236 cm
 Q
 q
-1 0 0 1 20.17323 465.7701 cm
+1 0 0 1 57.02362 96.02362 cm
 q
 1 1 1 rg
-n 0 108 554.9291 -18 re f*
+n 0 108 481.2283 -18 re f*
 .878431 .878431 .878431 rg
-n 0 90 554.9291 -18 re f*
+n 0 90 481.2283 -18 re f*
 1 1 1 rg
-n 0 72 554.9291 -18 re f*
+n 0 72 481.2283 -18 re f*
 .878431 .878431 .878431 rg
-n 0 54 554.9291 -18 re f*
+n 0 54 481.2283 -18 re f*
 1 1 1 rg
-n 0 36 554.9291 -18 re f*
+n 0 36 481.2283 -18 re f*
 .878431 .878431 .878431 rg
-n 0 18 554.9291 -18 re f*
+n 0 18 481.2283 -18 re f*
 0 0 0 rg
-BT /F2 10 Tf 12 TL ET
+BT /F3 10 Tf 12 TL ET
 q
 1 0 0 1 6 93 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 145.4788 0 Td (Fix Type) Tj T* -145.4788 0 Td ET
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 122.6666 0 Td (Fix Type) Tj T* -122.6666 0 Td ET
 Q
 Q
 q
-1 0 0 1 349.5276 93 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 28.29909 0 Td (Total) Tj T* -28.29909 0 Td ET
-Q
-Q
-q
-1 0 0 1 442.0157 93 cm
+1 0 0 1 303.9033 93 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 33.72669 0 Td (Average) Tj T* -33.72669 0 Td ET
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 22.15736 0 Td (Total) Tj T* -22.15736 0 Td ET
+Q
+Q
+q
+1 0 0 1 384.108 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 25.83018 0 Td (Average) Tj T* -25.83018 0 Td ET
 Q
 Q
 0 0 0 rg
@@ -1973,14 +2038,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 75 cm
+1 0 0 1 303.9033 75 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (7) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 75 cm
+1 0 0 1 384.108 75 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -1994,14 +2059,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Critical Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 57 cm
+1 0 0 1 303.9033 57 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 57 cm
+1 0 0 1 384.108 57 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -2015,14 +2080,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (High Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 39 cm
+1 0 0 1 303.9033 39 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (5) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 39 cm
+1 0 0 1 384.108 39 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -2036,14 +2101,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Medium Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 21 cm
+1 0 0 1 303.9033 21 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 21 cm
+1 0 0 1 384.108 21 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -2057,14 +2122,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Low Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 3 cm
+1 0 0 1 303.9033 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 3 cm
+1 0 0 1 384.108 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -2075,69 +2140,77 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 90 m 554.9291 90 l S
-n 0 72 m 554.9291 72 l S
-n 0 54 m 554.9291 54 l S
-n 0 36 m 554.9291 36 l S
-n 0 18 m 554.9291 18 l S
-n 343.5276 0 m 343.5276 108 l S
-n 436.0157 0 m 436.0157 108 l S
-n 0 108 m 554.9291 108 l S
-n 0 0 m 554.9291 0 l S
+n 0 90 m 481.2283 90 l S
+n 0 72 m 481.2283 72 l S
+n 0 54 m 481.2283 54 l S
+n 0 36 m 481.2283 36 l S
+n 0 18 m 481.2283 18 l S
+n 297.9033 0 m 297.9033 108 l S
+n 378.108 0 m 378.108 108 l S
+n 0 108 m 481.2283 108 l S
+n 0 0 m 481.2283 0 l S
 n 0 0 m 0 108 l S
-n 554.9291 0 m 554.9291 108 l S
+n 481.2283 0 m 481.2283 108 l S
 Q
 Q
 Q
 q
-1 0 0 1 20.17323 459.7701 cm
+1 0 0 1 57.02362 96.02362 cm
+Q
+ 
+endstream
+endobj
+22 0 obj
+<<
+/Length 4172
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 57.02362 744.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (Fixes Available Summary \(New List\):) Tj T* ET
+Q
 Q
 q
-1 0 0 1 20.17323 442.9701 cm
-q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL (Fixes Available Summary \(New List\):) Tj T* ET
-Q
+1 0 0 1 57.02362 732.0236 cm
 Q
 q
-1 0 0 1 20.17323 436.9701 cm
-Q
-q
-1 0 0 1 20.17323 328.9701 cm
+1 0 0 1 57.02362 624.0236 cm
 q
 1 1 1 rg
-n 0 108 554.9291 -18 re f*
+n 0 108 481.2283 -18 re f*
 .878431 .878431 .878431 rg
-n 0 90 554.9291 -18 re f*
+n 0 90 481.2283 -18 re f*
 1 1 1 rg
-n 0 72 554.9291 -18 re f*
+n 0 72 481.2283 -18 re f*
 .878431 .878431 .878431 rg
-n 0 54 554.9291 -18 re f*
+n 0 54 481.2283 -18 re f*
 1 1 1 rg
-n 0 36 554.9291 -18 re f*
+n 0 36 481.2283 -18 re f*
 .878431 .878431 .878431 rg
-n 0 18 554.9291 -18 re f*
+n 0 18 481.2283 -18 re f*
 0 0 0 rg
-BT /F2 10 Tf 12 TL ET
+BT /F3 10 Tf 12 TL ET
 q
 1 0 0 1 6 93 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 145.4788 0 Td (Fix Type) Tj T* -145.4788 0 Td ET
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 122.6666 0 Td (Fix Type) Tj T* -122.6666 0 Td ET
 Q
 Q
 q
-1 0 0 1 349.5276 93 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 28.29909 0 Td (Total) Tj T* -28.29909 0 Td ET
-Q
-Q
-q
-1 0 0 1 442.0157 93 cm
+1 0 0 1 303.9033 93 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 33.72669 0 Td (Average) Tj T* -33.72669 0 Td ET
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 22.15736 0 Td (Total) Tj T* -22.15736 0 Td ET
+Q
+Q
+q
+1 0 0 1 384.108 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 25.83018 0 Td (Average) Tj T* -25.83018 0 Td ET
 Q
 Q
 0 0 0 rg
@@ -2150,14 +2223,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 75 cm
+1 0 0 1 303.9033 75 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 75 cm
+1 0 0 1 384.108 75 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -2171,14 +2244,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Critical Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 57 cm
+1 0 0 1 303.9033 57 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 57 cm
+1 0 0 1 384.108 57 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -2192,14 +2265,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (High Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 39 cm
+1 0 0 1 303.9033 39 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 39 cm
+1 0 0 1 384.108 39 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -2213,14 +2286,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Medium Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 21 cm
+1 0 0 1 303.9033 21 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 21 cm
+1 0 0 1 384.108 21 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -2234,14 +2307,14 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Low Fixes Available) Tj T* ET
 Q
 Q
 q
-1 0 0 1 349.5276 3 cm
+1 0 0 1 303.9033 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 442.0157 3 cm
+1 0 0 1 384.108 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.00) Tj T* ET
@@ -2252,76 +2325,51 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 90 m 554.9291 90 l S
-n 0 72 m 554.9291 72 l S
-n 0 54 m 554.9291 54 l S
-n 0 36 m 554.9291 36 l S
-n 0 18 m 554.9291 18 l S
-n 343.5276 0 m 343.5276 108 l S
-n 436.0157 0 m 436.0157 108 l S
-n 0 108 m 554.9291 108 l S
-n 0 0 m 554.9291 0 l S
+n 0 90 m 481.2283 90 l S
+n 0 72 m 481.2283 72 l S
+n 0 54 m 481.2283 54 l S
+n 0 36 m 481.2283 36 l S
+n 0 18 m 481.2283 18 l S
+n 297.9033 0 m 297.9033 108 l S
+n 378.108 0 m 378.108 108 l S
+n 0 108 m 481.2283 108 l S
+n 0 0 m 481.2283 0 l S
 n 0 0 m 0 108 l S
-n 554.9291 0 m 554.9291 108 l S
+n 481.2283 0 m 481.2283 108 l S
 Q
 Q
 Q
 q
-1 0 0 1 20.17323 322.9701 cm
+1 0 0 1 57.02362 624.0236 cm
 Q
 q
-1 0 0 1 20.17323 300.5701 cm
+1 0 0 1 57.02362 591.0236 cm
 q
-BT 1 0 0 1 0 2.4 Tm 14.4 TL /F2 12 Tf 0 .2 .4 rg (Size Change Analysis) Tj T* ET
-Q
-Q
-q
-1 0 0 1 20.17323 288.5701 cm
-Q
-q
-1 0 0 1 20.17323 288.5701 cm
-Q
-q
-1 0 0 1 20.17323 277.7701 cm
-q
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL 10.85 0 Td (\177) Tj T* -10.85 0 Td ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (Size Change Analysis) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
-q
-BT 1 0 0 1 0 1.8 Tm 10.8 TL /F2 9 Tf .2 .2 .2 rg (Original Total Size:) Tj /F1 9 Tf ( 2459.10 MB) Tj T* ET
-Q
+1 0 0 1 57.02362 579.0236 cm
 Q
 q
-Q
-Q
-Q
-q
-1 0 0 1 20.17323 271.7701 cm
+1 0 0 1 57.02362 579.0236 cm
 Q
 q
-1 0 0 1 20.17323 260.9701 cm
+1 0 0 1 57.02362 567.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
 1 0 0 1 6 -3 cm
 q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL 10.85 0 Td (\177) Tj T* -10.85 0 Td ET
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
 Q
 Q
 q
 1 0 0 1 23 -3 cm
 q
-BT 1 0 0 1 0 1.8 Tm 10.8 TL /F2 9 Tf .2 .2 .2 rg (New Total Size:) Tj /F1 9 Tf ( 448.39 MB) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F3 10 Tf 0 0 0 rg (Original Total Size:) Tj /F1 10 Tf ( 2459.10 MB) Tj T* ET
 Q
 Q
 q
@@ -2329,24 +2377,24 @@ Q
 Q
 Q
 q
-1 0 0 1 20.17323 254.9701 cm
+1 0 0 1 57.02362 561.0236 cm
 Q
 q
-1 0 0 1 20.17323 244.1701 cm
+1 0 0 1 57.02362 549.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
 1 0 0 1 6 -3 cm
 q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL 10.85 0 Td (\177) Tj T* -10.85 0 Td ET
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
 Q
 Q
 q
 1 0 0 1 23 -3 cm
 q
-BT 1 0 0 1 0 1.8 Tm 10.8 TL /F2 9 Tf .2 .2 .2 rg (Size Difference:) Tj /F1 9 Tf ( -2010.71 MB) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F3 10 Tf 0 0 0 rg (New Total Size:) Tj /F1 10 Tf ( 448.39 MB) Tj T* ET
 Q
 Q
 q
@@ -2354,24 +2402,24 @@ Q
 Q
 Q
 q
-1 0 0 1 20.17323 238.1701 cm
+1 0 0 1 57.02362 543.0236 cm
 Q
 q
-1 0 0 1 20.17323 227.3701 cm
+1 0 0 1 57.02362 531.0236 cm
 q
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
 1 0 0 1 6 -3 cm
 q
-.2 .2 .2 rg
-BT 1 0 0 1 0 1.8 Tm /F1 9 Tf 10.8 TL 10.85 0 Td (\177) Tj T* -10.85 0 Td ET
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
 Q
 Q
 q
 1 0 0 1 23 -3 cm
 q
-BT 1 0 0 1 0 1.8 Tm 10.8 TL /F2 9 Tf .2 .2 .2 rg (Percentage Change:) Tj /F1 9 Tf ( -81.77%) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F3 10 Tf 0 0 0 rg (Size Difference:) Tj /F1 10 Tf ( -2010.71 MB) Tj T* ET
 Q
 Q
 q
@@ -2379,54 +2427,95 @@ Q
 Q
 Q
 q
-1 0 0 1 20.17323 227.3701 cm
+1 0 0 1 57.02362 525.0236 cm
+Q
+q
+1 0 0 1 57.02362 513.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F3 10 Tf 0 0 0 rg (Percentage Change:) Tj /F1 10 Tf ( -81.77%) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 513.0236 cm
 Q
  
 endstream
 endobj
-13 0 obj
+23 0 obj
 <<
-/Nums [ 0 14 0 R 1 15 0 R ]
+/Nums [ 0 24 0 R 1 25 0 R 2 26 0 R ]
 >>
 endobj
-14 0 obj
+24 0 obj
 <<
 /S /D /St 1
 >>
 endobj
-15 0 obj
+25 0 obj
 <<
 /S /D /St 2
 >>
 endobj
+26 0 obj
+<<
+/S /D /St 3
+>>
+endobj
 xref
-0 16
+0 27
 0000000000 65535 f 
 0000000073 00000 n 
-0000000114 00000 n 
-0000000221 00000 n 
-0000000333 00000 n 
-0000000538 00000 n 
-0000000743 00000 n 
-0000000847 00000 n 
-0000001104 00000 n 
-0000001175 00000 n 
-0000001281 00000 n 
-0000001347 00000 n 
-0000025496 00000 n 
-0000035439 00000 n 
-0000035489 00000 n 
-0000035523 00000 n 
+0000000134 00000 n 
+0000000241 00000 n 
+0000000350 00000 n 
+0000000462 00000 n 
+0000000667 00000 n 
+0000000872 00000 n 
+0000000977 00000 n 
+0000001182 00000 n 
+0000001287 00000 n 
+0000001545 00000 n 
+0000001619 00000 n 
+0000001764 00000 n 
+0000001917 00000 n 
+0000002064 00000 n 
+0000002206 00000 n 
+0000002362 00000 n 
+0000002513 00000 n 
+0000002634 00000 n 
+0000002706 00000 n 
+0000020257 00000 n 
+0000033468 00000 n 
+0000037692 00000 n 
+0000037751 00000 n 
+0000037785 00000 n 
+0000037819 00000 n 
 trailer
 <<
 /ID 
-[<6342cca132e90b4dab77e6f88b098ef0><6342cca132e90b4dab77e6f88b098ef0>]
+[<e2508a58915aef95896da03ab9845900><e2508a58915aef95896da03ab9845900>]
 % ReportLab generated PDF document -- digest (http://www.reportlab.com)
 
-/Info 7 0 R
-/Root 6 0 R
-/Size 16
+/Info 10 0 R
+/Root 9 0 R
+/Size 27
 >>
 startxref
-35557
+37853
 %%EOF
