@@ -63,5 +63,5 @@ The analysis of the **Original** and **Chainguard** container images reveals sig
 | **High**    | $high_vuln_file1     | $high_vuln_file2     | **$reduction_high**     |
 | **Medium**  | $medium_vuln_file1   | $medium_vuln_file2   | **$reduction_medium**   |
 | **Low**     | $low_vuln_file1      | $low_vuln_file2      | **$reduction_low**      |
-
+| **Total**   | $((critical_vuln_file1 + high_vuln_file1 + medium_vuln_file1 + low_vuln_file1)) | $((critical_vuln_file2 + high_vuln_file2 + medium_vuln_file2 + low_vuln_file2)) | **$total_reduction** |
 EOF
