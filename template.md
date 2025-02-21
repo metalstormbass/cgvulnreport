@@ -1,29 +1,14 @@
 # **Image Vulnerability Report** 
 
 **Prepared for:**  
-<img src="[CUSTOMER LOGO PLACEHOLDER]" alt="Customer Logo" width="200">
+<img src="logo.png" alt="Customer Logo" width="200">
 
 **Prepared by:**  
 <img src="cg-logo.png" alt="Chainguard Logo" width="200">  
 
 ---
 
-## **Executive Summary**
-
-[EXECUTIVE SUMMARY PASTED HERE]
-
----
-
-## **Analysis: Original Images**
-
-[ORIGINAL IMAGES CONTENT PASTED HERE]
-
----
-
-## **Analysis: Chainguard Images**
-
-[CHAINGUARD CONTENT PASTED HERE]
-
+<INSERT OUTPUT FROM SCRIPT HERE>
 
 <footer>
 <hr>
