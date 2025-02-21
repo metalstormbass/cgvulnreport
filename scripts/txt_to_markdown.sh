@@ -77,4 +77,3 @@ generate_txt2md() {
     return 0
 }
 
-

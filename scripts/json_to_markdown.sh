@@ -24,5 +24,4 @@ json2md() {
         "| \(.image | sub("@.*$"; "")) | \(.scan.type) | \(.scan.critical) | \(.scan.high) | \(.scan.medium) | \(.scan.low) | \(.scan.wontfix) | \(.scan.total) | \(.scan.fixed_critical) | \(.scan.fixed_high) | \(.scan.fixed_medium) | \(.scan.fixed_low) | \(.scan.fixed_total) |"'
 }
 
-# Example usage:
-# generate_vulnerability_report "$1"
+
