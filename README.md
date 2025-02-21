@@ -2,7 +2,7 @@
 
 ## Usage
 
-**Note: for best results, use VS Code with the use Markdown PDF plugin for VS Code by yzane**
+**Note: for best results, use VS Code**
 
 Clone Repo
 
@@ -66,28 +66,11 @@ Find logo and save it in this directory. Update the template.md:
 <img src="logo.png" alt="Customer Logo" width="200">
 ```
 
-Copy and paste the output from the script into the appropriate sections in the template. It is structure as such:
+Copy and paste the output from the script into the template
 
 ```
- ./metascript.sh                                         
-### **Image Size Report**
-This table lists the disk sizes of the analyzed images to highlight storage considerations.
-
-<other output continued - This is the original image output>
-
-
-
-### **Image Size Report**
-This table lists the disk sizes of the analyzed images to highlight storage considerations.
-<other output continued - This is the chainguard output>
-
-
-
-The analysis of the **Original** and **Chainguard** container images reveals significant improvements in both **security** and **image size**. 
-
-<other output continued - this is the executive summary>
+ ./metascript. 
 
 ```
-
 
 To get the best results for PDF output, use Markdown PDF plugin for VS Code. **Export the completed template to HTML** and then print that HTML to PDF.
