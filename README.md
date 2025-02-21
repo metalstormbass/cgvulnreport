@@ -31,8 +31,8 @@ Update ```scan_script_chainguard.sh``` with the Chainguard equivalent images
 ```
 images=(
  "cgr.dev/chainguard-private/nginx:latest"
-  "cgr.dev/chainguard-private/python:latest"
   "cgr.dev/chainguard-private/mysql:latest"
+  "cgr.dev/chainguard-private/python:latest"
   "cgr.dev/chainguard-private/go:latest"
   "cgr.dev/chainguard-private/opentelemetry-collector-contrib:latest"
   "cgr.dev/chainguard-private/redis:latest"
