@@ -1,11 +1,5 @@
-# Check if the input file is provided
-if [ -z "$1" ]; then
-    echo "Usage: $0 <scan_script> <cg_scan_script>"
-    exit 1
-fi
-
 # Read the input file
-input_file1="$1"
+input_file1="scan_script.sh"
 
 ./"$input_file1" > out1.txt
 
@@ -21,7 +15,7 @@ echo ""
 echo ""
 
 # Read the input file
-input_file1="$2"
+input_file1="scan_script_chainguard.sh"
 
 ./"$input_file1" > out2.txt
 
