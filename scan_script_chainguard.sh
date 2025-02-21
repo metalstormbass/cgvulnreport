@@ -18,8 +18,8 @@ fi
 
 images=(
  "cgr.dev/chainguard-private/nginx:latest"
-  "cgr.dev/chainguard-private/python:latest"
-  "cgr.dev/chainguard-private/mysql:latest"
+ "cgr.dev/chainguard-private/mysql:latest"
+ "cgr.dev/chainguard-private/python:latest" 
 )
 
 
