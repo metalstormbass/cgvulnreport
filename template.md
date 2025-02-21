@@ -10,19 +10,19 @@
 
 ## **Executive Summary**
 
-[CONTENT PASTED HERE]
+[EXECUTIVE SUMMARY PASTED HERE]
 
 ---
 
 ## **Analysis: Original Images**
 
-[CONTENT PASTED HERE]
+[ORIGINAL IMAGES CONTENT PASTED HERE]
 
 ---
 
 ## **Analysis: Chainguard Images**
 
-[CONTENT PASTED HERE]
+[CHAINGUARD CONTENT PASTED HERE]
 
 
 <footer>
