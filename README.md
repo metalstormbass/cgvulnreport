@@ -49,23 +49,17 @@ chmod +x scan_script_chainguard.sh
 chmod +x scan_script.sh
 chmod +x metascript.sh
 ```
-Run ```metascript.sh```
-
-```
-./metascript.sh
-```
 
 Find logo and save it in this directory. Update the template.md:
-
 ```
 **Prepared for:**  
 <img src="logo.png" alt="Customer Logo" width="200">
 ```
 
-Run the script copy the output into the template where indicated.
+Run ```metascript.sh``` and copy the output into the template where indicated.
 
 ```
- ./metascript. 
+./metascript.sh
 ```
 
 To get the best results for PDF output, use Markdown PDF plugin for VS Code. **Export the completed template to HTML** and then print that HTML to PDF.
