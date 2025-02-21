@@ -48,10 +48,6 @@ Make the scripts executable:
 chmod +x scan_script_chainguard.sh
 chmod +x scan_script.sh
 chmod +x metascript.sh
-chmod +x scripts/json_to_markdown.sh
-chmod +x scripts/size_reduction.sh
-chmod +x scripts/txt_to_markdown.sh
-chmod +x scripts/vuln_reduction.sh
 ```
 Run ```metascript.sh```
 
