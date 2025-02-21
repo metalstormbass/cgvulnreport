@@ -2,7 +2,7 @@
 
 ## Usage
 
-**Note: for best results, use VS Code**
+**Note: for best results, use VS Code with the use Markdown PDF plugin for VS Code by yzane**
 
 Clone Repo
 
