@@ -66,11 +66,10 @@ Find logo and save it in this directory. Update the template.md:
 <img src="logo.png" alt="Customer Logo" width="200">
 ```
 
-Copy and paste the output from the script into the template
+Run the script copy the output into the template where indicated.
 
 ```
  ./metascript. 
-
 ```
 
 To get the best results for PDF output, use Markdown PDF plugin for VS Code. **Export the completed template to HTML** and then print that HTML to PDF.
