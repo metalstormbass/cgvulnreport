@@ -185,12 +185,12 @@ averageWontFix=$((totalWontFix / ${#images[@]}))
 
 # Display totals and averages
 echo "Total Vulnerabilities: $totalCount"
-echo "Total Critcal CVEs: $totalCritical"
+echo "Total Critical CVEs: $totalCritical"
 echo "Total High CVEs: $totalHigh"
 echo "Total Medium CVEs: $totalMedium"
 echo "Total Low CVEs: $totalLow"
 echo -n "Average Vulnerabilities: "; echo "scale=2; $totalCount / ${#images[@]}" | bc
-echo -n "Average Critcal CVEs: "; echo "scale=2; $totalCritical / ${#images[@]}" | bc
+echo -n "Average Critical CVEs: "; echo "scale=2; $totalCritical / ${#images[@]}" | bc
 echo -n "Average High CVEs: "; echo "scale=2; $totalHigh / ${#images[@]}" | bc
 echo -n "Average Medium CVEs: "; echo "scale=2; $totalMedium / ${#images[@]}" | bc
 echo -n "Average Low CVEs: "; echo "scale=2; $totalLow / ${#images[@]}" | bc
@@ -204,12 +204,12 @@ if [[ "$scanner" == "grype" ]]; then
 
   echo ""
   echo "Total Fixes Available: $totalfixedCount"
-  echo "Total Critcal Fixes Available: $totalfixedCritical"
+  echo "Total Critical Fixes Available: $totalfixedCritical"
   echo "Total High Fixes Available: $totalfixedHigh"
   echo "Total Medium Fixes Available: $totalfixedMedium"
   echo "Total Low Fixes Available: $totalfixedLow"
   echo -n "Average Fixes Available: "; echo "scale=2; $totalCount / ${#images[@]}" | bc
-  echo -n "Average Critcal Fixes Available: "; echo "scale=2; $totalCritical / ${#images[@]}" | bc
+  echo -n "Average Critical Fixes Available: "; echo "scale=2; $totalCritical / ${#images[@]}" | bc
   echo -n "Average High Fixes Available: "; echo "scale=2; $totalHigh / ${#images[@]}" | bc
   echo -n "Average Medium Fixes Available: "; echo "scale=2; $totalMedium / ${#images[@]}" | bc
   echo -n "Average Low Fixes Available: "; echo "scale=2; $totalLow / ${#images[@]}" | bc
