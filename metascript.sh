@@ -46,8 +46,10 @@ echo "---"
 
 echo "## **Analysis: Original Images**"
 echo "$md_out1"
+echo "$json_out1"
 echo "---"
 
 echo "## **Analysis: Chainguard Images**"
 echo "$md_out2"
+echo "$json_out2"
 
