@@ -3,23 +3,10 @@
 # Default scanner is 'grype'
 scanner="grype"
 
-# Default scanner is 'grype'
-scanner="grype"
-
-# Check if --scanner option is provided
-if [[ "$1" == "--scanner=trivy" ]]; then
-    scanner="trivy"
-elif [[ "$1" == "--scanner=grype" ]]; then
-    scanner="grype"
-elif [[ -n "$1" ]]; then
-    echo "Unknown option: $1"
-    exit 1
-fi
 
 images=(
-  "nginx:latest"
-  "mysql:latest"
-  "python:latest"
+  "node:22"
+  "python:3.12"
 )
 
 echo ""
@@ -133,37 +120,6 @@ for IMAGE in "${images[@]}"; do
     totalfixedLow=$((totalfixedLow + fixed_low))
     totalfixedCount=$((totalfixedCount + fixed_total))
 
-
-  elif [[ "$scanner" == "trivy" ]]; then
-    # Trivy
-    output=$(trivy image -f json "$IMAGE" 2>/dev/null | jq -c 'if (.Results | length) == 0 then { Total: 0, Critical: 0, High: 0, Medium: 0, Low: 0, WontFix: 0 } else [.Results[] | select(has("Vulnerabilities")) | .Vulnerabilities[]] | { Total: length, Critical: (map(select(.Severity == "CRITICAL")) | length), High: (map(select(.Severity == "HIGH")) | length), Medium: (map(select(.Severity == "MEDIUM")) | length), Low: (map(select(.Severity == "LOW")) | length), WontFix: (map(select(.Status == "will_not_fix")) | length)} end')
-    critical=$(jq '.Critical' <<< "$output")
-    high=$(jq '.High' <<< "$output")
-    medium=$(jq '.Medium' <<< "$output")
-    low=$(jq '.Low' <<< "$output")
-    wontfix=$(jq '.WontFix' <<< "$output")
-    total=$(jq '.Total' <<< "$output")
-
-    json=$(jq --arg image "$IMAGE" \
-          --arg critical "$critical" \
-          --arg high "$high" \
-          --arg medium "$medium" \
-          --arg low "$low" \
-          --arg wontfix "$wontfix" \
-          --arg total "$total" \
-          '.items += [{
-            image: $image,
-            scan: {
-              type: "grype",
-              critical: ($critical | tonumber),
-              high: ($high | tonumber),
-              medium: ($medium | tonumber),
-              low: ($low | tonumber),
-              wontfix: ($wontfix | tonumber),
-              total: ($total | tonumber)
-            }
-          }]' <<< "$json")
-
   fi
 
   totalCritical=$((totalCritical + critical))
@@ -195,11 +151,7 @@ echo -n "Average Medium CVEs: "; echo "scale=2; $totalMedium / ${#images[@]}" | 
 echo -n "Average Low CVEs: "; echo "scale=2; $totalLow / ${#images[@]}" | bc
 
 if [[ "$scanner" == "grype" ]]; then
-  
-  averagefixedCritical=$((totalfixedCritical / ${#images[@]}))
-  averagefixedHigh=$((totalfixedHigh / ${#images[@]}))
-  averagefixedMedium=$((totalfixedMedium / ${#images[@]}))
-  averagefixedLow=$((totalfixedLow / ${#images[@]}))
+
 
   echo ""
   echo "Total Fixes Available: $totalfixedCount"
@@ -207,20 +159,9 @@ if [[ "$scanner" == "grype" ]]; then
   echo "Total High Fixes Available: $totalfixedHigh"
   echo "Total Medium Fixes Available: $totalfixedMedium"
   echo "Total Low Fixes Available: $totalfixedLow"
-  echo -n "Average Fixes Available: "; echo "scale=2; $totalCount / ${#images[@]}" | bc
-  echo -n "Average Critical Fixes Available: "; echo "scale=2; $totalCritical / ${#images[@]}" | bc
-  echo -n "Average High Fixes Available: "; echo "scale=2; $totalHigh / ${#images[@]}" | bc
-  echo -n "Average Medium Fixes Available: "; echo "scale=2; $totalMedium / ${#images[@]}" | bc
-  echo -n "Average Low Fixes Available: "; echo "scale=2; $totalLow / ${#images[@]}" | bc
   echo ""
 
 fi
-
-#echo "JSON Output:"
-#echo "$json"
-#echo "CSV Output:"
-#echo "$json" | jq -r '.items[] | [.image, .scan.total, .scan.critical, .scan.high, .scan.medium, .scan.low, .scan.wontfix, .scan.fixed_total, .scan.fixed_critical, .scan.fixed_high, .scan.fixed_medium, .scan.fixed_low] | @csv'
-
 
 # Generate a shorter random filename (no padding)
 random_filename="out1.json"
