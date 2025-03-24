@@ -40,40 +40,13 @@ generate_txt2md() {
     # Extract and process the vulnerability lines
     vulnerabilities=("Vulnerabilities" "Critical CVEs" "High CVEs" "Medium CVEs" "Low CVEs")
     for vuln in "${vulnerabilities[@]}"; do
-        # Handle the typo 'Critcal' for 'Critical'
         vuln_to_search="$vuln"
-        if [[ "$vuln" == "Critical CVEs" ]]; then
-            vuln_to_search="Critcal CVEs"  # Fix typo in the input file
-        fi
-
         total=$(grep "Total $vuln_to_search" "$input_file" | awk -F': ' '{print $2}' || echo "")
         average=$(grep "Average $vuln_to_search" "$input_file" | awk -F': ' '{print $2}' || echo "")
         echo "| $vuln           | $total | $average |"
     done
 
     echo ""
-
-    # --- Fixes Available Summary ---
-    echo "### **Fixes Available Summary**"
-    echo "This summary lists the availability of fixes for vulnerabilities, grouped by severity."
-    echo "<br>"
-    echo "| **Fix Type**                | **Total** | **Average** |"
-    echo "|--------------------------|-------|---------|"
-
-    # Extract and process the fixes lines
-    fixes=("Fixes Available" "Critical Fixes Available" "High Fixes Available" "Medium Fixes Available" "Low Fixes Available")
-    for fix in "${fixes[@]}"; do
-        # Handle the typo 'Critcal' for 'Critical' in the fixes section
-        fix_to_search="$fix"
-        if [[ "$fix" == "Critical Fixes Available" ]]; then
-            fix_to_search="Critcal Fixes Available"  # Fix typo in the input file
-        fi
-
-        total=$(grep "Total $fix_to_search" "$input_file" | awk -F': ' '{print $2}' || echo "")
-        average=$(grep "Average $fix_to_search" "$input_file" | awk -F': ' '{print $2}' || echo "")
-        echo "| $fix           | $total | $average |"
-    done
-
     return 0
 }
 
