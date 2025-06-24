@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Source helper functions
 source ./scripts/vuln_reduction.sh
 source ./scripts/txt_to_markdown.sh
 source ./scripts/size_reduction.sh
@@ -15,38 +16,52 @@ fi
 input_file1="$1"
 input_file2="$2"
 
-# Run scan_script.sh on the first input
+# Run scan_script.sh on original images
 ./scan_script.sh "$input_file1" > out.txt
 md_out1=$(generate_txt2md out.txt)
 json_out1=$(json2md out.json)
 
-# Run scan_script.sh on the second input
+# Run scan_script.sh on Chainguard images
 ./scan_script.sh "$input_file2" > cgout.txt
 md_out2=$(generate_txt2md cgout.txt)
 json_out2=$(json2md cgout.json)
 
-# Generate vulnerability comparison
+# Generate vulnerability reduction summary
 vuln_report=$(generate_vulnerability_report out.json cgout.json)
 
-# Generate size comparison
-size_reduction_output=$(size_reduction out.txt cgout.txt)
-
-# Generate KEV report
+# Generate KEV report from out-kev.txt (if entries exist)
 kev_report=$(generate_kev_markdown out-kev.txt)
 
-# Output summary and comparisons
-echo "## **Executive Summary**"
-echo "$vuln_report"
-echo "$kev_report"
-echo "$size_reduction_output"
-echo ""
-echo "---"
+# Generate size reduction summary
+size_reduction_output=$(size_reduction out.txt cgout.txt)
 
-echo "## **Analysis: Original Images**"
-echo "$md_out1"
-echo "$json_out1"
-echo "---"
+# Assemble final report content
+report_body=$(cat <<EOF
+## **Executive Summary**
+$vuln_report
 
-echo "## **Analysis: Chainguard Images**"
-echo "$md_out2"
-echo "$json_out2"
+$kev_report
+
+$size_reduction_output
+
+---
+
+## **Analysis: Original Images**
+$md_out1
+$json_out1
+
+---
+
+## **Analysis: Chainguard Images**
+$md_out2
+$json_out2
+EOF
+)
+
+# Inject into template and output to final_report.md
+sed '/\[INSERT OUTPUT FROM SCRIPT HERE\]/{
+    r /dev/stdin
+    d
+}' template.md <<< "$report_body" > final_report.md
+
+echo "✅ Report generated: final_report.md"

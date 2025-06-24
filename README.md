@@ -49,7 +49,9 @@ chmod +x metascript.sh
 ```sh
 ./metascript.sh images.txt cg_images.txt
 ```
-- Copy the output and paste it into `template.md` where indicated.
+- The final report will be generated as `final_report.md` using the template in `template.md`.
+
+**Note:** You no longer need to manually copy and paste the output into the template. The script automatically injects the generated content into the template at the `[INSERT OUTPUT FROM SCRIPT HERE]` marker.
 
 ### 6️⃣ Export the Report
 - Use the **Markdown PDF** plugin for VS Code.

@@ -41,6 +41,8 @@ fi
 
 kev_output_file="${output_file}-kev.txt"
 
+> "$kev_output_file"  # Clear or create the file
+
 echo ""
 echo "Image Size On Disk:"
     
@@ -113,8 +115,7 @@ scan_cves=$(jq -r '.matches[].vulnerability.id' <<< "$raw_json" | sort -u)
 # Step 2: Extract known CVEs from kev.json
 kev_cves=$(jq -r '.vulnerabilities[].cveID' kev.json | sort -u)
 
-# Step 3: Compare and write matches to kev.txt
-> "$kev_output_file"  # Clear or create the file
+
 
 while IFS= read -r cve; do
   if grep -qx "$cve" <<< "$kev_cves"; then
