@@ -1,48 +1,46 @@
+#!/bin/bash
+
 source ./scripts/vuln_reduction.sh
 source ./scripts/txt_to_markdown.sh
 source ./scripts/size_reduction.sh
 source ./scripts/json_to_markdown.sh
+source ./scripts/parse_kev.sh
 
-# Read the input file
-input_file1="scan_script.sh"
+# Check for two arguments
+if [[ $# -ne 2 ]]; then
+  echo "Usage: $0 <original-images.txt> <chainguard-images.txt>"
+  exit 1
+fi
 
-# Run the first scan script and capture the output
-out1=$(./"$input_file1" > out1.txt)
+input_file1="$1"
+input_file2="$2"
 
-# Generate markdown from the txt output and capture it
-md_out1=$(generate_txt2md out1.txt)
+# Run scan_script.sh on the first input
+./scan_script.sh "$input_file1" > out.txt
+md_out1=$(generate_txt2md out.txt)
+json_out1=$(json2md out.json)
 
+# Run scan_script.sh on the second input
+./scan_script.sh "$input_file2" > cgout.txt
+md_out2=$(generate_txt2md cgout.txt)
+json_out2=$(json2md cgout.json)
 
-# Convert the JSON to markdown and capture it
-json_out1=$(json2md out1.json)
+# Generate vulnerability comparison
+vuln_report=$(generate_vulnerability_report out.json cgout.json)
 
-# Read the second input file
-input_file2="scan_script_chainguard.sh"
+# Generate size comparison
+size_reduction_output=$(size_reduction out.txt cgout.txt)
 
-# Run the second scan script and capture the output
-out2=$(./"$input_file2" > out2.txt)
+# Generate KEV report
+kev_report=$(generate_kev_markdown out-kev.txt)
 
-# Generate markdown from the txt output and capture it
-md_out2=$(generate_txt2md out2.txt)
-
-# Convert the second JSON to markdown and capture it
-json_out2=$(json2md out2.json)
-
-
-# Generate the vulnerability report and capture the output
-vuln_report=$(generate_vulnerability_report out1.json out2.json)
-
-# Perform size reduction and capture the output
-size_reduction_output=$(size_reduction out1.txt out2.txt)
-
-# You can now use the captured variables wherever you need
-
+# Output summary and comparisons
 echo "## **Executive Summary**"
 echo "$vuln_report"
+echo "$kev_report"
 echo "$size_reduction_output"
 echo ""
 echo "---"
-
 
 echo "## **Analysis: Original Images**"
 echo "$md_out1"
@@ -52,4 +50,3 @@ echo "---"
 echo "## **Analysis: Chainguard Images**"
 echo "$md_out2"
 echo "$json_out2"
-

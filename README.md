@@ -4,62 +4,47 @@
 
 **Note: for best results, use VS Code**
 
-Clone Repo
+1. **Clone the repository:**
+   ```
+   git clone https://github.com/metalstormbass/cgvulnreport.git
+   cd cgvulnreport
+   ```
 
-```
-git clone https://github.com/metalstormbass/cgvulnreport.git
-```
+2. **Edit the image lists:**
+   - Edit `images.txt` and list the images you want to compare (one per line).
+   - Edit `cg_images.txt` and list the Chainguard equivalent images (one per line, in the same order).
 
-Update ```scan_script.sh``` with images you would like to compare with Chainguard:
+   Example `images.txt`:
+   ```
+    node:22
+    python:3.12
+    ghcr.io/groundnuty/k8s-wait-for:v2.0
+   ```
 
-```
-images=(
-  "nginx:latest"
-  "mysql:latest"
-  "python:latest"
-  "golang:latest"
-  "docker.io/otel/opentelemetry-collector-contrib"
-  "docker.io/bitnami/redis-cluster"
-  "mcr.microsoft.com/dotnet/sdk:9.0"
-  "mcr.microsoft.com/dotnet/runtime:9.0"
-  "jupyter/base-notebook"
-)
-```
+   Example `cg_images.txt`:
+   ```
+    cgr.dev/chainguard-private/node:22
+    cgr.dev/chainguard-private/python:3.12
+    cgr.dev/chainguard-private/k8s-wait-for:latest
+   ```
 
-Update ```scan_script_chainguard.sh``` with the Chainguard equivalent images
+3. **Make the script executable (if needed):**
+   ```
+   chmod +x metascript.sh
+   ```
 
-```
-images=(
- "cgr.dev/chainguard-private/nginx:latest"
-  "cgr.dev/chainguard-private/mysql:latest"
-  "cgr.dev/chainguard-private/python:latest"
-  "cgr.dev/chainguard-private/go:latest"
-  "cgr.dev/chainguard-private/opentelemetry-collector-contrib:latest"
-  "cgr.dev/chainguard-private/redis:latest"
-  "cgr.dev/chainguard-private/dotnet-sdk:latest"
-  "cgr.dev/chainguard-private/dotnet-runtime:latest"
-  "cgr.dev/chainguard-private/jupyter-base-notebook:latest"
-)
-```
-
-Make the scripts executable:
-
-```
-chmod +x scan_script_chainguard.sh
-chmod +x scan_script.sh
-chmod +x metascript.sh
-```
-
-Find logo and save it in this directory. Update the template.md:
+4. **Find logo and save it in this directory. Update the template.md:**
 ```
 **Prepared for:**  
 <img src="logo.png" alt="Customer Logo" width="200">
 ```
 
-Run ```metascript.sh``` and copy the output into the template where indicated.
+5. **Run the comparison:**
+   ```
+   ./metascript.sh images.txt cg_images.txt
+   ```
+   - Copy the output and paste it into `template.md` where indicated.
 
-```
-./metascript.sh
-```
-
-To get the best results for PDF output, use Markdown PDF plugin for VS Code. **Export the completed template to HTML** and then print that HTML to PDF.
+6. **Export the report:**
+   - Use the Markdown PDF plugin for VS Code.
+   - Export the completed `template.md` to HTML, then print the HTML to PDF for best results.

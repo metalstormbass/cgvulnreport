@@ -60,7 +60,7 @@ size_reduction() {
     percentage_reduction=$(echo "scale=2; (($average_original - $average_chainguard) / $average_original) * 100" | bc)
 
     # Display the results in Markdown format
-    echo "### **Size Reduction:**"
+    echo "## **Size Reduction:**"
     echo "The **Chainguard** images are, on average, **$percentage_reduction% smaller per image** than their **Original counterparts**."
 }
 

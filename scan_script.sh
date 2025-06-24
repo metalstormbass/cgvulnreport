@@ -4,10 +4,42 @@
 scanner="grype"
 
 
-images=(
-  "node:22"
-  "python:3.12"
-)
+# Ensure an input file is provided
+if [[ -z "$1" ]]; then
+  echo "Usage: $0 <images.txt>"
+  exit 1
+fi
+
+input_file="$1"
+
+# Ensure the file exists
+if [[ ! -f "$input_file" ]]; then
+  echo "Error: File '$input_file' not found!"
+  exit 1
+fi
+
+# Read non-empty trimmed lines into the images array
+images=()
+while IFS= read -r line || [ -n "$line" ]; do
+  # Trim leading/trailing whitespace and skip empty lines
+  line="$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+  [[ -z "$line" ]] && continue
+  images+=("$line")
+done < "$input_file"
+
+#download kev json
+curl -s https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json > kev.json
+
+
+#define output file
+output_file="out"
+if [[ "${images[0]}" == cgr.dev/chainguard-private/* ]]; then
+  output_file="cgout"
+fi
+
+#define kev file name
+
+kev_output_file="${output_file}-kev.txt"
 
 echo ""
 echo "Image Size On Disk:"
@@ -57,21 +89,40 @@ for IMAGE in "${images[@]}"; do
   
  if [[ "$scanner" == "grype" ]]; then
  
-  # Grype
-  output=$(grype "$IMAGE" -o json 2>/dev/null | jq -c '{
-    Total: [.matches[].vulnerability] | length,
-    Critical: [.matches[] | select(.vulnerability.severity == "Critical")] | length,
-    High: [.matches[] | select(.vulnerability.severity == "High")] | length,
-    Medium: [.matches[] | select(.vulnerability.severity == "Medium")] | length,
-    Low: [.matches[] | select(.vulnerability.severity == "Low")] | length,
-    WontFix: [.matches[] | select(.vulnerability.fix.state == "wont-fix")] | length,
-    FixedTotal: [.matches[] | select((.vulnerability.fix.state | ascii_downcase) == "fixed")] | length,
-    FixedCritical: [.matches[] | select((.vulnerability.severity | ascii_downcase) == "critical" and (.vulnerability.fix.state | ascii_downcase) == "fixed")] | length,
-    FixedHigh: [.matches[] | select((.vulnerability.severity | ascii_downcase) == "high" and (.vulnerability.fix.state | ascii_downcase) == "fixed")] | length,
-    FixedMedium: [.matches[] | select((.vulnerability.severity | ascii_downcase) == "medium" and (.vulnerability.fix.state | ascii_downcase) == "fixed")] | length,
-    FixedLow: [.matches[] | select((.vulnerability.severity | ascii_downcase) == "low" and (.vulnerability.fix.state | ascii_downcase) == "fixed")] | length
-  }')
-  
+# Run grype and store the raw JSON output
+raw_json=$(grype "$IMAGE" -o json 2>/dev/null)
+
+# Then apply the vulnerability summary filter using jq
+output=$(jq -c '{
+  Total: [.matches[].vulnerability] | length,
+  Critical: [.matches[] | select(.vulnerability.severity == "Critical")] | length,
+  High: [.matches[] | select(.vulnerability.severity == "High")] | length,
+  Medium: [.matches[] | select(.vulnerability.severity == "Medium")] | length,
+  Low: [.matches[] | select(.vulnerability.severity == "Low")] | length,
+  WontFix: [.matches[] | select(.vulnerability.fix.state == "wont-fix")] | length,
+  FixedTotal: [.matches[] | select((.vulnerability.fix.state | ascii_downcase) == "fixed")] | length,
+  FixedCritical: [.matches[] | select((.vulnerability.severity | ascii_downcase) == "critical" and (.vulnerability.fix.state | ascii_downcase) == "fixed")] | length,
+  FixedHigh: [.matches[] | select((.vulnerability.severity | ascii_downcase) == "high" and (.vulnerability.fix.state | ascii_downcase) == "fixed")] | length,
+  FixedMedium: [.matches[] | select((.vulnerability.severity | ascii_downcase) == "medium" and (.vulnerability.fix.state | ascii_downcase) == "fixed")] | length,
+  FixedLow: [.matches[] | select((.vulnerability.severity | ascii_downcase) == "low" and (.vulnerability.fix.state | ascii_downcase) == "fixed")] | length
+}' <<< "$raw_json")
+
+# Step 1: Extract CVEs from the scan result
+scan_cves=$(jq -r '.matches[].vulnerability.id' <<< "$raw_json" | sort -u)
+
+# Step 2: Extract known CVEs from kev.json
+kev_cves=$(jq -r '.vulnerabilities[].cveID' kev.json | sort -u)
+
+# Step 3: Compare and write matches to kev.txt
+> "$kev_output_file"  # Clear or create the file
+
+while IFS= read -r cve; do
+  if grep -qx "$cve" <<< "$kev_cves"; then
+    echo "$cve from $IMAGE" >> "$kev_output_file"
+  fi
+done <<< "$scan_cves"
+
+# The rest of the processing  
   critical=$(jq '.Critical' <<< "$output")
   high=$(jq '.High' <<< "$output")
   medium=$(jq '.Medium' <<< "$output")
@@ -163,8 +214,10 @@ if [[ "$scanner" == "grype" ]]; then
 
 fi
 
-# Generate a shorter random filename (no padding)
-random_filename="out1.json"
 
-# Save the JSON content to the random filename
-echo $json > $random_filename
+# Construct full output filename with .json suffix
+json_output_file="${output_file}.json"
+
+# Save the JSON content to that file
+echo "$json" > "$json_output_file"
+rm kev.json
