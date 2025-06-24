@@ -37,7 +37,7 @@ cgr.dev/chainguard-private/k8s-wait-for:latest
 chmod +x metascript.sh
 ```
 
-### 4️⃣ (Optional) Add Your Logo
+### 4️⃣ Add The Logo
 - Save your logo as `logo.png` in this directory.
 - Update `template.md`:
   ```markdown
