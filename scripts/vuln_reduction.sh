@@ -42,27 +42,32 @@ generate_vulnerability_report() {
   number_of_images=$(jq '.items | length' "$file1")
 
   # Display the results in Markdown format
-  cat << EOF
+cat << EOF
 
-The analysis of the **Original** and **Chainguard** container images reveals significant improvements in both **security** and **image size**. This report examines a sample size of **$number_of_images images**.
+This report presents a comparative analysis between the **Original** and **Chainguard** container images, highlighting substantial improvements in overall **security posture**. The findings are based on a sample set of **$number_of_images images**.
 
-- **Total Vulnerabilities Reduced**: A **total of $total_reduction vulnerabilities** were mitigated.
-- **Critical & High Vulnerabilities**: The **Chainguard** images successfully reduced **Critical vulnerabilities by $reduction_critical** and **High vulnerabilities by $reduction_high**.
-- **Security Hygiene**: Chainguard images demonstrate near-zero vulnerabilities across **Critical**, **High**, **Medium**, and **Low** categories.
+- **Total Vulnerabilities Eliminated**: **$total_reduction**
+- **Critical & High Severity Reduction**: **$reduction_critical Critical**, **$reduction_high High**
+- **Improved Security Hygiene**: Chainguard images exhibit near-zero residual vulnerabilities across all severity categories.
 
-### **Key Insights:**
-- **Critical CVEs** decreased from **$critical_vuln_file1** to **$critical_vuln_file2**.
-- **High CVEs** dropped from **$high_vuln_file1** to **$high_vuln_file2**.
-- **Medium CVEs** dropped from **$medium_vuln_file1** to **$medium_vuln_file2**.
-- **Low CVEs** dropped from **$low_vuln_file1** to **$low_vuln_file2**.
+### Key Insights
 
-| Severity   | Original            | Chainguard          | Reduction          |
-|------------|---------------------|---------------------|--------------------|
-| **Critical** | $critical_vuln_file1 | $critical_vuln_file2 | **$reduction_critical** |
-| **High**    | $high_vuln_file1     | $high_vuln_file2     | **$reduction_high**     |
-| **Medium**  | $medium_vuln_file1   | $medium_vuln_file2   | **$reduction_medium**   |
-| **Low**     | $low_vuln_file1      | $low_vuln_file2      | **$reduction_low**      |
-| **Total**   | $((critical_vuln_file1 + high_vuln_file1 + medium_vuln_file1 + low_vuln_file1)) | $((critical_vuln_file2 + high_vuln_file2 + medium_vuln_file2 + low_vuln_file2)) | **$total_reduction** |
+- **Critical CVEs**: $critical_vuln_file1 → $critical_vuln_file2
+- **High CVEs**: $high_vuln_file1 → $high_vuln_file2
+- **Medium CVEs**: $medium_vuln_file1 → $medium_vuln_file2
+- **Low CVEs**: $low_vuln_file1 → $low_vuln_file2
+
+### Vulnerability Reduction Summary
+
+| Severity     | Original | Chainguard | Reduction |
+|--------------|----------|------------|-----------|
+| Critical     | $critical_vuln_file1 | $critical_vuln_file2 | **$reduction_critical** |
+| High         | $high_vuln_file1     | $high_vuln_file2     | **$reduction_high**     |
+| Medium       | $medium_vuln_file1   | $medium_vuln_file2   | **$reduction_medium**   |
+| Low          | $low_vuln_file1      | $low_vuln_file2      | **$reduction_low**      |
+| **Total**    | $((critical_vuln_file1 + high_vuln_file1 + medium_vuln_file1 + low_vuln_file1)) | $((critical_vuln_file2 + high_vuln_file2 + medium_vuln_file2 + low_vuln_file2)) | **$total_reduction** |
+
 EOF
+
 }
 

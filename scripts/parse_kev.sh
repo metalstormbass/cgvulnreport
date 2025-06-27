@@ -21,17 +21,19 @@ generate_kev_markdown() {
     return 0  # silently skip output
   fi
 
-  echo "## Known Exploited Vulnerabilities (KEV) Report"
-  echo
-  echo "The following vulnerabilities were detected in your container images and are listed in the CISA KEV catalog. These CVEs are **actively exploited in the wild** and should be prioritized for patching or mitigation."
-  echo
-  echo "### Matched CVEs"
-  echo
+echo "## Known Exploited Vulnerabilities (KEV)"
+echo
+echo "The following vulnerabilities were detected in your container images and are listed in the **CISA Known Exploited Vulnerabilities (KEV)** catalog."
+echo "These CVEs are **actively exploited in the wild** and should be prioritized for immediate patching or mitigation."
+echo
+echo "### Matched CVEs"
+echo
 
-  while IFS= read -r line; do
-    [[ -z "$line" ]] && continue  # skip empty lines
-    cve=$(awk '{print $1}' <<< "$line")
-    image=$(awk '{print $3}' <<< "$line")
-    echo "- **$cve** found in image \`$image\`"
-  done < "$kev_input"
+while IFS= read -r line; do
+  [[ -z "$line" ]] && continue  # Skip empty lines
+  cve=$(awk '{print $1}' <<< "$line")
+  image=$(awk '{print $3}' <<< "$line")
+  echo "- **$cve** — detected in image \`$image\`"
+done < "$kev_input"
+
 }

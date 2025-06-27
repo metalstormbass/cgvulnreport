@@ -1,10 +1,10 @@
-# **Image Vulnerability Report** 
+# 🛡️ Image Vulnerability Report
 
 **Prepared for:**  
-<img src="logo.png" alt="Customer Logo" width="200">
+<img src="logo.png" alt="Customer Logo" width="160">
 
 **Prepared by:**  
-<img src="cg-logo.png" alt="Chainguard Logo" width="200">  
+<img src="cg-logo.png" alt="Chainguard Logo" width="160">
 
 ---
 

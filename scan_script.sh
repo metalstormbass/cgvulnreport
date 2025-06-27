@@ -40,9 +40,10 @@ fi
 #define kev file name
 
 kev_output_file="${output_file}-kev.txt"
+epss_output_file="${output_file}-epss.txt"
 
 > "$kev_output_file"  # Clear or create the file
-
+> "$epss_output_file"
 echo ""
 echo "Image Size On Disk:"
     
@@ -122,6 +123,15 @@ while IFS= read -r cve; do
     echo "$cve from $IMAGE" >> "$kev_output_file"
   fi
 done <<< "$scan_cves"
+
+# Remove tag and digest from original image string
+image_name_no_tag=$(echo "$IMAGE" | sed 's/[@:].*$//')
+
+# Extract EPSS score, CVE ID, and package; inject known image name (no tag)
+jq -r --arg img "$image_name_no_tag" '.matches[]
+  | select(.vulnerability.epss != null and .vulnerability.epss[0].epss != null and .vulnerability.epss[0].epss >= 0.75)
+  | "\(.vulnerability.epss[0].epss) \(.vulnerability.id) \($img) \(.matchDetails[0].searchedBy.package.name)"' <<< "$raw_json" >> "$epss_output_file"
+
 
 # The rest of the processing  
   critical=$(jq '.Critical' <<< "$output")

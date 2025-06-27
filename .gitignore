@@ -1,0 +1,16 @@
+# Output files
+final_report.md
+out.txt
+cgout.txt
+out.json
+cgout.json
+out-kev.txt
+cgout-kev.txt
+kev.json
+epss_output_file
+out-epss.txt
+cgout-epss.txt
+assets/
+*.pdf
+*.html
+scan_script copy.sh
