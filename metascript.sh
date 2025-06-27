@@ -88,6 +88,6 @@ echo -e "\033[1;34m===============================\033[0m"
 echo -e "\nNext steps:"
 echo "1. Review your the final_report.md' file."
 echo "2. Export to HTML using VS Code's Markdown PDF extension."
-echo "3. Print HTLM page to PDF."
+echo "3. Print HTML page to PDF."
 echo "4. Share or archive your report as needed."
 
