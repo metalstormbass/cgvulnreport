@@ -10,9 +10,9 @@ with open("final_report.md", "r", encoding="utf-8") as f:
 # Extract vulnerability table
 table_match = re.search(
     r"\| *Severity *\| *Original *\| *Chainguard *\| *Reduction *\|\n"
-    r"\|[-| ]+\|\n"  # separator line
-    r"((?:\|.*\|\n)+?)"  # table rows
-    r"\| *\*\*Total\*\* *\| *(\d+) *\| *(\d+) *\| *\*\*(\d+)\*\*",  # totals
+    r"\|[-| ]+\|\n"
+    r"((?:\|.*\|\n)+?)"
+    r"\| *\*\*Total\*\* *\| *(\d+) *\| *(\d+) *\| *\*\*(\d+)\*\*",
     md
 )
 
@@ -30,7 +30,6 @@ rows = [
 df = pd.DataFrame(rows, columns=["Severity", "Original", "Chainguard", "Reduction"])
 df[["Original", "Chainguard", "Reduction"]] = df[["Original", "Chainguard", "Reduction"]].astype(int)
 
-# Compute values
 def reduction_card(severity):
     row = df[df["Severity"].str.lower() == severity.lower()].iloc[0]
     pct = 100 * row["Reduction"] / row["Original"] if row["Original"] > 0 else 0
@@ -59,22 +58,29 @@ for card in cards:
     </div>
     """
 
+# Check for KEV and EPSS presence
+has_kev = re.search(r"## +Known Exploited Vulnerabilities \(KEV\)", md, re.IGNORECASE) is not None
+has_epss = re.search(r"## +Exploit Prediction Scoring System \(EPSS\)", md, re.IGNORECASE) is not None
+
+badges_html = ""
+if has_kev:
+    badges_html += '<span class="badge danger">KEV Present</span>\n'
+if has_epss:
+    badges_html += '<span class="badge warning">EPSS ≥ 0.75 Present</span>\n'
+
 exec_summary_cards_html = f"""
-<section class="kpi-section" style="margin-top: 1rem; margin-bottom: 2rem;">
+<section class="kpi-section">
   <div class="kpi-grid">
     {kpi_cards_html}
   </div>
-  <div class="kev-epss" style="margin-top: 1rem;">
-    <span class="badge danger">KEV Present</span>
-    <span class="badge warning">EPSS ≥ 0.75 Present</span>
-  </div>
+  {'<div class="kev-epss">' + badges_html + '</div>' if badges_html else ''}
 </section>
 """
 
 # Convert markdown to HTML
 html_body = markdown.markdown(md, extensions=["tables", "fenced_code", "attr_list", "toc"])
 
-# Insert KPI cards below "Executive Summary"
+# Inject KPI section
 html_body = re.sub(
     r"(<h2[^>]*>Executive Summary<\/h2>)",
     r"\1\n" + exec_summary_cards_html,
@@ -82,95 +88,120 @@ html_body = re.sub(
     flags=re.IGNORECASE
 )
 
-# Final HTML output
+# Final HTML Template
 html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>🛡️ Image Vulnerability Report</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {{
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-            padding: 2rem;
-            line-height: 1.6;
-        }}
-        h1, h2, h3 {{
-            color: #0f172a;
-        }}
-        table {{
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-        }}
-        th, td {{
-            border: 1px solid #e2e8f0;
-            padding: 0.75rem;
-            text-align: center;
-        }}
-        th {{
-            background-color: #1e293b;
-            color: white;
-        }}
-        tr:nth-child(even) {{
-            background-color: #f1f5f9;
-        }}
-        .kpi-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-            margin-bottom: 1.5rem;
-        }}
-        .kpi-card {{
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 1rem 1.25rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-        }}
-        .kpi-label {{
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-bottom: 0.35rem;
-        }}
-        .kpi-value {{
-            font-size: 2rem;
-            font-weight: 700;
-            color: #0f172a;
-        }}
-        .kpi-delta.good {{
-            color: #059669;
-            font-weight: 600;
-        }}
-        .badge {{
-            display: inline-block;
-            padding: 0.25rem 0.6rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
-        }}
-        .badge.danger {{ background:#fee2e2; color:#b91c1c; }}
-        .badge.warning {{ background:#fef3c7; color:#92400e; }}
-        footer {{
-            text-align: center;
-            font-size: 12px;
-            color: gray;
-            margin-top: 4rem;
-        }}
-    </style>
+  <meta charset="UTF-8">
+  <title>🛡️ Image Vulnerability Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+      line-height: 1.7;
+    }}
+    h1, h2, h3 {{
+      color: #111827;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }}
+    table {{
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+    }}
+    th, td {{
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }}
+    th {{
+      background-color: #111827;
+      color: white;
+    }}
+    tr:nth-child(even) {{
+      background-color: #f3f4f6;
+    }}
+    .kpi-section {{
+      margin: 2rem 0;
+    }}
+    .kpi-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }}
+    .kpi-card {{
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }}
+    .kpi-label {{
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }}
+    .kpi-value {{
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #111827;
+    }}
+    .kpi-delta.good {{
+      color: #059669;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }}
+    .kev-epss {{
+      margin-top: 1.5rem;
+      text-align: center;
+    }}
+    .badge {{
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin: 0 0.25rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }}
+    .badge.danger {{
+      background-color: #fee2e2;
+      color: #991b1b;
+    }}
+    .badge.warning {{
+      background-color: #fef3c7;
+      color: #92400e;
+    }}
+    footer {{
+      text-align: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e5e7eb;
+    }}
+    a {{
+      color: #2563eb;
+      text-decoration: none;
+    }}
+  </style>
 </head>
 <body>
 {html_body}
-<footer>
-    <hr>
-    <p>This document is confidential and proprietary. Prepared by Chainguard, Inc. |
-    <a href="https://chainguard.dev" target="_blank">chainguard.dev</a></p>
-</footer>
+
 </body>
 </html>
 """

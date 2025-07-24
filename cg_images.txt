@@ -1,2 +1,4 @@
+cgr.dev/chainguard-private/node:22
+cgr.dev/chainguard-private/python:3.12
 cgr.dev/chainguard-private/k8s-wait-for:latest
 cgr.dev/chainguard-private/mongodb:latest
