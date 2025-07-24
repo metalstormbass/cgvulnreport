@@ -22,22 +22,5 @@ generate_txt2md() {
     done
 
     echo ""
-
-    # === Vulnerabilities Summary ===
-    echo "### Vulnerabilities Summary"
-    echo
-    echo "This summary highlights the total and average number of vulnerabilities detected across all images, categorized by severity level."
-    echo
-    echo "| **Vulnerability Type** | **Total** | **Average per Image** |"
-    echo "|:------------------------|-----------:|------------------------:|"
-
-    local vulnerabilities=("Vulnerabilities" "Critical CVEs" "High CVEs" "Medium CVEs" "Low CVEs")
-    for vuln in "${vulnerabilities[@]}"; do
-        total=$(grep "Total $vuln" "$input_file" | awk -F': ' '{print $2}')
-        average=$(grep "Average $vuln" "$input_file" | awk -F': ' '{print $2}')
-        printf "| %-22s | %-9s | %-22s |\n" "$vuln" "$total" "$average"
-    done
-
-    echo ""
     return 0
 }

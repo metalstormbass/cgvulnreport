@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-check_pullable_images.py
+check-pullable.py
 ------------------------
 
 Quick-test a list of Docker/OCI images for “pullability”.
 
 Usage
 -----
-    python3 check_pullable_images.py images.txt [--threads 4]
+    python3 check-pullable.py images.txt [--threads 4]
 
     # images.txt example:
     #   ubuntu:24.04

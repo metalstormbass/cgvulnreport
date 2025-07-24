@@ -9,17 +9,17 @@ json2md() {
 
     local json_data
     json_data=$(cat "$1")
-
+    echo ""
     echo "## Detailed Vulnerability Scan Results"
     echo
     echo "This table provides a breakdown of vulnerabilities by image, including severity levels and fix availability."
     echo
-    echo "| **Image** | **Scan Type** | **Critical** | **High** | **Medium** | **Low** | **Won't Fix** | **Total** | **Fixed: Critical** | **Fixed: High** | **Fixed: Medium** | **Fixed: Low** | **Fixed: Total** |"
-    echo "|-----------|---------------|--------------|----------|------------|---------|----------------|-----------|---------------------|------------------|--------------------|----------------|------------------|"
+    echo "| **Image** | **Scan Type** | **Critical** | **High** | **Medium** | **Low** | **Unknown** | **Won't Fix** | **Total** |"
+    echo "|-----------|---------------|--------------|----------|------------|---------|----------|----------------|-----------|"
 
     jq -r '
         .items[] |
-        "| \(.image | sub("@.*$"; "")) | \(.scan.type) | \(.scan.critical) | \(.scan.high) | \(.scan.medium) | \(.scan.low) | \(.scan.wontfix) | \(.scan.total) | \(.scan.fixed_critical) | \(.scan.fixed_high) | \(.scan.fixed_medium) | \(.scan.fixed_low) | \(.scan.fixed_total) |"
+        "| \(.image | sub("@.*$"; "")) | \(.scan.type) | \(.scan.critical) | \(.scan.high) | \(.scan.medium) | \(.scan.low) | \(.scan.unknown) | \(.scan.wontfix) | \(.scan.total) |"
     ' <<< "$json_data"
 }
 

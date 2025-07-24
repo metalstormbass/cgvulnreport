@@ -1,4 +1,3 @@
-  node:22
-  python:3.12
+
   ghcr.io/groundnuty/k8s-wait-for:v2.0
   mongo:latest

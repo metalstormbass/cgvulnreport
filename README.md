@@ -59,6 +59,46 @@ chmod +x metascript.sh
 
 ---
 
+## 🚦 Automated Workflow & Python Integration
+
+The main workflow is fully automated:
+
+- **metascript.sh** orchestrates the entire process, including:
+  - Setting up a Python virtual environment (`.venv`) if one does not exist.
+  - Automatically installing required Python dependencies (`markdown`, `pandas`) using `requirements.txt`.
+  - Running all necessary Python scripts for report generation, including `reportbuild.py`.
+- **No manual pip install required!** The script checks and installs dependencies for you.
+- **Report Generation:**
+  - The Python script `reportbuild.py` is called automatically by `metascript.sh` after all data is processed.
+  - It parses the vulnerability reduction table, generates KPI cards, and injects them into the final HTML report.
+  - The final report (`report.html`) is created with all metrics and summary cards, ready for export or sharing.
+
+**You only need to run:**
+```sh
+./metascript.sh images.txt cg_images.txt
+```
+
+Everything else is handled for you!
+
+---
+
+## Python Requirements
+
+This project requires Python 3 and the following packages:
+
+```
+markdown
+pandas
+```
+
+You can install them using:
+
+```
+pip install -r requirements.txt
+```
+
+The report generation script (`reportbuild.py`) depends only on these packages. No other Python dependencies are required.
+
 💡 **Tip:** Keep your `images.txt` and `cg_images.txt` in sync (same number/order of images) for accurate comparisons.
 
 ---

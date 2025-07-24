@@ -14,3 +14,4 @@ assets/
 *.pdf
 *.html
 scan_script copy.sh
+report.html
