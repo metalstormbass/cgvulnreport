@@ -3,7 +3,6 @@
 # Default scanner is 'grype'
 scanner="grype"
 
-
 # Ensure an input file is provided
 if [[ -z "$1" ]]; then
   echo "Usage: $0 <images.txt>"
@@ -27,18 +26,16 @@ while IFS= read -r line || [ -n "$line" ]; do
   images+=("$line")
 done < "$input_file"
 
-#download kev json
+# Download kev json
 curl -s https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json > kev.json
 
-
-#define output file
+# Define output file
 output_file="out"
 if [[ "${images[0]}" == cgr.dev/chainguard-private/* ]]; then
   output_file="cgout"
 fi
 
-#define kev file name
-
+# Define kev file name
 kev_output_file="${output_file}-kev.txt"
 epss_output_file="${output_file}-epss.txt"
 
@@ -46,27 +43,26 @@ epss_output_file="${output_file}-epss.txt"
 > "$epss_output_file"
 echo ""
 echo "Image Size On Disk:"
-    
+
 # Loop through each item and append ":latest" if no tag is present
 for i in "${!images[@]}"; do
-    if [[ "${images[i]}" != *:* ]]; then
-        images[i]="${images[i]}:latest"
-    fi
-    
-    origimagestr="${images[i]}"
-    
-    # Pull the image and check for errors
-    if docker pull "${images[i]}" 2>&1 | grep -iq "error"; then
-      echo "Error encountered while pulling ${images[i]}. Exiting..."
-      exit 1
-    fi
+  if [[ "${images[i]}" != *:* ]]; then
+    images[i]="${images[i]}:latest"
+  fi
 
-    images[i]=$(docker inspect "${images[i]}" | jq -r '.[0].RepoDigests[0]')
-    size=$(docker inspect "${images[i]}" | jq -r '.[0].Size // 0')
-    size_mb=$(echo "scale=2; $size / 1024 / 1024" | bc)
+  origimagestr="${images[i]}"
 
-    echo "$origimagestr: $size_mb MB"
+  # Pull the image and check for errors
+  if ! docker pull "${images[i]}" 2>&1; then
+    echo "Error encountered while pulling ${images[i]}. Exiting..."
+    exit 1
+  fi
 
+  images[i]=$(docker inspect "${images[i]}" | jq -r '.[0].RepoDigests[0]')
+  size=$(docker inspect "${images[i]}" | jq -r '.[0].Size // 0')
+  size_mb=$(echo "scale=2; $size / 1024 / 1024" | bc)
+
+  echo "$origimagestr: $size_mb MB"
 done
 
 json='{"items":[]}'
@@ -87,87 +83,84 @@ totalfixedCount=0
 echo ""
 
 for image in "${!image_digests[@]}"; do
-    echo "Image: $image, Digest: ${image_digests[$image]}, "
+  echo "Image: $image, Digest: ${image_digests[$image]}, "
 done
 
 for IMAGE in "${images[@]}"; do
-  
- if [[ "$scanner" == "grype" ]]; then
- 
-# Run grype and store the raw JSON output
-raw_json=$(grype "$IMAGE" -o json 2>/dev/null)
 
-# Then apply the vulnerability summary filter using jq
-output=$(jq -c '{
-  Total: [.matches[].vulnerability] | length,
-  Critical: [.matches[] | select(.vulnerability.severity == "Critical")] | length,
-  High: [.matches[] | select(.vulnerability.severity == "High")] | length,
-  Medium: [.matches[] | select(.vulnerability.severity == "Medium")] | length,
-  Low: [.matches[] | select(.vulnerability.severity == "Low")] | length,
-  Unknown: [.matches[] | select(.vulnerability.severity == null or .vulnerability.severity == "Unknown")] | length,
-  WontFix: [.matches[] | select(.vulnerability.fix.state == "wont-fix")] | length,
-  FixedTotal: [.matches[] | select((.vulnerability.fix.state | ascii_downcase) == "fixed")] | length
-}' <<< "$raw_json")
+  if [[ "$scanner" == "grype" ]]; then
 
-# Step 1: Extract CVEs from the scan result
-scan_cves=$(jq -r '.matches[].vulnerability.id' <<< "$raw_json" | sort -u)
+    echo "Scanning image: $IMAGE" >&2
+    # Run grype and store the raw JSON output
+    raw_json=$(grype "$IMAGE" -o json 2>/dev/null)
 
-# Step 2: Extract known CVEs from kev.json
-kev_cves=$(jq -r '.vulnerabilities[].cveID' kev.json | sort -u)
+    # Then apply the vulnerability summary filter using jq
+    output=$(jq -c '{
+      Total: [.matches[].vulnerability] | length,
+      Critical: [.matches[] | select(.vulnerability.severity == "Critical")] | length,
+      High: [.matches[] | select(.vulnerability.severity == "High")] | length,
+      Medium: [.matches[] | select(.vulnerability.severity == "Medium")] | length,
+      Low: [.matches[] | select(.vulnerability.severity == "Low")] | length,
+      Unknown: [.matches[] | select(.vulnerability.severity == null or .vulnerability.severity == "Unknown")] | length,
+      WontFix: [.matches[] | select(.vulnerability.fix.state == "wont-fix")] | length,
+      FixedTotal: [.matches[] | select((.vulnerability.fix.state | ascii_downcase) == "fixed")] | length
+    }' <<< "$raw_json")
 
+    # Step 1: Extract CVEs from the scan result
+    scan_cves=$(jq -r '.matches[].vulnerability.id' <<< "$raw_json" | sort -u)
 
+    # Step 2: Extract known CVEs from kev.json
+    kev_cves=$(jq -r '.vulnerabilities[].cveID' kev.json | sort -u)
 
-while IFS= read -r cve; do
-  if grep -qx "$cve" <<< "$kev_cves"; then
-    echo "$cve from $IMAGE" >> "$kev_output_file"
-  fi
-done <<< "$scan_cves"
+    while IFS= read -r cve; do
+      if grep -qx "$cve" <<< "$kev_cves"; then
+        echo "$cve from $IMAGE" >> "$kev_output_file"
+      fi
+    done <<< "$scan_cves"
 
-# Remove tag and digest from original image string
-image_name_no_tag=$(echo "$IMAGE" | sed 's/[@:].*$//')
+    # Remove tag and digest from original image string
+    image_name_no_tag=$(echo "$IMAGE" | sed 's/[@:].*$//')
 
-# Extract EPSS score, CVE ID, and package; inject known image name (no tag)
-jq -r --arg img "$image_name_no_tag" '.matches[]
-  | select(.vulnerability.epss != null and .vulnerability.epss[0].epss != null and .vulnerability.epss[0].epss >= 0.75)
-  | "\(.vulnerability.epss[0].epss) \(.vulnerability.id) \($img) \(.matchDetails[0].searchedBy.package.name)"' <<< "$raw_json" >> "$epss_output_file"
+    # Extract EPSS score, CVE ID, and package; inject known image name (no tag)
+    jq -r --arg img "$image_name_no_tag" '.matches[]
+      | select(.vulnerability.epss != null and .vulnerability.epss[0].epss != null and .vulnerability.epss[0].epss >= 0.75)
+      | "\(.vulnerability.epss[0].epss) \(.vulnerability.id) \($img) \(.matchDetails[0].searchedBy.package.name)"' <<< "$raw_json" >> "$epss_output_file"
 
+    # The rest of the processing
+    critical=$(jq '.Critical' <<< "$output")
+    high=$(jq '.High' <<< "$output")
+    medium=$(jq '.Medium' <<< "$output")
+    low=$(jq '.Low' <<< "$output")
+    unknown=$(jq '.Unknown' <<< "$output")
+    wontfix=$(jq '.WontFix' <<< "$output")
+    total=$(jq '.Total' <<< "$output")
+    fixed_total=$(jq '.FixedTotal' <<< "$output")
 
-# The rest of the processing  
-  critical=$(jq '.Critical' <<< "$output")
-  high=$(jq '.High' <<< "$output")
-  medium=$(jq '.Medium' <<< "$output")
-  low=$(jq '.Low' <<< "$output")
-  unknown=$(jq '.Unknown' <<< "$output")
-  wontfix=$(jq '.WontFix' <<< "$output")
-  total=$(jq '.Total' <<< "$output")
-  fixed_total=$(jq '.FixedTotal' <<< "$output")
-
-  json=$(jq --arg image "$IMAGE" \
-    --arg critical "$critical" \
-    --arg high "$high" \
-    --arg medium "$medium" \
-    --arg low "$low" \
-    --arg unknown "$unknown" \
-    --arg wontfix "$wontfix" \
-    --arg total "$total" \
-    --arg fixed_total "$fixed_total" \
-    '.items += [{
-      image: $image,
-      scan: {
-        type: "grype",
-        critical: ($critical | tonumber),
-        high: ($high | tonumber),
-        medium: ($medium | tonumber),
-        low: ($low | tonumber),
-        unknown: ($unknown | tonumber),
-        wontfix: ($wontfix | tonumber),
-        total: ($total | tonumber),
-        fixed_total: ($fixed_total | tonumber)
-      }
-    }]' <<< "$json")
+    json=$(jq --arg image "$IMAGE" \
+      --arg critical "$critical" \
+      --arg high "$high" \
+      --arg medium "$medium" \
+      --arg low "$low" \
+      --arg unknown "$unknown" \
+      --arg wontfix "$wontfix" \
+      --arg total "$total" \
+      --arg fixed_total "$fixed_total" \
+      '.items += [{
+        image: $image,
+        scan: {
+          type: "grype",
+          critical: ($critical | tonumber),
+          high: ($high | tonumber),
+          medium: ($medium | tonumber),
+          low: ($low | tonumber),
+          unknown: ($unknown | tonumber),
+          wontfix: ($wontfix | tonumber),
+          total: ($total | tonumber),
+          fixed_total: ($fixed_total | tonumber)
+        }
+      }]' <<< "$json")
 
     totalfixedCount=$((totalfixedCount + fixed_total))
-
   fi
 
   totalCritical=$((totalCritical + critical))
@@ -203,14 +196,10 @@ echo -n "Average Low CVEs: "; echo "scale=2; $totalLow / ${#images[@]}" | bc
 echo -n "Average Unknown CVEs: "; echo "scale=2; $totalUnknown / ${#images[@]}" | bc
 
 if [[ "$scanner" == "grype" ]]; then
-
-
   echo ""
   echo "Total Fixes Available: $totalfixedCount"
   echo ""
-
 fi
-
 
 # Construct full output filename with .json suffix
 json_output_file="${output_file}.json"

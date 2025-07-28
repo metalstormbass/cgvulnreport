@@ -30,8 +30,7 @@ if [ ! -d ".venv" ]; then
 fi
 source .venv/bin/activate
 
-pip_check_output=$(python3 -m pip show -q markdown pandas 2>&1)
-if [[ "$pip_check_output" == *"WARNING:"* ]]; then
+if ! python3 -m pip show markdown pandas > /dev/null 2>&1; then
   echo -e "\033[1;33mInstalling required Python packages...\033[0m"
   if ! python3 -m pip install -r requirements.txt; then
     echo -e "\033[1;31m❌ Failed to install required Python packages.\033[0m"

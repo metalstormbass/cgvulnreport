@@ -36,14 +36,14 @@ def reduction_card(severity):
     return {
         "label": f"{severity} → {row['Chainguard']}",
         "value": row["Reduction"],
-        "delta": f"-{pct:.0f}%"
+        "delta": f"{pct:.1f}%"
     }
 
 cards = [
     {
         "label": "Total Vulns Eliminated",
         "value": int(total_reduced),
-        "delta": f"-{100 * int(total_reduced) / int(total_orig):.0f}%"
+        "delta": f"{100 * int(total_reduced) / int(total_orig):.1f}%"
     }
 ] + [reduction_card(sev) for sev in ["Critical", "High", "Medium", "Low"]]
 
