@@ -92,7 +92,7 @@ for IMAGE in "${images[@]}"; do
 
     echo "Scanning image: $IMAGE" >&2
     # Run grype and store the raw JSON output
-    raw_json=$(grype "$IMAGE" -o json 2>/dev/null)
+    raw_json=$(grype "$IMAGE" -o json --only-local-pulls 2>/dev/null)
 
     # Then apply the vulnerability summary filter using jq
     output=$(jq -c '{
