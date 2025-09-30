@@ -50,8 +50,10 @@ chmod +x metascript.sh
 ./metascript.sh images.txt cg_images.txt
 ```
 - The final report will be generated as `final_report.md` using the template in `template.md`.
+- **Troubleshooting**: If the report is not successfully generated, check `out.txt` for any error messages that could indicate what to do next (like opening & running Docker Desktop).
 
 **Note:** You no longer need to manually copy and paste the output into the template. The script automatically injects the generated content into the template at the `[INSERT OUTPUT FROM SCRIPT HERE]` marker.
+**API Rate Limit Note:** To avoid hitting Chainguard or Docker Hub rate limits, you can scan images that are already stored locally on your machine instead of pulling them with every run of `metascript.sh`. This is done by commenting out lines 43-52 (from `python3 check-pullable...` to `exit2 fi`.
 
 ### 6️⃣ Export the Report
 - Use the **Markdown PDF** plugin for VS Code.
