@@ -228,9 +228,6 @@ $epss_report
 $md_out1
 $json_out1
 
----
-
-
 ## Chainguard Image Analysis
 $md_out2
 $json_out2

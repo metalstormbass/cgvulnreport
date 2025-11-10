@@ -33,27 +33,46 @@ df[["Original", "Chainguard", "Reduction"]] = df[["Original", "Chainguard", "Red
 def reduction_card(severity):
     row = df[df["Severity"].str.lower() == severity.lower()].iloc[0]
     pct = 100 * row["Reduction"] / row["Original"] if row["Original"] > 0 else 0
+    
+    # Color mapping for severity levels
+    color_map = {
+        "critical": "#ef4444",
+        "high": "#f97316",
+        "medium": "#eab308",
+        "low": "#22c55e"
+    }
+    color = color_map.get(severity.lower(), "#9333ea")
+    
     return {
         "label": f"{severity} → {row['Chainguard']}",
         "value": row["Reduction"],
-        "delta": f"{pct:.1f}%"
+        "delta": f"{pct:.1f}%",
+        "color": color,
+        "severity": severity.lower()
     }
 
 cards = [
     {
         "label": "Total Vulns Eliminated",
         "value": int(total_reduced),
-        "delta": f"{100 * int(total_reduced) / int(total_orig):.1f}%"
+        "delta": f"{100 * int(total_reduced) / int(total_orig):.1f}%",
+        "color": "#9333ea",
+        "severity": "total"
     }
 ] + [reduction_card(sev) for sev in ["Critical", "High", "Medium", "Low"]]
 
-# Generate KPI card HTML
+# Generate KPI card HTML with color coding
 kpi_cards_html = ""
-for card in cards:
+for i, card in enumerate(cards):
+    is_primary = i == 0
+    color = card.get("color", "#9333ea")
+    severity = card.get("severity", "")
+    
     kpi_cards_html += f"""
-    <div class="kpi-card">
+    <div class="kpi-card kpi-card-{severity}" data-severity="{severity}">
+      <div class="kpi-accent" style="background-color: {color};"></div>
       <div class="kpi-label">{card["label"]}</div>
-      <div class="kpi-value">{card["value"]}</div>
+      <div class="kpi-value" style="{'color: ' + color + ';' if is_primary else ''}">{card["value"]}</div>
       {'<div class="kpi-delta good">' + card["delta"] + '</div>' if "delta" in card else ""}
     </div>
     """
@@ -80,10 +99,10 @@ exec_summary_cards_html = f"""
 # Convert markdown to HTML
 html_body = markdown.markdown(md, extensions=["tables", "fenced_code", "attr_list", "toc"])
 
-# Inject KPI section
+# Inject KPI section BEFORE Executive Summary title, then keep title after KPI
 html_body = re.sub(
     r"(<h2[^>]*>Executive Summary<\/h2>)",
-    r"\1\n" + exec_summary_cards_html,
+    exec_summary_cards_html + r"\1",
     html_body,
     flags=re.IGNORECASE
 )
@@ -248,25 +267,58 @@ html_template = f"""
     }}
     
     .kpi-card {{
-      background: #ffffff;
+      background: linear-gradient(135deg, #ffffff 0%, #f9f7ff 100%);
       border-radius: 0.75rem;
       padding: 1.75rem 1.25rem;
-      border-left: 4px solid #9333ea;
-      border-top: 1px solid #e8d5f2;
-      border-right: 1px solid #e8d5f2;
-      border-bottom: 1px solid #e8d5f2;
+      border: 1px solid #e8d5f2;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      min-height: 155px;
+      min-height: 160px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(147, 51, 234, 0.08);
+    }}
+    
+    .kpi-card:hover {{
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(147, 51, 234, 0.15);
+      border-color: #c4a5fd;
+    }}
+    
+    .kpi-accent {{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #9333ea;
+    }}
+    
+    .kpi-card-critical .kpi-accent {{
+      background: #ef4444;
+    }}
+    
+    .kpi-card-high .kpi-accent {{
+      background: #f97316;
+    }}
+    
+    .kpi-card-medium .kpi-accent {{
+      background: #eab308;
+    }}
+    
+    .kpi-card-low .kpi-accent {{
+      background: #22c55e;
     }}
     
     .kpi-label {{
       font-size: 0.7rem;
       color: #666;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
+      margin-top: 0.4rem;
       text-align: center;
       font-weight: 700;
       letter-spacing: 0.4px;
@@ -299,32 +351,41 @@ html_template = f"""
     }}
     
     .kev-epss {{
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       text-align: center;
       display: flex;
-      gap: 0.75rem;
+      gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }}
     
     .badge {{
-      display: inline-block;
-      padding: 0.5rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
       border-radius: 0.5rem;
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.3px;
       text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }}
     
     .badge.danger {{
-      background: #fee2e2;
+      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
       color: #b91c1c;
-      border: 1.5px solid #ef4444;
+      border: 2px solid #ef4444;
+    }}
+    
+    .badge.danger:hover {{
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
     }}
     
     .badge.warning {{
-      background: #fef3c7;
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
       color: #92400e;
       border: 1.5px solid #f59e0b;
     }}
@@ -368,14 +429,25 @@ html_template = f"""
     }}
     
     ul, ol {{
-      margin-left: 1.5rem;
+      margin-left: 2rem;
       margin-bottom: 1rem;
       text-align: left;
+      background: linear-gradient(135deg, #f9f7ff 0%, #faf8ff 100%);
+      padding: 1.25rem 2rem 1.25rem 2.5rem;
+      border-radius: 0.5rem;
+      border-left: 4px solid #9333ea;
+      box-shadow: 0 2px 4px rgba(147, 51, 234, 0.06);
     }}
     
     li {{
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
       color: #3a3a3a;
+      line-height: 1.6;
+      font-weight: 500;
+    }}
+    
+    li:last-child {{
+      margin-bottom: 0;
     }}
     
     blockquote {{
