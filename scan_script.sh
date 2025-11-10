@@ -82,17 +82,23 @@ totalfixedCount=0
 
 echo ""
 
-for image in "${!image_digests[@]}"; do
-  echo "Image: $image, Digest: ${image_digests[$image]}, "
-done
-
-for IMAGE in "${images[@]}"; do
-
+# Function to scan a single image
+scan_image() {
+  local IMAGE="$1"
+  local temp_dir="$2"
+  local scanner="$3"
+  
   if [[ "$scanner" == "grype" ]]; then
-
     echo "Scanning image: $IMAGE" >&2
+    
     # Run grype and store the raw JSON output
     raw_json=$(grype "$IMAGE" -o json 2>/dev/null)
+    local exit_code=$?
+    
+    if [[ $exit_code -ne 0 ]]; then
+      echo "Error scanning $IMAGE" >&2
+      return 1
+    fi
 
     # Then apply the vulnerability summary filter using jq
     output=$(jq -c '{
@@ -114,7 +120,7 @@ for IMAGE in "${images[@]}"; do
 
     while IFS= read -r cve; do
       if grep -qx "$cve" <<< "$kev_cves"; then
-        echo "$cve from $IMAGE" >> "$kev_output_file"
+        echo "$cve from $IMAGE" >> "$temp_dir/kev.txt"
       fi
     done <<< "$scan_cves"
 
@@ -124,9 +130,68 @@ for IMAGE in "${images[@]}"; do
     # Extract EPSS score, CVE ID, and package; inject known image name (no tag)
     jq -r --arg img "$image_name_no_tag" '.matches[]
       | select(.vulnerability.epss != null and .vulnerability.epss[0].epss != null and .vulnerability.epss[0].epss >= 0.75)
-      | "\(.vulnerability.epss[0].epss) \(.vulnerability.id) \($img) \(.matchDetails[0].searchedBy.package.name)"' <<< "$raw_json" >> "$epss_output_file"
+      | "\(.vulnerability.epss[0].epss) \(.vulnerability.id) \($img) \(.matchDetails[0].searchedBy.package.name)"' <<< "$raw_json" >> "$temp_dir/epss.txt"
 
-    # The rest of the processing
+    # Store the output JSON for this image
+    echo "$output" > "$temp_dir/$(echo $IMAGE | sed 's/[/:.]/_/g').json"
+  fi
+  
+  return 0
+}
+
+export -f scan_image
+
+# Create temporary directory for parallel results
+temp_dir=$(mktemp -d)
+trap "rm -rf $temp_dir" EXIT
+
+# Initialize temp files
+> "$temp_dir/kev.txt"
+> "$temp_dir/epss.txt"
+
+# Run scans in parallel using GNU parallel or xargs
+# Default to 4 threads if not specified
+num_threads=${2:-4}
+
+# Use xargs for parallel execution
+printf '%s\n' "${images[@]}" | xargs -P "$num_threads" -I {} bash -c "scan_image '{}' '$temp_dir' '$scanner'"
+parallel_exit=$?
+
+if [[ $parallel_exit -ne 0 ]]; then
+  echo "Error: One or more scans failed" >&2
+  exit 1
+fi
+
+# Merge KEV results
+if [[ -f "$temp_dir/kev.txt" ]]; then
+  cat "$temp_dir/kev.txt" > "$kev_output_file"
+fi
+
+# Merge EPSS results
+if [[ -f "$temp_dir/epss.txt" ]]; then
+  cat "$temp_dir/epss.txt" > "$epss_output_file"
+fi
+
+echo "Image Size On Disk:"
+
+# Process scan results and build JSON
+json='{"items":[]}'
+totalCritical=0
+totalHigh=0
+totalMedium=0
+totalLow=0
+totalUnknown=0
+totalWontFix=0
+totalCount=0
+totalfixedCount=0
+
+for IMAGE in "${images[@]}"; do
+  # Find the corresponding scan result file
+  image_filename=$(echo $IMAGE | sed 's/[/:.]/_/g').json
+  
+  if [[ -f "$temp_dir/$image_filename" ]]; then
+    output=$(cat "$temp_dir/$image_filename")
+    
     critical=$(jq '.Critical' <<< "$output")
     high=$(jq '.High' <<< "$output")
     medium=$(jq '.Medium' <<< "$output")
@@ -160,17 +225,15 @@ for IMAGE in "${images[@]}"; do
         }
       }]' <<< "$json")
 
+    totalCritical=$((totalCritical + critical))
+    totalHigh=$((totalHigh + high))
+    totalMedium=$((totalMedium + medium))
+    totalLow=$((totalLow + low))
+    totalUnknown=$((totalUnknown + unknown))
+    totalWontFix=$((totalWontFix + wontfix))
+    totalCount=$((totalCount + total))
     totalfixedCount=$((totalfixedCount + fixed_total))
   fi
-
-  totalCritical=$((totalCritical + critical))
-  totalHigh=$((totalHigh + high))
-  totalMedium=$((totalMedium + medium))
-  totalLow=$((totalLow + low))
-  totalUnknown=$((totalUnknown + unknown))
-  totalWontFix=$((totalWontFix + wontfix))
-  totalCount=$((totalCount + total))
-
 done
 
 # Calculate averages

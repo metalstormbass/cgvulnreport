@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures as cf
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -37,17 +38,39 @@ from typing import List, Tuple
 
 
 # ───────────────────────── helper functions ──────────────────────────
-def manifest_inspect(image: str) -> Tuple[str, bool, str]:
+def get_docker_env() -> dict:
+    """
+    Capture Docker-related environment variables from parent process.
+    Returns a copy of the current environment with all context preserved.
+    """
+    env = os.environ.copy()
+    # Ensure critical Docker variables are included
+    docker_vars = [
+        'DOCKER_HOST',
+        'DOCKER_CONFIG',
+        'DOCKER_CONTEXT',
+        'DOCKER_CERT_PATH',
+        'DOCKER_TLS_VERIFY',
+        'HOME',
+        'PATH',
+    ]
+    # These variables are already in env if they exist, but we ensure they're available
+    return env
+
+
+def manifest_inspect(image: str, env: dict) -> Tuple[str, bool, str]:
     """
     Return (image, pullable?, stderr_message).
 
     `docker manifest inspect` is fast and requires only registry auth.
     A non-zero exit code means the image can't be pulled with current creds.
+    Uses the provided environment to preserve Docker context.
     """
     proc = subprocess.run(
         ["docker", "manifest", "inspect", image],
         capture_output=True,
         text=True,
+        env=env,
     )
     ok = proc.returncode == 0
     return image, ok, proc.stderr.strip() if not ok else ""
@@ -65,6 +88,20 @@ def load_images(file_path: Path) -> List[str]:
         ]
 
 
+def print_docker_context() -> None:
+    """
+    Print the active Docker context for debugging purposes.
+    """
+    proc = subprocess.run(
+        ["docker", "context", "show"],
+        capture_output=True,
+        text=True,
+        env=os.environ.copy(),
+    )
+    if proc.returncode == 0:
+        print(f"🐳 Using Docker context: {proc.stdout.strip()}", file=sys.stderr)
+
+
 # ──────────────────────────── main logic ─────────────────────────────
 def main() -> None:
     parser = argparse.ArgumentParser(
@@ -80,12 +117,23 @@ def main() -> None:
         default=1,
         help="Number of parallel checks (default: 1)",
     )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Print Docker context information",
+    )
     args = parser.parse_args()
 
+    # Get Docker environment context from parent process
+    docker_env = get_docker_env()
+
     # Validate Docker CLI presence
-    if subprocess.run(["docker", "--version"], capture_output=True).returncode != 0:
+    if subprocess.run(["docker", "--version"], capture_output=True, env=docker_env).returncode != 0:
         print("❌ Docker CLI not found or not in PATH.", file=sys.stderr)
         sys.exit(2)
+
+    if args.verbose:
+        print_docker_context()
 
     images = load_images(Path(args.image_list))
     if not images:
@@ -97,7 +145,7 @@ def main() -> None:
     failures: List[Tuple[str, str]] = []
 
     def check(image: str) -> None:
-        img, ok, msg = manifest_inspect(image)
+        img, ok, msg = manifest_inspect(image, docker_env)
         if ok:
             print(f" ✅ {img}")
         else:

@@ -88,7 +88,7 @@ html_body = re.sub(
     flags=re.IGNORECASE
 )
 
-# Final HTML Template
+# Final HTML Template with Chainguard-inspired Professional Styling
 html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -97,111 +97,474 @@ html_template = f"""
   <title>🛡️ Image Vulnerability Report</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * {{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }}
+    
+    html {{
+      scroll-behavior: smooth;
+    }}
+    
     body {{
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f9fafb;
-      color: #1f2937;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-      line-height: 1.7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+      background: #ffffff;
+      color: #1a202c;
+      padding: 0;
+      line-height: 1.65;
+      min-height: 100vh;
     }}
-    h1, h2, h3 {{
-      color: #111827;
-      margin-top: 2rem;
+    
+    main {{
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3.5rem 2.5rem;
+    }}
+    
+    > h1 {{
+      background: linear-gradient(135deg, #6b21a8 0%, #9333ea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.03em;
+      text-align: center;
+    }}
+    
+    > h1::before {{
+      content: "";
+    }}
+    
+    > h2 {{
+      color: #666;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 3rem;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }}
+    
+    > h3 {{
+      color: #2d2d2d;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+      padding: 0.75rem 0;
+      border-bottom: 3px solid #9333ea;
+    }}
+    
+    h3 {{
+      color: #1a202c;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-top: 1.75rem;
+      margin-bottom: 0.875rem;
+      text-align: left;
+      color: #6b21a8;
+      letter-spacing: 0.3px;
+    }}
+    
+    p {{
       margin-bottom: 1rem;
+      color: #3a3a3a;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      text-align: left;
     }}
+    
     table {{
       width: 100%;
       border-collapse: collapse;
       margin: 2rem 0;
+      background: #ffffff;
+      border: 1px solid #ddd;
     }}
-    th, td {{
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem 1rem;
-      text-align: center;
-    }}
+    
     th {{
-      background-color: #111827;
-      color: white;
+      background: linear-gradient(135deg, #6b21a8 0%, #8b5cf6 100%);
+      color: #ffffff;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      border: none;
     }}
-    tr:nth-child(even) {{
-      background-color: #f3f4f6;
+    
+    td {{
+      padding: 0.875rem 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid #e8e8e8;
+      font-weight: 500;
+      color: #2d2d2d;
     }}
+    
+    tr:last-child td {{
+      border-bottom: 2px solid #6b21a8;
+    }}
+    
     .kpi-section {{
-      margin: 2rem 0;
+      margin: 0 -2.5rem 3rem -2.5rem;
+      padding: 3rem 2.5rem;
+      background: linear-gradient(135deg, #f8f4ff 0%, #faf8ff 100%);
+      border-top: 3px solid #9333ea;
+      border-bottom: 3px solid #9333ea;
     }}
+    
     .kpi-grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
     }}
+    
+    @media (max-width: 1200px) {{
+      .kpi-grid {{
+        grid-template-columns: repeat(3, 1fr);
+      }}
+    }}
+    
+    @media (max-width: 768px) {{
+      .kpi-grid {{
+        grid-template-columns: repeat(2, 1fr);
+      }}
+    }}
+    
+    @media (max-width: 600px) {{
+      .kpi-grid {{
+        grid-template-columns: 1fr;
+      }}
+    }}
+    
     .kpi-card {{
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 1rem;
-      padding: 1.25rem 1.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.75rem 1.25rem;
+      border-left: 4px solid #9333ea;
+      border-top: 1px solid #e8d5f2;
+      border-right: 1px solid #e8d5f2;
+      border-bottom: 1px solid #e8d5f2;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-    }}
-    .kpi-label {{
-      font-size: 0.95rem;
-      color: #6b7280;
-      margin-bottom: 0.5rem;
       text-align: center;
+      min-height: 155px;
     }}
-    .kpi-value {{
-      font-size: 2.2rem;
+    
+    .kpi-label {{
+      font-size: 0.7rem;
+      color: #666;
+      margin-bottom: 0.6rem;
+      text-align: center;
       font-weight: 700;
-      color: #111827;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
     }}
+    
+    .kpi-value {{
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: #1a1a1a;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }}
+    
     .kpi-delta.good {{
-      color: #059669;
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-top: 0.3rem;
+      color: #10b981;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
     }}
+    
+    .kpi-delta.good::before {{
+      content: "↓";
+      font-weight: bold;
+      font-size: 1rem;
+    }}
+    
     .kev-epss {{
       margin-top: 1.5rem;
       text-align: center;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }}
+    
     .badge {{
       display: inline-block;
-      padding: 0.35rem 0.75rem;
-      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
       font-size: 0.75rem;
-      font-weight: 600;
-      margin: 0 0.25rem;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
     }}
+    
     .badge.danger {{
-      background-color: #fee2e2;
-      color: #991b1b;
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1.5px solid #ef4444;
     }}
+    
     .badge.warning {{
-      background-color: #fef3c7;
+      background: #fef3c7;
       color: #92400e;
+      border: 1.5px solid #f59e0b;
     }}
+    
+    code {{
+      background-color: #f3e8ff;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.3rem;
+      font-family: "Menlo", "Monaco", monospace;
+      color: #6b21a8;
+      font-size: 0.85rem;
+    }}
+    
+    pre {{
+      background: #1f2937;
+      color: #e5e7eb;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      font-family: "Menlo", "Monaco", monospace;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      border-left: 4px solid #9333ea;
+    }}
+    
+    pre code {{
+      background: none;
+      color: inherit;
+      padding: 0;
+    }}
+    
+    a {{
+      color: #6b21a8;
+      text-decoration: none;
+      font-weight: 600;
+    }}
+    
+    a:hover {{
+      text-decoration: underline;
+    }}
+    
+    ul, ol {{
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      text-align: left;
+    }}
+    
+    li {{
+      margin-bottom: 0.5rem;
+      color: #3a3a3a;
+    }}
+    
+    blockquote {{
+      border-left: 4px solid #9333ea;
+      padding-left: 1.5rem;
+      margin-left: 0;
+      margin-bottom: 1.5rem;
+      color: #3a3a3a;
+      font-style: italic;
+      background: #f8f4ff;
+      padding: 1rem 1rem 1rem 1.5rem;
+      border-radius: 0 0.3rem 0.3rem 0;
+    }}
+    
     footer {{
       text-align: center;
       font-size: 0.75rem;
-      color: #9ca3af;
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid #e5e7eb;
+      color: #888;
+      margin-top: 3rem;
+      padding: 2rem 2.5rem;
+      border-top: 2px solid #e8e8e8;
     }}
-    a {{
-      color: #2563eb;
-      text-decoration: none;
+    
+    footer p {{
+      margin-bottom: 0.25rem;
+      text-align: center;
+      color: #888;
+    }}
+    
+    @media print {{
+      body {{
+        background: white;
+      }}
+      
+      main {{
+        padding: 2.5rem;
+        max-width: 100%;
+      }}
+      
+      .kpi-section {{
+        margin: 0;
+        page-break-inside: avoid;
+      }}
+      
+      .kpi-card {{
+        break-inside: avoid;
+      }}
+      
+      table {{
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }}
+      
+      thead {{
+        display: table-header-group;
+      }}
+      
+      tfoot {{
+        display: table-footer-group;
+      }}
+      
+      tr {{
+        page-break-inside: avoid;
+      }}
+      
+      h2 {{
+        page-break-after: avoid;
+      }}
+    }}
+    
+    @media print {{
+      body {{
+        background: white;
+        padding: 0;
+      }}
+      
+      main {{
+        padding: 0;
+      }}
+      
+      .kpi-card {{
+        break-inside: avoid;
+      }}
+      
+      table {{
+        break-inside: avoid;
+      }}
+    }}
+    
+    @media (max-width: 1200px) {{
+      main {{
+        padding: 3rem 1.5rem;
+      }}
+      
+      > h1 {{
+        font-size: 2.25rem;
+      }}
+      
+      .kpi-section {{
+        padding: 2.5rem 1.5rem;
+      }}
+    }}
+    
+    @media (max-width: 768px) {{
+      main {{
+        padding: 2rem 1rem;
+      }}
+      
+      > h1 {{
+        font-size: 1.75rem;
+      }}
+      
+      h2 {{
+        font-size: 1.5rem;
+        margin-top: 2rem;
+      }}
+      
+      .kpi-section {{
+        padding: 1.5rem 1rem;
+        margin: 2rem 0;
+      }}
+      
+      .kpi-grid {{
+        gap: 1rem;
+      }}
+      
+      .kpi-card {{
+        min-height: 140px;
+        padding: 1.5rem 1rem;
+      }}
+      
+      .kpi-label {{
+        font-size: 0.7rem;
+      }}
+      
+      .kpi-value {{
+        font-size: 2rem;
+      }}
+      
+      table {{
+        font-size: 0.85rem;
+      }}
+      
+      th {{
+        padding: 1rem;
+      }}
+      
+      td {{
+        padding: 0.75rem 0.5rem;
+      }}
+      
+      p {{
+        font-size: 0.9rem;
+      }}
+    }}
+    
+    @media (max-width: 600px) {{
+      main {{
+        padding: 1.5rem 0.75rem;
+      }}
+      
+      > h1 {{
+        font-size: 1.5rem;
+      }}
+      
+      .kpi-section {{
+        padding: 1rem 0.75rem;
+      }}
+      
+      .kpi-grid {{
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }}
+      
+      .kpi-card {{
+        min-height: 130px;
+        padding: 1.25rem 0.75rem;
+      }}
+      
+      .kpi-value {{
+        font-size: 1.75rem;
+      }}
     }}
   </style>
 </head>
 <body>
+<main>
 {html_body}
-
+</main>
 </body>
 </html>
 """
