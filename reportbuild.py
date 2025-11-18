@@ -234,18 +234,22 @@ html_template = f"""
     }}
     
     .kpi-section {{
-      margin: 0 -2.5rem 3rem -2.5rem;
-      padding: 3rem 2.5rem;
-      background: linear-gradient(135deg, #f8f4ff 0%, #faf8ff 100%);
-      border-top: 3px solid #9333ea;
-      border-bottom: 3px solid #9333ea;
+      margin: 0 -2.5rem 2rem -2.5rem;
+      padding: 2rem 2.5rem;
+      background: #f9f7ff;
+      border-top: 2px solid #9333ea;
+      border-bottom: 2px solid #9333ea;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }}
     
     .kpi-grid {{
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 1.25rem;
-      margin-bottom: 2rem;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }}
     
     @media (max-width: 1200px) {{
@@ -267,26 +271,21 @@ html_template = f"""
     }}
     
     .kpi-card {{
-      background: linear-gradient(135deg, #ffffff 0%, #f9f7ff 100%);
-      border-radius: 0.75rem;
-      padding: 1.75rem 1.25rem;
-      border: 1px solid #e8d5f2;
+      background: #ffffff;
+      border-radius: 0.5rem;
+      padding: 1.5rem 1rem;
+      border: 2px solid #e8d5f2;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      min-height: 160px;
+      min-height: 140px;
       position: relative;
       overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(147, 51, 234, 0.08);
-    }}
-    
-    .kpi-card:hover {{
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(147, 51, 234, 0.15);
-      border-color: #c4a5fd;
+      box-shadow: none;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }}
     
     .kpi-accent {{
@@ -369,23 +368,17 @@ html_template = f"""
       font-weight: 700;
       letter-spacing: 0.3px;
       text-transform: uppercase;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: none;
     }}
     
     .badge.danger {{
-      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+      background: #fecaca;
       color: #b91c1c;
       border: 2px solid #ef4444;
     }}
     
-    .badge.danger:hover {{
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
-    }}
-    
     .badge.warning {{
-      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      background: #fde68a;
       color: #92400e;
       border: 1.5px solid #f59e0b;
     }}
@@ -528,8 +521,40 @@ html_template = f"""
         padding: 0;
       }}
       
+      .kpi-section {{
+        background: #f9f7ff;
+        margin: 0;
+        padding: 1.5rem 1rem;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }}
+      
+      .kpi-grid {{
+        gap: 0.75rem;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }}
+      
       .kpi-card {{
         break-inside: avoid;
+        page-break-inside: avoid;
+        background: white;
+        border: 1px solid #d4d4d8;
+        padding: 1rem 0.75rem;
+        min-height: 120px;
+        box-shadow: none;
+      }}
+      
+      .kpi-label {{
+        font-size: 0.65rem;
+      }}
+      
+      .kpi-value {{
+        font-size: 1.75rem;
+      }}
+      
+      .kpi-delta {{
+        font-size: 0.75rem;
       }}
       
       table {{
