@@ -127,6 +127,6 @@ The main workflow is fully automated via `metascript.sh`:
   - Higher thread count = faster scanning (uses more system resources)
   - Lower thread count = lighter system load
   - Start with `--threads 4` (default) and adjust based on your hardware
-- Use skip flags to regenerate reports quickly without re-scanning when rate limits are a concern
+- Use skip flags to regenerate reports quickly without re-scanning when rate limits are a concern!
 
 
