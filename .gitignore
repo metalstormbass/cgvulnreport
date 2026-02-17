@@ -1,5 +1,6 @@
 # Output files
 final_report.md
+template.md
 out.txt
 cgout.txt
 out.json
@@ -10,9 +11,18 @@ kev.json
 epss_output_file
 out-epss.txt
 cgout-epss.txt
+out-cves/
+cgout-cves/
 assets/
 *.pdf
 *.html
-scan_script copy.sh
 report.html
 report.pdf
+
+# Backup files
+*.backup
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class

@@ -1,2 +1,2 @@
-markdown
 pandas
+requests
