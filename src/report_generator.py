@@ -223,7 +223,6 @@ class ReportGenerator:
             return ""
 
         return f"""
-<h3>Image Size Report</h3>
 <p>The following table lists the disk sizes of the analyzed container images to help assess storage efficiency.</p>
 <table>
   <thead>
@@ -268,7 +267,6 @@ class ReportGenerator:
 </tr>""")
 
         return f"""
-<h2>Detailed Vulnerability Scan Results</h2>
 <p>This table provides a breakdown of vulnerabilities by image, including severity levels and fix availability.</p>
 <table>
   <thead>
@@ -624,19 +622,25 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
 
 {epss_section}
 
+<hr class="section-divider">
+
+<h2>Detailed Vulnerability Scan Results</h2>
+
+<h3>Original Images - Vulnerability Analysis</h3>
+{orig_vuln_table}
+
+<h3>Chainguard Images - Vulnerability Analysis</h3>
+{cg_vuln_table}
+
+<h3>Original Images - Size Report</h3>
+{orig_size_table}
+
+<h3>Chainguard Images - Size Report</h3>
+{cg_size_table}
+
 {cg_advisories_section}
 
 {cg_detailed_vulns_section}
-
-<hr class="section-divider">
-
-<h2>Original Image Analysis</h2>
-{orig_size_table}
-{orig_vuln_table}
-
-<h2>Chainguard Image Analysis</h2>
-{cg_size_table}
-{cg_vuln_table}
 
 {footer}
 """
@@ -788,8 +792,31 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
     }}
 
     tr.total-row {{
-      background: #f3f4f6;
+      background: linear-gradient(135deg, #faf5ff 0%, #f3f4f6 100%);
       font-weight: 700;
+      border-top: 3px solid #e9d5ff;
+    }}
+
+    tr.total-row td {{
+      padding: 1rem 0.75rem;
+      font-size: 10pt;
+    }}
+
+    /* Vulnerability Summary Table - Modern purple styling */
+    .vuln-summary-table {{
+      box-shadow: 0 4px 16px rgba(147, 51, 234, 0.12);
+      border: 2px solid #e9d5ff;
+    }}
+
+    .vuln-summary-table th {{
+      background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+      font-size: 10pt;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }}
+
+    .vuln-summary-table td:first-child {{
+      font-weight: 600;
+      color: #374151;
     }}
 
     .kpi-section {{
@@ -822,13 +849,22 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
       position: relative;
       overflow: hidden;
       transition: all 0.3s ease;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
     }}
 
     .kpi-card:hover {{
-      transform: translateY(-4px);
-      border-color: #a855f7;
-      box-shadow: 0 8px 24px rgba(168, 85, 247, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }}
+
+    .kpi-card-total {{
+      border: 2px solid #9333ea;
+      box-shadow: 0 4px 12px rgba(147, 51, 234, 0.2);
+    }}
+
+    .kpi-card-total:hover {{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
     }}
 
     .kpi-accent {{
@@ -836,48 +872,30 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #a855f7 0%, #ec4899 100%);
-    }}
-
-    .kpi-card-critical .kpi-accent {{
-      background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
-    }}
-
-    .kpi-card-high .kpi-accent {{
-      background: linear-gradient(90deg, #ea580c 0%, #f97316 100%);
-    }}
-
-    .kpi-card-medium .kpi-accent {{
-      background: linear-gradient(90deg, #ca8a04 0%, #eab308 100%);
-    }}
-
-    .kpi-card-low .kpi-accent {{
-      background: linear-gradient(90deg, #16a34a 0%, #22c55e 100%);
+      height: 5px;
     }}
 
     .kpi-label {{
       font-size: 0.7rem;
-      color: #6b7280;
+      color: #64748b;
       margin-bottom: 0.75rem;
       margin-top: 0.5rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
       text-transform: uppercase;
     }}
 
     .kpi-value {{
-      font-size: 2.25rem;
+      font-size: 2.5rem;
       font-weight: 900;
-      color: #111827;
       line-height: 1;
       margin-bottom: 0.5rem;
     }}
 
     .kpi-delta.good {{
-      color: #16a34a;
-      font-weight: 700;
-      font-size: 0.85rem;
+      color: #9333ea;
+      font-weight: 800;
+      font-size: 0.9rem;
     }}
 
     .kev-epss {{
@@ -1018,39 +1036,47 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
       font-weight: 800;
     }}
 
-    /* Chainguard images - Light mode (green tones) */
+    /* Chainguard images - Modern purple tones */
     .vuln-good.severity-critical,
     .vuln-good.severity-high,
     .vuln-good.severity-medium,
     .vuln-good.severity-low {{
-      background: #d1fae5;
-      color: #065f46;
-      border: 2px solid #6ee7b7;
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+      color: #6b21a8;
+      border: 2px solid #e9d5ff;
+      box-shadow: 0 2px 4px rgba(147, 51, 234, 0.12);
     }}
 
     .vuln-good.total {{
-      background: #d1fae5;
-      color: #064e3b;
-      border: 2px solid #34d399;
+      background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+      color: #6b21a8;
+      border: 2px solid #c084fc;
       font-size: 1.05em;
       font-weight: 800;
+      box-shadow: 0 3px 8px rgba(147, 51, 234, 0.2);
     }}
 
-    /* Reduction column */
+    /* Reduction column - Vibrant purple to highlight improvements */
     .vuln-reduction {{
-      padding: 0.35rem 0.7rem;
-      border-radius: 6px;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
       font-weight: 900;
       display: inline-block;
-      min-width: 2.25rem;
+      min-width: 2.5rem;
       text-align: center;
-      background: linear-gradient(135deg, #6ee7b7 0%, #34d399 100%);
-      color: #064e3b;
-      border: 2px solid #10b981;
+      background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+      color: #ffffff;
+      border: 2px solid #7c3aed;
+      box-shadow: 0 3px 10px rgba(147, 51, 234, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      letter-spacing: 0.3px;
     }}
 
     .vuln-reduction.total {{
-      font-size: 1.15em;
+      font-size: 1.2em;
+      padding: 0.6rem 1rem;
+      background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+      box-shadow: 0 4px 14px rgba(147, 51, 234, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+      border: 2px solid #6b21a8;
     }}
 
     /* Confidential Footer */
