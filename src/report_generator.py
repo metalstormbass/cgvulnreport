@@ -69,9 +69,9 @@ class ReportGenerator:
 
         kpi_html = f"""
     <div class="kpi-card kpi-card-total" data-severity="total">
-      <div class="kpi-accent" style="background-color: #9333ea;"></div>
+      <div class="kpi-accent" style="background-color: #201679;"></div>
       <div class="kpi-label">Total Vulns Eliminated</div>
-      <div class="kpi-value" style="color: #9333ea;">{stats['total_reduction']}</div>
+      <div class="kpi-value" style="color: #201679;">{stats['total_reduction']}</div>
       <div class="kpi-delta good">↓ {total_pct:.1f}%</div>
     </div>"""
 
@@ -393,7 +393,7 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
   <td>{package}</td>
   <td><span class="status-badge {status_class}">{status}</span></td>
   <td>{fixed_version if status == "Fixed" else "—"}</td>
-  <td><a href="https://images.chainguard.dev/security/advisories/{advisory_id}" target="_blank" style="color: #a855f7;">View Details</a></td>
+  <td><a href="https://images.chainguard.dev/security/advisories/{advisory_id}" target="_blank" style="color: #3443f4;">View Details</a></td>
 </tr>""")
 
         return f"""
@@ -433,9 +433,9 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
 }}
 
 .status-false-positive {{
-  background: rgba(168, 85, 247, 0.2);
-  color: #c084fc;
-  border: 1px solid rgba(168, 85, 247, 0.4);
+  background: rgba(52, 67, 244, 0.2);
+  color: #8b93f8;
+  border: 1px solid rgba(52, 67, 244, 0.4);
 }}
 
 .status-pending {{
@@ -514,7 +514,7 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
 
                 rows.append(f"""
 <tr>
-  <td><strong><a href="{data_source}" target="_blank" style="color: #a855f7; text-decoration: none;">{cve_id}</a></strong></td>
+  <td><strong><a href="{data_source}" target="_blank" style="color: #3443f4; text-decoration: none;">{cve_id}</a></strong></td>
   <td><span class="vuln-count vuln-good {severity_class}">{severity}</span></td>
   <td><code>{package_name}</code></td>
   <td><code>{package_version}</code></td>
@@ -549,7 +549,13 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
 """
 
     def _generate_header_html(self) -> str:
-        """Generate report header with optional logo."""
+        """Generate report header.
+
+        Uses a self-contained SVG banner (baked title text + vector shield +
+        embedded Chainguard logo) so the header renders crisply and reliably
+        when printing to PDF. CSS gradient-clipped text and emoji, used
+        previously, drop out or render inconsistently in print engines.
+        """
         logo_html = ""
         if self.logo_path and Path(self.logo_path).exists():
             import base64
@@ -558,10 +564,19 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
                 ext = Path(self.logo_path).suffix[1:]  # Remove the dot
                 logo_html = f'<img src="data:image/{ext};base64,{logo_data}" alt="Company Logo" class="company-logo">'
 
+        # Locate the prebuilt SVG banner relative to the project root.
+        banner_path = Path(__file__).resolve().parent.parent / "assets" / "report-header.svg"
+        if banner_path.exists():
+            banner_svg = banner_path.read_text(encoding="utf-8")
+            banner_html = f'<div class="report-banner">{banner_svg}</div>'
+        else:
+            # Fallback to a plain title if the banner asset is missing.
+            banner_html = '<h1>Image Vulnerability Report</h1>'
+
         return f"""
 <div class="report-header">
     {logo_html}
-    <h1>🛡️ Image Vulnerability Report</h1>
+    {banner_html}
 </div>
 """
 
@@ -681,6 +696,13 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
       margin: 2cm 1.5cm;
     }}
 
+    /* Ensure colored backgrounds, gradients and accents actually render
+       when printing to PDF (browsers strip them by default otherwise). */
+    html {{
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }}
+
     /* Light mode optimized for PDF */
     body {{
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
@@ -689,6 +711,8 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
       line-height: 1.6;
       font-size: 10pt;
       min-height: 100vh;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }}
 
     main {{
@@ -711,8 +735,22 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
       display: block;
     }}
 
+    /* Self-contained SVG banner — scales to page width, prints crisply */
+    .report-banner {{
+      width: 100%;
+      margin: 0 auto;
+      page-break-after: avoid;
+      page-break-inside: avoid;
+    }}
+
+    .report-banner svg {{
+      display: block;
+      width: 100%;
+      height: auto;
+    }}
+
     h1 {{
-      background: linear-gradient(135deg, #6b21a8 0%, #a855f7 100%);
+      background: linear-gradient(135deg, #201679 0%, #3443f4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -731,13 +769,13 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
       margin-top: 3rem;
       margin-bottom: 1.25rem;
       padding-bottom: 0.75rem;
-      border-bottom: 3px solid #a855f7;
+      border-bottom: 3px solid #3443f4;
       page-break-after: avoid;
       letter-spacing: -0.01em;
     }}
 
     h3 {{
-      color: #6b21a8;
+      color: #201679;
       font-size: 1.2rem;
       font-weight: 700;
       margin-top: 2rem;
@@ -764,7 +802,7 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
     }}
 
     th {{
-      background: linear-gradient(135deg, #6b21a8 0%, #7c3aed 100%);
+      background: linear-gradient(135deg, #201679 0%, #3443f4 100%);
       color: #ffffff;
       padding: 1rem 0.75rem;
       text-align: center;
@@ -792,9 +830,9 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
     }}
 
     tr.total-row {{
-      background: linear-gradient(135deg, #faf5ff 0%, #f3f4f6 100%);
+      background: linear-gradient(135deg, #f5f6fe 0%, #f3f4f6 100%);
       font-weight: 700;
-      border-top: 3px solid #e9d5ff;
+      border-top: 3px solid #d3d8fb;
     }}
 
     tr.total-row td {{
@@ -804,12 +842,12 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
 
     /* Vulnerability Summary Table - Modern purple styling */
     .vuln-summary-table {{
-      box-shadow: 0 4px 16px rgba(147, 51, 234, 0.12);
-      border: 2px solid #e9d5ff;
+      box-shadow: 0 4px 16px rgba(52, 67, 244, 0.12);
+      border: 2px solid #d3d8fb;
     }}
 
     .vuln-summary-table th {{
-      background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+      background: linear-gradient(135deg, #201679 0%, #3443f4 100%);
       font-size: 10pt;
       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
     }}
@@ -822,9 +860,9 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
     .kpi-section {{
       margin: 0 -2rem 3rem -2rem;
       padding: 2.5rem 2rem;
-      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-      border-top: 3px solid #a855f7;
-      border-bottom: 3px solid #a855f7;
+      background: linear-gradient(135deg, #f5f6fe 0%, #e9ecfe 100%);
+      border-top: 3px solid #3443f4;
+      border-bottom: 3px solid #3443f4;
       page-break-inside: avoid;
     }}
 
@@ -858,13 +896,13 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
     }}
 
     .kpi-card-total {{
-      border: 2px solid #9333ea;
-      box-shadow: 0 4px 12px rgba(147, 51, 234, 0.2);
+      border: 2px solid #201679;
+      box-shadow: 0 4px 12px rgba(52, 67, 244, 0.2);
     }}
 
     .kpi-card-total:hover {{
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+      box-shadow: 0 8px 20px rgba(52, 67, 244, 0.3);
     }}
 
     .kpi-accent {{
@@ -893,7 +931,7 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
     }}
 
     .kpi-delta.good {{
-      color: #9333ea;
+      color: #201679;
       font-weight: 800;
       font-size: 0.9rem;
     }}
@@ -931,22 +969,22 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
     }}
 
     code {{
-      background: #f3e8ff;
+      background: #e9ecfe;
       padding: 0.3rem 0.6rem;
       border-radius: 6px;
       font-family: "SF Mono", "Monaco", "Menlo", "Courier New", monospace;
-      color: #6b21a8;
+      color: #201679;
       font-size: 8.5pt;
-      border: 1px solid #e9d5ff;
+      border: 1px solid #d3d8fb;
     }}
 
     ul {{
       margin-left: 2rem;
       margin-bottom: 1.5rem;
-      background: #faf5ff;
+      background: #f5f6fe;
       padding: 1.5rem 2rem 1.5rem 2.5rem;
       border-radius: 8px;
-      border-left: 4px solid #a855f7;
+      border-left: 4px solid #3443f4;
     }}
 
     li {{
@@ -967,7 +1005,7 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
     .section-divider {{
       border: none;
       height: 3px;
-      background: linear-gradient(90deg, transparent 0%, #a855f7 50%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, #3443f4 50%, transparent 100%);
       margin: 3rem 0;
     }}
 
@@ -1041,19 +1079,19 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
     .vuln-good.severity-high,
     .vuln-good.severity-medium,
     .vuln-good.severity-low {{
-      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-      color: #6b21a8;
-      border: 2px solid #e9d5ff;
-      box-shadow: 0 2px 4px rgba(147, 51, 234, 0.12);
+      background: linear-gradient(135deg, #f5f6fe 0%, #e9ecfe 100%);
+      color: #201679;
+      border: 2px solid #d3d8fb;
+      box-shadow: 0 2px 4px rgba(52, 67, 244, 0.12);
     }}
 
     .vuln-good.total {{
-      background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
-      color: #6b21a8;
-      border: 2px solid #c084fc;
+      background: linear-gradient(135deg, #e9ecfe 0%, #d3d8fb 100%);
+      color: #201679;
+      border: 2px solid #8b93f8;
       font-size: 1.05em;
       font-weight: 800;
-      box-shadow: 0 3px 8px rgba(147, 51, 234, 0.2);
+      box-shadow: 0 3px 8px rgba(52, 67, 244, 0.2);
     }}
 
     /* Reduction column - Vibrant purple to highlight improvements */
@@ -1064,19 +1102,19 @@ These vulnerabilities should be <strong>prioritized for immediate review and rem
       display: inline-block;
       min-width: 2.5rem;
       text-align: center;
-      background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+      background: linear-gradient(135deg, #3443f4 0%, #201679 100%);
       color: #ffffff;
-      border: 2px solid #7c3aed;
-      box-shadow: 0 3px 10px rgba(147, 51, 234, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      border: 2px solid #3443f4;
+      box-shadow: 0 3px 10px rgba(52, 67, 244, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.25);
       letter-spacing: 0.3px;
     }}
 
     .vuln-reduction.total {{
       font-size: 1.2em;
       padding: 0.6rem 1rem;
-      background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
-      box-shadow: 0 4px 14px rgba(147, 51, 234, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3);
-      border: 2px solid #6b21a8;
+      background: linear-gradient(135deg, #201679 0%, #3443f4 100%);
+      box-shadow: 0 4px 14px rgba(52, 67, 244, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+      border: 2px solid #201679;
     }}
 
     /* Confidential Footer */

@@ -13,7 +13,8 @@ out-epss.txt
 cgout-epss.txt
 out-cves/
 cgout-cves/
-assets/
+assets/*
+!assets/report-header.svg
 *.pdf
 *.html
 report.html
